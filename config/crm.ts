@@ -12,7 +12,8 @@ export interface Contact {
 
 export interface Lead {
   name: string;
-  propertyId: string;
+  /** Slug of the project in config/projects.ts the lead asked about. */
+  projectSlug: string;
   stage: LeadStage;
   score: number;
 }
@@ -25,8 +26,8 @@ export const contacts: Contact[] = [
 ];
 
 export const leads: Lead[] = [
-  { name: "Lucía Fernández", propertyId: "villa-manantiales", stage: "Visita agendada", score: 86 },
-  { name: "Martín Rodríguez", propertyId: "villa-atlantica", stage: "Nuevo", score: 62 },
-  { name: "Sofía Paz", propertyId: "loft-playa-brava", stage: "Negociación", score: 91 },
-  { name: "Diego Silva", propertyId: "casa-del-faro", stage: "Calificado", score: 74 },
+  { name: "Lucía Fernández", projectSlug: "oikos-real-estate", stage: "Visita agendada", score: 86 },
+  { name: "Martín Rodríguez", projectSlug: "dealio-automotriz", stage: "Nuevo", score: 62 },
+  { name: "Sofía Paz", projectSlug: "hermio-gastronomia", stage: "Negociación", score: 91 },
+  { name: "Diego Silva", projectSlug: "nauta-pde-directorio", stage: "Calificado", score: 74 },
 ];

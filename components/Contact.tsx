@@ -85,7 +85,7 @@ export default function Contact() {
                 Contacto
               </span>
               <h2 className="mb-4 font-serif text-3xl leading-tight tracking-[-0.01em] lg:text-4xl">
-                Hablemos de su próxima inversión inmobiliaria.
+                Agendemos su Diagnóstico Operativo.
               </h2>
               <p className="text-sm leading-relaxed text-fg/60">
                 Nuestro equipo de asesores está disponible para responder sus consultas y coordinar visitas a las

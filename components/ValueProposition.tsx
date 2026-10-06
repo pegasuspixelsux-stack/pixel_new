@@ -1,0 +1,42 @@
+"use client";
+
+import { motion } from "motion/react";
+
+const viewport = { once: true, margin: "-80px" };
+
+const rise = {
+  hidden: { opacity: 0, y: 16 },
+  show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 160, damping: 24 } },
+} as const;
+
+const stagger = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.08 } },
+};
+
+export default function ValueProposition() {
+  return (
+    <section id="propuesta" className="relative scroll-mt-24 border-t border-fg/10 py-24 lg:py-32">
+      <motion.div
+        initial="hidden"
+        whileInView="show"
+        viewport={viewport}
+        variants={stagger}
+        className="mx-auto grid w-full max-w-[1440px] grid-cols-1 gap-10 px-6 lg:grid-cols-12 lg:gap-16 lg:px-16"
+      >
+        <motion.div variants={rise} className="flex flex-col gap-6 lg:col-span-5">
+          <span className="block text-xs font-medium tracking-widest text-emerald-500 uppercase">
+            Modernización y estandarización operativa
+          </span>
+          <h2 className="font-serif text-4xl leading-tight tracking-[-0.01em] lg:text-5xl">
+            Transformamos la operación de tu empresa en alto rendimiento.
+          </h2>
+        </motion.div>
+
+        <motion.p variants={rise} className="leading-relaxed text-fg/70 lg:col-span-6 lg:col-start-7 lg:pt-2">
+          Diseñamos e implementamos ecosistemas digitales integrados: catálogo inteligente, captura de leads, automatización de ventas y gestión centralizada. Optimizamos tu operación para que todo tu equipo trabaje en un estándar único, eficiente y fácil de aprender.
+        </motion.p>
+      </motion.div>
+    </section>
+  );
+}

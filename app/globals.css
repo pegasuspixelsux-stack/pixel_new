@@ -1,18 +1,18 @@
 @import "tailwindcss";
 
-/* Light is the default. Dark applies when <html data-theme="dark"> is set. */
+/* Dark is the default. Light applies when <html data-theme="light"> is set. */
 :root {
+  --canvas: #070a11;
+  --surface: #0f1523;
+  --fg: #f8fafc;
+  color-scheme: dark;
+}
+
+:root[data-theme="light"] {
   --canvas: #f5f4f0;
   --surface: #ffffff;
   --fg: #0d0e12;
   color-scheme: light;
-}
-
-:root[data-theme="dark"] {
-  --canvas: #0d0e12;
-  --surface: #12141a;
-  --fg: #ffffff;
-  color-scheme: dark;
 }
 
 @theme inline {
@@ -28,8 +28,23 @@ body {
   color: var(--fg);
 }
 
+/* Dark: a soft indigo glow anchored to the top-right corner, fixed so it does not move while scrolling. */
+:root:not([data-theme="light"]) body {
+  background: radial-gradient(circle at 100% 0%, rgba(30, 58, 138, 0.18) 0%, rgba(7, 10, 17, 1) 70%) fixed, #070a11;
+}
+
 html {
   scroll-behavior: smooth;
+}
+
+/* Hero photo settles from a slight zoom. Used through motion-safe: so reduced-motion visitors get a still image. */
+@keyframes hero-settle {
+  from {
+    transform: scale(1.08);
+  }
+  to {
+    transform: scale(1);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

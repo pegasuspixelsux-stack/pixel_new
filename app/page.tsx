@@ -1,10 +1,12 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import ValueProposition from "@/components/ValueProposition";
+import WhoWeAre from "@/components/WhoWeAre";
 import Grid from "@/components/Grid";
-import Zones from "@/components/Zones";
-import About from "@/components/About";
+import CtaBanner from "@/components/CtaBanner";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import Reveal from "@/components/Reveal";
 
 export default function Home() {
   return (
@@ -12,12 +14,25 @@ export default function Home() {
       <Navbar overHero />
       <main className="flex flex-1 flex-col">
         <Hero />
-        <Grid />
-        <Zones />
-        <About />
-        <Contact />
+        <Reveal>
+          <ValueProposition />
+        </Reveal>
+        <Reveal>
+          <WhoWeAre />
+        </Reveal>
+        <Reveal>
+          <Grid />
+        </Reveal>
+        <Reveal>
+          <CtaBanner />
+        </Reveal>
+        <Reveal>
+          <Contact />
+        </Reveal>
       </main>
-      <Footer />
+      <Reveal>
+        <Footer />
+      </Reveal>
     </>
   );
 }

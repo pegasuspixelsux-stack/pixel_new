@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getProperty } from "@/config/catalog";
+import { projectBySlug } from "@/config/projects";
 import { leads } from "@/config/crm";
 import { DataTable, PageHeader } from "@/components/dashboard-ui";
 
@@ -22,22 +22,22 @@ export default function DashboardLeadsPage() {
         description={`${leads.length} consultas abiertas, ordenadas por puntaje.`}
       />
 
-      <DataTable headers={["Lead", "Propiedad de interés", "Etapa", "Puntaje"]}>
+      <DataTable headers={["Lead", "Proyecto de interés", "Etapa", "Puntaje"]}>
         {sorted.map((l) => {
-          const property = getProperty(l.propertyId);
+          const project = projectBySlug(l.projectSlug);
           return (
-            <tr key={l.name + l.propertyId} className="border-t border-fg/10">
+            <tr key={l.name + l.projectSlug} className="border-t border-fg/10">
               <td className="py-4 pr-6">{l.name}</td>
               <td className="py-4 pr-6">
-                {property ? (
+                {project ? (
                   <Link
-                    href={`/properties/${property.id}`}
+                    href={`/proyectos/${project.slug}`}
                     className="text-fg/70 underline-offset-4 transition-colors duration-200 hover:text-fg hover:underline"
                   >
-                    {property.name}
+                    {project.title}
                   </Link>
                 ) : (
-                  <span className="text-fg/50">Sin propiedad asignada</span>
+                  <span className="text-fg/50">Sin proyecto asignado</span>
                 )}
               </td>
               <td className="py-4 pr-6">

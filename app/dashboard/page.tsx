@@ -1,16 +1,16 @@
 import Link from "next/link";
-import { getProperty, properties, type PropertyStatus } from "@/config/catalog";
+import { initialProjects, projectBySlug, type ProjectStatus } from "@/config/projects";
 import { leads } from "@/config/crm";
 import { siteConfig } from "@/config/site.config";
 import { DataTable, PageHeader } from "@/components/dashboard-ui";
 
-const countByStatus = (status: PropertyStatus) =>
-  properties.filter((p) => p.status === status).length;
+const countByStatus = (status: ProjectStatus) =>
+  initialProjects.filter((p) => p.status === status).length;
 
 // Mock figures; replace with real queries when the data layer exists.
 const kpis = [
-  { label: "Propiedades disponibles", value: String(countByStatus("Available")), delta: `de ${properties.length} publicadas` },
-  { label: "Propiedades vendidas", value: String(countByStatus("Sold")), delta: `${countByStatus("Reserved")} reservadas` },
+  { label: "Proyectos activos", value: String(countByStatus("Activo")), delta: `de ${initialProjects.length} publicados` },
+  { label: "En desarrollo", value: String(countByStatus("En Desarrollo")), delta: `${countByStatus("Completado")} completados` },
   { label: "Consultas abiertas", value: String(leads.length), delta: "+14 hoy" },
   { label: "Ingresos del mes", value: "USD 2.840.000", delta: "+8% vs. mes anterior" },
 ];
@@ -42,11 +42,11 @@ export default function DashboardOverviewPage() {
             Ver todas
           </Link>
         </div>
-        <DataTable headers={["Lead", "Propiedad de interés", "Etapa", "Puntaje"]}>
+        <DataTable headers={["Lead", "Proyecto de interés", "Etapa", "Puntaje"]}>
           {latestLeads.map((l) => (
-            <tr key={l.name + l.propertyId} className="border-t border-fg/10">
+            <tr key={l.name + l.projectSlug} className="border-t border-fg/10">
               <td className="py-4 pr-6">{l.name}</td>
-              <td className="py-4 pr-6 text-fg/60">{getProperty(l.propertyId)?.name}</td>
+              <td className="py-4 pr-6 text-fg/60">{projectBySlug(l.projectSlug)?.title}</td>
               <td className="py-4 pr-6">{l.stage}</td>
               <td className="py-4 font-serif text-lg">{l.score}</td>
             </tr>

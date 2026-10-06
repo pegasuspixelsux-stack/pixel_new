@@ -30,10 +30,10 @@ export interface SiteConfig {
 }
 
 export const siteConfig: SiteConfig = {
-  name: "Pegasus Talos",
-  tagline: "Inmobiliaria & Desarrollos",
+  name: "Pegasus Pixels",
+  tagline: "Socio tecnológico para la era digital",
   description:
-    "Especialistas en la comercialización, desarrollo e inversión de propiedades exclusivas en Punta del Este y la costa.",
+    "Infraestructura digital para modernizar y estandarizar tu empresa: catálogo inteligente, captura de leads, automatización de ventas y gestión centralizada.",
   address: {
     street: "Ruta 10, km 160",
     city: "Punta del Este",

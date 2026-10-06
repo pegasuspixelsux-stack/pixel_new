@@ -65,14 +65,14 @@ export default function LoginPage() {
       <div className="relative z-10 grid h-full w-full grid-cols-1 lg:grid-cols-2">
         {/* Left column: brand presence over the image */}
         <div className="hidden flex-col justify-between p-12 text-white lg:flex lg:p-16">
-          <span className="font-serif text-2xl italic tracking-wide">Pegasus Talos</span>
+          <span className="font-serif text-2xl italic tracking-wide">Pegasus Pixels</span>
 
           <div className="max-w-md">
             <p className="mb-3 font-serif text-2xl leading-snug text-white/90">
-              &ldquo;Propiedades exclusivas en la costa.&rdquo;
+              &ldquo;Infraestructura digital para modernizar y estandarizar tu empresa.&rdquo;
             </p>
             <p className="text-xs tracking-widest text-white/50 uppercase">
-              Inmobiliaria &amp; Desarrollos
+              Socio tecnológico para la era digital
             </p>
           </div>
         </div>
@@ -88,7 +88,7 @@ export default function LoginPage() {
               Volver al sitio
             </Link>
 
-            <span className="font-serif text-lg italic lg:hidden">Pegasus Talos</span>
+            <span className="font-serif text-lg italic lg:hidden">Pegasus Pixels</span>
           </div>
 
           <motion.div
@@ -99,7 +99,7 @@ export default function LoginPage() {
           >
             <div className="mb-10">
               <h1 className="mb-3 font-serif text-4xl leading-tight font-normal">
-                Pegasus Talos
+                Pegasus Pixels
               </h1>
               <p className="text-sm text-fg/60">
                 Ingresa tus credenciales para acceder al sistema.
@@ -177,7 +177,7 @@ export default function LoginPage() {
           </motion.div>
 
           <p className="text-xs text-fg/40">
-            &copy; {new Date().getFullYear()} Pegasus Talos. Todos los derechos reservados.
+            &copy; {new Date().getFullYear()} Pegasus Pixels. Todos los derechos reservados.
           </p>
         </div>
       </div>

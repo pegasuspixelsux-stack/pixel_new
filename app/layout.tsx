@@ -15,13 +15,13 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "Inmobiliaria | Propiedades Exclusivas y Desarrollos en la Costa",
+  title: "Pegasus Pixels | Socio Tecnológico para la Era Digital",
   description:
-    "Especialistas en la comercialización, desarrollo e inversión de propiedades exclusivas en Punta del Este y la costa.",
+    "Infraestructura digital para modernizar y estandarizar tu empresa: catálogo inteligente, captura de leads, automatización de ventas y gestión centralizada.",
 };
 
-// Runs before first paint so a saved dark theme never flashes light.
-const themeScript = `try{if(localStorage.getItem("pt-theme")==="dark"){document.documentElement.dataset.theme="dark"}}catch(e){}`;
+// Runs before first paint so the saved theme never flashes. Dark is the default; only an explicit "light" choice overrides it.
+const themeScript = `try{document.documentElement.dataset.theme=localStorage.getItem("pt-theme")==="light"?"light":"dark"}catch(e){document.documentElement.dataset.theme="dark"}`;
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (

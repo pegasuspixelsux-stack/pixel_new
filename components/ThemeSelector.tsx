@@ -22,12 +22,13 @@ function subscribe(onChange: () => void) {
   return () => observer.disconnect();
 }
 
+// Dark unless the attribute says light, matching the default in globals.css.
 function getTheme(): Theme {
-  return document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light";
+  return document.documentElement.getAttribute("data-theme") === "light" ? "light" : "dark";
 }
 
 function getServerTheme(): Theme {
-  return "light";
+  return "dark";
 }
 
 export default function ThemeSelector() {

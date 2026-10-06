@@ -1,10 +1,17 @@
 import type { ReactNode } from "react";
 import type { PropertyStatus } from "@/config/catalog";
+import type { ProjectStatus } from "@/config/projects";
 
 export const propertyStatusTone: Record<PropertyStatus, string> = {
   Available: "text-emerald-500 border-emerald-500/40",
   Reserved: "text-amber-600 border-amber-600/40",
   Sold: "text-fg/50 border-fg/15",
+};
+
+export const projectStatusTone: Record<ProjectStatus, string> = {
+  Activo: "text-emerald-500 border-emerald-500/40",
+  "En Desarrollo": "text-amber-600 border-amber-600/40",
+  Completado: "text-sky-500 border-sky-500/40",
 };
 
 export function PageHeader({

@@ -5,10 +5,10 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { motion } from "motion/react";
 import {
-  Building2,
   ChevronLeft,
   ChevronRight,
   LayoutDashboard,
+  LayoutGrid,
   MessageSquare,
   Settings,
   Users,
@@ -18,7 +18,7 @@ import { siteConfig } from "@/config/site.config";
 
 const NAV_ITEMS: { label: string; href: string; icon: LucideIcon }[] = [
   { label: "Panel de Control", href: "/dashboard", icon: LayoutDashboard },
-  { label: "Propiedades", href: "/dashboard/properties", icon: Building2 },
+  { label: "Proyectos / Casos", href: "/dashboard/proyectos", icon: LayoutGrid },
   { label: "Usuarios & Clientes", href: "/dashboard/users", icon: Users },
   { label: "Leads & Consultas", href: "/dashboard/leads", icon: MessageSquare },
   { label: "Configuración", href: "/dashboard/settings", icon: Settings },

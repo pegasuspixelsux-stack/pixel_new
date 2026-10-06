@@ -4,24 +4,24 @@ import { motion } from "motion/react";
 
 const pillars = [
   {
-    title: "Curaduría Exclusiva",
+    title: "Operación Estandarizada",
     description:
-      "Selección rigurosa de propiedades residenciales y comerciales con alto potencial de inversión, ubicación estratégica y valor de diseño.",
+      "Implementamos herramientas intuitivas para que cada miembro de tu equipo gestione leads, consultas y catálogos bajo un mismo protocolo, eliminando errores y acelerando la capacitación.",
   },
   {
-    title: "Seguridad Jurídica",
+    title: "Conversión de Leads",
     description:
-      "Asesoría legal y fiscal integral en cada etapa del contrato y del cierre, para que cada transacción sea clara y segura.",
+      "Integramos widgets guiados de calificación que capturan requerimientos específicos del cliente en tiempo real y los derivan directamente a tu canal de atención o CRM.",
   },
   {
-    title: "Atención Personalizada",
+    title: "Catálogos Dinámicos",
     description:
-      "Un consultor dedicado y un trato directo, con búsqueda personalizada y absoluta discreción en cada operación.",
+      "Exhibe tus productos, inmuebles o servicios con interfaces modernas de alta velocidad, optimizadas para carga rápida en móviles y actualización instantánea.",
   },
   {
-    title: "Valuación Real de Mercado",
+    title: "Presencia e Integración Social",
     description:
-      "Valoraciones respaldadas por datos y un conocimiento profundo de cada zona, para fijar precios competitivos y maximizar el rendimiento.",
+      "Conectamos tus canales digitales y redes sociales directamente a tu motor de captación, convirtiendo visitas casuales en solicitudes de atención estructuradas.",
   },
 ];
 
@@ -49,19 +49,16 @@ export default function About() {
             viewport={viewport}
           >
             <motion.span variants={rise} className="mb-3 block text-xs font-medium tracking-widest text-emerald-500 uppercase">
-              Sobre Nosotros
+              Quiénes Somos
             </motion.span>
             <motion.h2
               variants={rise}
               className="mb-6 font-serif text-3xl leading-tight tracking-[-0.01em] lg:text-4xl"
             >
-              Asesoramiento inmobiliario de precisión y propiedades de alta gama.
+              Tu Socio Tecnológico de Confianza
             </motion.h2>
-            <motion.p variants={rise} className="mb-4 leading-relaxed text-fg/70">
-              Somos una firma inmobiliaria dedicada al asesoramiento integral en la compra, venta y alquiler de propiedades destacadas. Combinamos visión de mercado con una atención personalizada para respaldar cada decisión de inversión.
-            </motion.p>
-            <motion.p variants={rise} className="text-sm leading-relaxed text-fg/60">
-              Acompañamos a nuestros clientes durante todo el proceso, con transparencia, confidencialidad y una gestión sin complicaciones de principio a fin.
+            <motion.p variants={rise} className="leading-relaxed text-fg/70">
+              En Pegasus Pixels no creamos páginas web estáticas; construimos la infraestructura digital que impulsa la operación diaria de tu negocio. Acompañamos a empresas avanzadas en su proceso de modernización, combinando diseño de nivel superior con herramientas prácticas que profesionalizan la venta, ordenan las solicitudes y elevan la productividad de tu equipo.
             </motion.p>
           </motion.div>
 
