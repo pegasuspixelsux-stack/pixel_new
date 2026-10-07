@@ -153,14 +153,6 @@ function FeaturedCard({ project }: { project: FeaturedProject }) {
           <p className="text-sm leading-relaxed text-white/70">
             {project.description}
           </p>
-          <div className="mt-1 flex w-full items-center justify-between border-t border-white/15 pt-4 text-sm">
-            <span className="font-mono text-xs tracking-wider text-white/50 uppercase">
-              {project.category}
-            </span>
-            <span className="font-medium text-white/70 transition-colors duration-300 group-lit:text-white">
-              Ver proyecto →
-            </span>
-          </div>
         </div>
       </Link>
     </motion.div>
@@ -178,12 +170,18 @@ export default function Grid() {
           transition={{ type: "spring", stiffness: 160, damping: 24 }}
           className="mb-16 flex flex-col gap-6 md:flex-row md:items-end md:justify-between"
         >
-          <h2 className="font-serif text-4xl leading-tight tracking-[-0.01em] md:text-5xl">
-            Proyectos destacados
-          </h2>
-          <p className="max-w-sm text-sm leading-relaxed text-fg/60">
-            Casos reales de infraestructura digital implementada para empresas
-            de distintos rubros.
+          <div className="flex max-w-2xl flex-col gap-6">
+            <span className="block text-xs font-medium tracking-widest text-yellow-500 uppercase">
+              Plantillas core &amp; personalización
+            </span>
+            <h2 className="font-serif text-4xl leading-tight tracking-[-0.01em] md:text-5xl">
+              Ecosistemas digitales preconstruidos para tu sector
+            </h2>
+          </div>
+          <p className="max-w-md text-sm leading-relaxed text-fg/60">
+            Creamos aplicaciones a la medida de industrias que conocemos a fondo. Tomamos una arquitectura sólida y
+            probada, la adaptamos visualmente a tu marca y la configuramos para que salgas al mercado en días, no en
+            meses.
           </p>
         </motion.div>
 
