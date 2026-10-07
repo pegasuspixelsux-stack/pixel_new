@@ -74,7 +74,7 @@ export default function Services() {
   const activeIndex = hovered ?? cycle;
 
   return (
-    <section id="servicios" className="relative scroll-mt-24 border-t border-fg/10 py-24 lg:py-32">
+    <section id="servicios" className="relative scroll-mt-24 border-t border-fg/10 py-16 md:py-24 lg:py-32">
       <div className="mx-auto w-full max-w-[1440px] px-6 lg:px-16">
         <motion.div
           initial="hidden"

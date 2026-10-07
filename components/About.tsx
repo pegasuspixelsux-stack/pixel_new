@@ -39,7 +39,7 @@ const stagger = {
 
 export default function About() {
   return (
-    <section id="nosotros" className="relative border-t border-fg/10 py-24 lg:py-32">
+    <section id="nosotros" className="relative border-t border-fg/10 py-16 md:py-24 lg:py-32">
       <div className="mx-auto w-full max-w-[1440px] px-6 lg:px-16">
         <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-2 lg:gap-16">
           <motion.div

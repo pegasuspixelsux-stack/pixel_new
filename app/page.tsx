@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <>
       <Navbar overHero />
-      <main className="flex flex-1 flex-col">
+      <main className="relative flex w-full flex-1 flex-col">
         <Hero />
         <Reveal>
           <ValueProposition />

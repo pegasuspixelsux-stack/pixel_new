@@ -34,7 +34,7 @@ const columnLink = "text-sm text-fg/60 transition-colors duration-200 hover:text
 
 export default function Footer() {
   return (
-    <footer className="w-full border-t border-fg/10">
+    <footer className="relative z-10 w-full border-t border-fg/10">
       <div className="mx-auto flex w-full max-w-[1440px] flex-col px-6 pt-12 pb-8 lg:px-16">
         {/* Navigation columns */}
         <div className="grid grid-cols-2 gap-10 border-b border-fg/10 py-12 md:grid-cols-4">

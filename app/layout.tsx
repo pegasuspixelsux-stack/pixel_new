@@ -33,7 +33,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
-      <body className="min-h-full flex flex-col bg-canvas text-fg font-sans">
+      <body className="min-h-screen flex flex-col overflow-x-hidden bg-canvas text-fg font-sans">
         {children}
       </body>
     </html>

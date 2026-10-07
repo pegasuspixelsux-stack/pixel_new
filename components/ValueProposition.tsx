@@ -16,7 +16,7 @@ const stagger = {
 
 export default function ValueProposition() {
   return (
-    <section id="propuesta" className="relative scroll-mt-24 border-t border-fg/10 py-24 lg:py-32">
+    <section id="propuesta" className="relative scroll-mt-24 border-t border-fg/10 py-16 md:py-24 lg:py-32">
       <motion.div
         initial="hidden"
         whileInView="show"

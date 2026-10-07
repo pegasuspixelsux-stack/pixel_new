@@ -47,7 +47,7 @@ export default function WhoWeAre() {
   const stack = [(activeIndex - 1 + n) % n, activeIndex, (activeIndex + 1) % n];
 
   return (
-    <section id="quienes-somos" className="relative scroll-mt-24 border-t border-slate-800/80 py-24 lg:py-32">
+    <section id="quienes-somos" className="relative scroll-mt-24 border-t border-slate-800/80 py-16 md:py-24 lg:py-32">
       <div className="mx-auto grid w-full max-w-[1440px] grid-cols-1 items-center gap-12 px-6 lg:grid-cols-12 lg:gap-16 lg:px-16">
         {/* Left: brand text and link to /nosotros */}
         <div className="flex flex-col gap-6 lg:col-span-6">

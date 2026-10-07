@@ -16,7 +16,7 @@ export default function NosotrosPage() {
   return (
     <>
       <Navbar />
-      <main className="flex flex-1 flex-col">
+      <main className="relative flex w-full flex-1 flex-col">
         {/* 1. Hero: Quiénes Somos & Filosofía */}
         <section className="mx-auto flex w-full max-w-[1440px] flex-col gap-6 px-6 pt-24 pb-16 lg:px-16 lg:pt-32">
           <Reveal>

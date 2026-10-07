@@ -20,7 +20,7 @@ export default function CtaBanner({
   primaryHref = "/#contacto",
 }: CtaBannerProps) {
   return (
-    <section className="border-t border-fg/10 px-6 py-24 lg:py-32">
+    <section className="border-t border-fg/10 px-6 py-16 md:py-24 lg:py-32">
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}

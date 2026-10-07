@@ -33,7 +33,7 @@ export default function MethodFlow() {
   }, []);
 
   return (
-    <section id="metodologia" className="relative scroll-mt-24 border-t border-fg/10 py-24 lg:py-32">
+    <section id="metodologia" className="relative scroll-mt-24 border-t border-fg/10 py-16 md:py-24 lg:py-32">
       <div className="mx-auto grid w-full max-w-[1440px] grid-cols-1 items-center gap-16 px-6 lg:grid-cols-2 lg:px-16">
         <motion.div
           initial="hidden"
