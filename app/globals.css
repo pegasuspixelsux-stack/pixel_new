@@ -17,6 +17,10 @@
   color-scheme: light;
 }
 
+/* "lit" = hovered, or marked data-lit by useCenterLit on touch screens. */
+@custom-variant lit (&:is(:hover, [data-lit="true"]));
+@custom-variant group-lit (:is(.group:hover, .group[data-lit="true"]) &);
+
 @theme inline {
   --color-canvas: var(--canvas);
   --color-surface: var(--surface);

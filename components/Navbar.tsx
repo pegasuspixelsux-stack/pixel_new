@@ -13,7 +13,7 @@ export default function Navbar({ overHero = false }: { overHero?: boolean }) {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   const linkTone = overHero ? "text-white hover:text-white/80" : "text-fg/70 hover:text-fg";
-  const panelTone = overHero ? "border-white/15 bg-black/85 text-white" : "border-fg/10 bg-canvas/95 text-fg";
+  const panelTone = overHero ? "border-white/15 bg-black text-white" : "border-fg/10 bg-canvas text-fg";
 
   function closeAll() {
     setOpen(false);
@@ -100,9 +100,7 @@ export default function Navbar({ overHero = false }: { overHero?: boolean }) {
             aria-expanded={open}
             aria-controls="mobile-menu"
             aria-label={open ? "Cerrar menú" : "Abrir menú"}
-            className={`flex h-10 w-10 items-center justify-center rounded-full border md:hidden ${
-              overHero ? "border-white/40" : "border-fg/30"
-            }`}
+            className="flex h-10 w-10 items-center justify-center md:hidden"
           >
             {open ? <X size={18} aria-hidden /> : <Menu size={18} aria-hidden />}
           </button>

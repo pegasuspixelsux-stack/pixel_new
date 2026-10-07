@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "motion/react";
+import { useCenterLit } from "@/components/useCenterLit";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 
 const cardVariants = {
@@ -40,7 +41,7 @@ const topRow: FeaturedProject[] = [
     category: "Automotriz",
     href: "/proyectos/dealio-automotriz",
     image: "/projects/dealio.png",
-    glow: "hover:border-yellow-500/60 hover:shadow-[0_0_35px_rgba(250,204,21,0.18)]",
+    glow: "lit:border-yellow-500/60 lit:shadow-[0_0_35px_rgba(250,204,21,0.18)]",
     accent: "text-yellow-500",
   },
   {
@@ -53,7 +54,7 @@ const topRow: FeaturedProject[] = [
     category: "Inmobiliaria",
     href: "/proyectos/oikos-real-estate",
     image: "/projects/oikos.png",
-    glow: "hover:border-yellow-500/60 hover:shadow-[0_0_35px_rgba(250,204,21,0.18)]",
+    glow: "lit:border-yellow-500/60 lit:shadow-[0_0_35px_rgba(250,204,21,0.18)]",
     accent: "text-yellow-500",
   },
 ];
@@ -69,7 +70,7 @@ const bottomRow: FeaturedProject[] = [
     category: "Gastronomía",
     href: "/proyectos/hermio-gastronomia",
     image: "/projects/hermio.png",
-    glow: "hover:border-yellow-500/60 hover:shadow-[0_0_35px_rgba(250,204,21,0.18)]",
+    glow: "lit:border-yellow-500/60 lit:shadow-[0_0_35px_rgba(250,204,21,0.18)]",
     accent: "text-yellow-500",
   },
   {
@@ -81,7 +82,7 @@ const bottomRow: FeaturedProject[] = [
       "Directorio comercial e infraestructura de servicios para operaciones, embarcaciones y prestadores de servicios.",
     category: "Servicios",
     href: "/proyectos/nauta-pde-directorio",
-    glow: "hover:border-yellow-500/60 hover:shadow-[0_0_35px_rgba(250,204,21,0.18)]",
+    glow: "lit:border-yellow-500/60 lit:shadow-[0_0_35px_rgba(250,204,21,0.18)]",
     accent: "text-yellow-500",
   },
   {
@@ -93,24 +94,27 @@ const bottomRow: FeaturedProject[] = [
       "El motor central sobre el que corren nuestras plataformas verticales: inventario, calificación de prospectos y seguimiento comercial.",
     category: "Operaciones",
     href: "/proyectos",
-    glow: "hover:border-yellow-500/60 hover:shadow-[0_0_35px_rgba(250,204,21,0.18)]",
+    glow: "lit:border-yellow-500/60 lit:shadow-[0_0_35px_rgba(250,204,21,0.18)]",
     accent: "text-yellow-500",
   },
 ];
 
 function FeaturedCard({ project }: { project: FeaturedProject }) {
+  const [ref, lit] = useCenterLit<HTMLAnchorElement>();
   return (
     <motion.div variants={cardVariants}>
       <Link
+        ref={ref}
+        data-lit={lit}
         href={project.href}
-        className={`group relative flex aspect-square flex-col justify-between overflow-hidden rounded-2xl border border-fg/10 bg-[#0a0a0a] p-8 transition-all duration-300 ease-out motion-safe:hover:-translate-y-1 ${project.glow}`}
+        className={`group relative flex aspect-square flex-col justify-between overflow-hidden rounded-2xl border border-fg/10 bg-[#0a0a0a] p-8 transition-all duration-300 ease-out motion-safe:lit:-translate-y-1 ${project.glow}`}
       >
         {project.image ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img
             src={project.image}
             alt=""
-            className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+            className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 ease-out group-lit:scale-105"
           />
         ) : (
           <div
@@ -132,7 +136,7 @@ function FeaturedCard({ project }: { project: FeaturedProject }) {
           <ArrowUpRight
             size={20}
             aria-hidden
-            className="shrink-0 text-white/60 transition-[color,transform] duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-white"
+            className="shrink-0 text-white/60 transition-[color,transform] duration-300 group-lit:translate-x-0.5 group-lit:-translate-y-0.5 group-lit:text-white"
           />
         </div>
 
@@ -153,7 +157,7 @@ function FeaturedCard({ project }: { project: FeaturedProject }) {
             <span className="font-mono text-xs tracking-wider text-white/50 uppercase">
               {project.category}
             </span>
-            <span className="font-medium text-white/70 transition-colors duration-300 group-hover:text-white">
+            <span className="font-medium text-white/70 transition-colors duration-300 group-lit:text-white">
               Ver proyecto →
             </span>
           </div>
