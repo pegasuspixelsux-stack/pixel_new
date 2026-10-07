@@ -55,7 +55,7 @@ export default function About() {
               variants={rise}
               className="mb-6 font-serif text-3xl leading-tight tracking-[-0.01em] lg:text-4xl"
             >
-              Tu Socio Tecnológico de Confianza
+              Tu Socio Tecnológico de Confianza.
             </motion.h2>
             <motion.p variants={rise} className="leading-relaxed text-fg/70">
               En Pegasus Pixels no creamos páginas web estáticas; construimos la infraestructura digital que impulsa la operación diaria de tu negocio. Acompañamos a empresas avanzadas en su proceso de modernización, combinando diseño de nivel superior con herramientas prácticas que profesionalizan la venta, ordenan las solicitudes y elevan la productividad de tu equipo.

@@ -175,7 +175,7 @@ export default function Grid() {
               Plantillas core &amp; personalización
             </span>
             <h2 className="font-serif text-4xl leading-tight tracking-[-0.01em] md:text-5xl">
-              Ecosistemas digitales preconstruidos para tu sector
+              Ecosistemas digitales preconstruidos para tu sector.
             </h2>
           </div>
           <p className="max-w-md text-sm leading-relaxed text-fg/60">
