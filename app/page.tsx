@@ -18,10 +18,10 @@ export default function Home() {
           <ValueProposition />
         </Reveal>
         <Reveal>
-          <WhoWeAre />
+          <Grid />
         </Reveal>
         <Reveal>
-          <Grid />
+          <WhoWeAre />
         </Reveal>
         <Reveal>
           <CtaBanner />
