@@ -100,8 +100,8 @@ export default function ConversionEcosystem() {
                 </div>
 
                 <div className="flex flex-col gap-2">
-                  <h3 className="text-xl font-semibold tracking-tight">{item.title}</h3>
-                  <p className={`text-xs font-medium tracking-wide ${item.accent}`}>{item.subheading}</p>
+                  <h3 className="font-serif text-2xl leading-snug">{item.title}</h3>
+                  <p className={`font-mono text-xs tracking-wider uppercase ${item.accent}`}>{item.subheading}</p>
                 </div>
 
                 <p className="text-sm leading-relaxed text-fg/70 transition-colors duration-300 group-hover:text-fg/90">

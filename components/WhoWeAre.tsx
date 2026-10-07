@@ -47,7 +47,7 @@ export default function WhoWeAre() {
   const stack = [(activeIndex - 1 + n) % n, activeIndex, (activeIndex + 1) % n];
 
   return (
-    <section id="quienes-somos" className="bg-section relative scroll-mt-24 border-t border-slate-800/80 py-16 md:py-24 lg:py-32">
+    <section id="quienes-somos" className="bg-section relative scroll-mt-24 border-t border-neutral-800/80 py-16 md:py-24 lg:py-32">
       <div className="mx-auto grid w-full max-w-[1440px] grid-cols-1 items-center gap-12 px-6 lg:grid-cols-12 lg:gap-16 lg:px-16">
         {/* Left: brand text and link to /nosotros */}
         <div className="flex flex-col gap-6 lg:col-span-6">
@@ -86,9 +86,9 @@ export default function WhoWeAre() {
                   onClick={() => setActiveIndex(index)}
                   aria-label={`Ver ${pillar.title}`}
                   transition={{ layout: { duration: 0.5, ease: [0.16, 1, 0.3, 1] } }}
-                  className="flex w-full cursor-pointer items-center justify-between rounded-lg border border-slate-800/80 bg-slate-900/40 px-4 py-2.5 text-left opacity-40 backdrop-blur-md transition-opacity duration-300 hover:opacity-70"
+                  className="flex w-full cursor-pointer items-center justify-between rounded-lg border border-neutral-800/80 bg-black/60 px-4 py-2.5 text-left opacity-40 backdrop-blur-md transition-opacity duration-300 hover:opacity-70"
                 >
-                  <span className="font-mono text-xs font-semibold text-slate-400">{pillar.tag}</span>
+                  <span className="font-mono text-xs font-semibold text-neutral-400">{pillar.tag}</span>
                 </motion.button>
               );
             }
@@ -98,11 +98,11 @@ export default function WhoWeAre() {
                 key={pillar.id}
                 layout
                 transition={{ layout: { duration: 0.5, ease: [0.16, 1, 0.3, 1] } }}
-                className="flex h-auto flex-col gap-3 rounded-xl border border-yellow-500/60 bg-slate-900/95 p-6 shadow-[0_0_30px_-5px_rgba(250,204,21,0.3)] backdrop-blur-md md:p-8"
+                className="flex h-auto flex-col gap-3 rounded-xl border border-yellow-500/60 bg-black/95 p-6 shadow-[0_0_30px_-5px_rgba(250,204,21,0.3)] backdrop-blur-md md:p-8"
               >
                 <span className="font-mono text-xs font-semibold text-yellow-400">{pillar.tag}</span>
                 <h3 className="text-lg font-bold text-white md:text-xl">{pillar.title}</h3>
-                <p className="text-sm leading-relaxed text-slate-200 md:text-base">{pillar.text}</p>
+                <p className="text-sm leading-relaxed text-neutral-200 md:text-base">{pillar.text}</p>
               </motion.div>
             );
           })}
