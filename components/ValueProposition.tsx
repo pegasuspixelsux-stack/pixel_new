@@ -25,16 +25,16 @@ export default function ValueProposition() {
         className="mx-auto grid w-full max-w-[1440px] grid-cols-1 gap-10 px-6 lg:grid-cols-12 lg:gap-16 lg:px-16"
       >
         <motion.div variants={rise} className="flex flex-col gap-6 lg:col-span-5">
-          <span className="block text-xs font-medium tracking-widest text-emerald-500 uppercase">
-            Modernización y estandarización operativa
+          <span className="block text-xs font-medium tracking-widest text-yellow-500 uppercase">
+            Optimización comercial digital
           </span>
           <h2 className="font-serif text-4xl leading-tight tracking-[-0.01em] lg:text-5xl">
-            Transformamos la operación de tu empresa en alto rendimiento.
+            El estándar digital que tu equipo necesita para captar y cerrar más clientes
           </h2>
         </motion.div>
 
-        <motion.p variants={rise} className="leading-relaxed text-fg/70 lg:col-span-6 lg:col-start-7 lg:pt-2">
-          Diseñamos e implementamos ecosistemas digitales integrados: catálogo inteligente, captura de leads, automatización de ventas y gestión centralizada. Optimizamos tu operación para que todo tu equipo trabaje en un estándar único, eficiente y fácil de aprender.
+        <motion.p variants={rise} className="leading-relaxed text-fg/70 lg:col-span-6 lg:col-start-7 lg:self-center">
+          Potenciamos la cara visible de tu negocio mediante catálogos inteligentes, fichas de inventario ágiles y flujos de calificación automatizados. Guiamos a tu visitante desde la primera impresión hasta el contacto directo, garantizando que tu equipo reciba prospectos calificados, listos para comprar, con el seguimiento organizado y toda la información clave para cerrar el trato al instante.
         </motion.p>
       </motion.div>
     </section>

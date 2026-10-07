@@ -29,8 +29,8 @@ export default async function ProjectDetailPage({
   const related = relatedProjects(project);
 
   return (
-    <div className="flex min-h-screen w-full flex-col bg-[#070a11] text-fg">
-      <nav className="fixed top-0 right-0 left-0 z-50 flex items-center justify-between border-b border-slate-800/80 bg-[#070a11]/80 px-6 py-4 backdrop-blur-md">
+    <div className="flex min-h-screen w-full flex-col bg-[#000000] text-fg">
+      <nav className="fixed top-0 right-0 left-0 z-50 flex items-center justify-between border-b border-slate-800/80 bg-[#000000]/80 px-6 py-4 backdrop-blur-md">
         <Link href="/" className="font-serif text-xl italic">
           {siteConfig.name}
         </Link>
@@ -47,14 +47,14 @@ export default async function ProjectDetailPage({
       <header className="relative isolate flex min-h-[70svh] w-full items-end overflow-hidden pt-20 text-white">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={project.heroImage} alt="" className="absolute inset-0 -z-20 h-full w-full object-cover" />
-        <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-t from-[#070a11] via-[#070a11]/70 to-[#070a11]/20" />
+        <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-t from-[#000000] via-[#000000]/70 to-[#000000]/20" />
 
         <div className="mx-auto w-full max-w-[1440px] px-6 pb-12 md:px-12 lg:px-16 lg:pb-16">
           <div className="mb-4 flex flex-wrap items-center gap-3">
             <span className="rounded-md border border-slate-700/60 bg-slate-900/80 px-3 py-1 font-mono text-xs tracking-widest text-slate-300 uppercase">
               {project.category}
             </span>
-            <span className="rounded-md border border-blue-400/40 bg-blue-500/10 px-3 py-1 font-mono text-xs tracking-wider text-blue-300">
+            <span className="rounded-md border border-yellow-400/40 bg-yellow-500/10 px-3 py-1 font-mono text-xs tracking-wider text-yellow-300">
               Engine: {project.engine}
             </span>
             <span className={`rounded-full px-3 py-1 text-xs font-medium ${statusTone[project.status]}`}>
@@ -71,7 +71,7 @@ export default async function ProjectDetailPage({
         {/* Block 1: the problem */}
         <section className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] lg:gap-16">
           <div className="flex flex-col gap-3">
-            <span className="font-mono text-xs tracking-widest text-blue-400 uppercase">01 · Desafío</span>
+            <span className="font-mono text-xs tracking-widest text-yellow-400 uppercase">01 · Desafío</span>
             <h2 className="font-serif text-3xl">El problema</h2>
           </div>
           <p className="max-w-prose text-base leading-relaxed text-fg/70">{project.problem}</p>
@@ -80,7 +80,7 @@ export default async function ProjectDetailPage({
         {/* Block 2: the solution */}
         <section className="grid grid-cols-1 gap-6 border-t border-slate-800/80 pt-16 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] lg:gap-16">
           <div className="flex flex-col gap-3">
-            <span className="font-mono text-xs tracking-widest text-blue-400 uppercase">02 · Arquitectura</span>
+            <span className="font-mono text-xs tracking-widest text-yellow-400 uppercase">02 · Arquitectura</span>
             <h2 className="font-serif text-3xl">La solución</h2>
           </div>
           <div className="flex flex-col gap-10">
@@ -91,7 +91,7 @@ export default async function ProjectDetailPage({
               <ul className="grid grid-cols-1 gap-x-8 gap-y-4 sm:grid-cols-2">
                 {project.deliverables.map((item) => (
                   <li key={item} className="flex items-center gap-3 border-b border-slate-800/80 pb-4 text-sm text-fg/80">
-                    <Check size={14} aria-hidden className="shrink-0 text-blue-400" />
+                    <Check size={14} aria-hidden className="shrink-0 text-yellow-400" />
                     {item}
                   </li>
                 ))}
@@ -103,7 +103,7 @@ export default async function ProjectDetailPage({
         {/* Block 3: how it works */}
         <section className="grid grid-cols-1 gap-6 border-t border-slate-800/80 pt-16 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] lg:gap-16">
           <div className="flex flex-col gap-3">
-            <span className="font-mono text-xs tracking-widest text-blue-400 uppercase">03 · Operación</span>
+            <span className="font-mono text-xs tracking-widest text-yellow-400 uppercase">03 · Operación</span>
             <h2 className="font-serif text-3xl">Cómo funciona</h2>
           </div>
           <ol className="flex flex-col gap-4">
@@ -112,7 +112,7 @@ export default async function ProjectDetailPage({
                 key={step}
                 className="flex gap-5 rounded-2xl border border-slate-800/80 bg-slate-900/60 p-5 backdrop-blur-md"
               >
-                <span className="font-mono text-sm text-blue-300">{String(index + 1).padStart(2, "0")}</span>
+                <span className="font-mono text-sm text-yellow-300">{String(index + 1).padStart(2, "0")}</span>
                 <span className="text-sm leading-relaxed text-slate-300">{step}</span>
               </li>
             ))}
@@ -123,7 +123,7 @@ export default async function ProjectDetailPage({
         {project.impact && project.impact.length > 0 && (
           <section className="grid grid-cols-1 gap-6 border-t border-slate-800/80 pt-16 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] lg:gap-16">
             <div className="flex flex-col gap-3">
-              <span className="font-mono text-xs tracking-widest text-blue-400 uppercase">Impacto</span>
+              <span className="font-mono text-xs tracking-widest text-yellow-400 uppercase">Impacto</span>
               <h2 className="font-serif text-3xl">Resultados</h2>
             </div>
             <dl className="grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -159,7 +159,7 @@ export default async function ProjectDetailPage({
         {related.length > 0 && (
           <section className="flex flex-col gap-6 border-t border-slate-800/80 pt-16">
             <div className="flex flex-col gap-3">
-              <span className="font-mono text-xs tracking-widest text-blue-400 uppercase">Misma vertical · {project.category}</span>
+              <span className="font-mono text-xs tracking-widest text-yellow-400 uppercase">Misma vertical · {project.category}</span>
               <h2 className="font-serif text-3xl">Proyectos relacionados</h2>
               <p className="max-w-2xl text-sm leading-relaxed text-fg/60">
                 Mismo motor operativo ({project.engine.replace(" " + project.category, "")}), personalizado para la identidad visual de cada empresa.

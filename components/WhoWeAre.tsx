@@ -47,11 +47,11 @@ export default function WhoWeAre() {
   const stack = [(activeIndex - 1 + n) % n, activeIndex, (activeIndex + 1) % n];
 
   return (
-    <section id="quienes-somos" className="relative scroll-mt-24 border-t border-slate-800/80 py-16 md:py-24 lg:py-32">
+    <section id="quienes-somos" className="bg-section relative scroll-mt-24 border-t border-slate-800/80 py-16 md:py-24 lg:py-32">
       <div className="mx-auto grid w-full max-w-[1440px] grid-cols-1 items-center gap-12 px-6 lg:grid-cols-12 lg:gap-16 lg:px-16">
         {/* Left: brand text and link to /nosotros */}
         <div className="flex flex-col gap-6 lg:col-span-6">
-          <span className="block font-mono text-xs tracking-widest text-blue-400 uppercase">Quiénes Somos</span>
+          <span className="block font-mono text-xs tracking-widest text-yellow-400 uppercase">Quiénes Somos</span>
           <h2 className="font-serif text-4xl leading-tight tracking-[-0.01em] md:text-5xl">
             Pegasus Pixels: Tu socio en infraestructura y arquitectura digital.
           </h2>
@@ -63,7 +63,7 @@ export default function WhoWeAre() {
           <div>
             <Link
               href="/nosotros"
-              className="group inline-flex items-center gap-2 text-sm font-medium transition-colors duration-200 hover:text-blue-400"
+              className="group inline-flex items-center gap-2 text-sm font-medium transition-colors duration-200 hover:text-yellow-400"
             >
               Conoce más sobre nuestra visión y metodología
               <ArrowRight size={14} aria-hidden className="transition-transform duration-200 group-hover:translate-x-1" />
@@ -98,9 +98,9 @@ export default function WhoWeAre() {
                 key={pillar.id}
                 layout
                 transition={{ layout: { duration: 0.5, ease: [0.16, 1, 0.3, 1] } }}
-                className="flex h-auto flex-col gap-3 rounded-xl border border-blue-500/60 bg-slate-900/95 p-6 shadow-[0_0_30px_-5px_rgba(37,99,235,0.3)] backdrop-blur-md md:p-8"
+                className="flex h-auto flex-col gap-3 rounded-xl border border-yellow-500/60 bg-slate-900/95 p-6 shadow-[0_0_30px_-5px_rgba(250,204,21,0.3)] backdrop-blur-md md:p-8"
               >
-                <span className="font-mono text-xs font-semibold text-blue-400">{pillar.tag}</span>
+                <span className="font-mono text-xs font-semibold text-yellow-400">{pillar.tag}</span>
                 <h3 className="text-lg font-bold text-white md:text-xl">{pillar.title}</h3>
                 <p className="text-sm leading-relaxed text-slate-200 md:text-base">{pillar.text}</p>
               </motion.div>

@@ -2,8 +2,9 @@
 
 /* Dark is the default. Light applies when <html data-theme="light"> is set. */
 :root {
-  --canvas: #070a11;
-  --surface: #0f1523;
+  --canvas: #000000;
+  --surface: #0a0a0a;
+  --section: #111111;
   --fg: #f8fafc;
   color-scheme: dark;
 }
@@ -11,6 +12,7 @@
 :root[data-theme="light"] {
   --canvas: #f5f4f0;
   --surface: #ffffff;
+  --section: #ffffff;
   --fg: #0d0e12;
   color-scheme: light;
 }
@@ -18,6 +20,7 @@
 @theme inline {
   --color-canvas: var(--canvas);
   --color-surface: var(--surface);
+  --color-section: var(--section);
   --color-fg: var(--fg);
   --font-sans: var(--font-geist-sans);
   --font-serif: var(--font-instrument-serif);
@@ -28,9 +31,9 @@ body {
   color: var(--fg);
 }
 
-/* Dark: a soft indigo glow anchored to the top-right corner, fixed so it does not move while scrolling. */
+/* Dark: a soft yellow glow anchored to the top-right corner, fixed so it does not move while scrolling. */
 :root:not([data-theme="light"]) body {
-  background: radial-gradient(circle at 100% 0%, rgba(30, 58, 138, 0.18) 0%, rgba(7, 10, 17, 1) 70%) fixed, #070a11;
+  background: radial-gradient(circle at 100% 0%, rgba(250, 204, 21, 0.1) 0%, rgba(0, 0, 0, 1) 65%) fixed, #000000;
 }
 
 html {

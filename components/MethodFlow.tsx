@@ -33,7 +33,7 @@ export default function MethodFlow() {
   }, []);
 
   return (
-    <section id="metodologia" className="relative scroll-mt-24 border-t border-fg/10 py-16 md:py-24 lg:py-32">
+    <section id="metodologia" className="bg-section relative scroll-mt-24 border-t border-fg/10 py-16 md:py-24 lg:py-32">
       <div className="mx-auto grid w-full max-w-[1440px] grid-cols-1 items-center gap-16 px-6 lg:grid-cols-2 lg:px-16">
         <motion.div
           initial="hidden"
@@ -42,7 +42,7 @@ export default function MethodFlow() {
           variants={{ hidden: {}, show: { transition: { staggerChildren: 0.08 } } }}
           className="flex flex-col gap-6"
         >
-          <motion.span variants={rise} className="block text-xs font-medium tracking-widest text-emerald-500 uppercase">
+          <motion.span variants={rise} className="block text-xs font-medium tracking-widest text-yellow-500 uppercase">
             Proceso y metodología
           </motion.span>
           <motion.h2 variants={rise} className="font-serif text-4xl leading-tight tracking-[-0.01em] md:text-5xl">
@@ -63,13 +63,13 @@ export default function MethodFlow() {
                 aria-current={isActive ? "step" : undefined}
                 className={`flex items-center gap-6 rounded-2xl border bg-surface/70 p-6 backdrop-blur-md transition-[opacity,border-color,box-shadow] duration-500 ease-out ${
                   isActive
-                    ? "border-sky-400/60 opacity-100 shadow-[0_0_28px_rgba(56,189,248,0.25)]"
+                    ? "border-yellow-400/60 opacity-100 shadow-[0_0_28px_rgba(250,204,21,0.25)]"
                     : "border-fg/10 opacity-40"
                 }`}
               >
                 <span
                   className={`font-mono text-4xl transition-colors duration-500 ${
-                    isActive ? "text-sky-300" : "text-fg/60"
+                    isActive ? "text-yellow-300" : "text-fg/60"
                   }`}
                 >
                   {step.number}

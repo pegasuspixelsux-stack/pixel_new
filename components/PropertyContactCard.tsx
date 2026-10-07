@@ -39,7 +39,7 @@ export default function PropertyContactCard({ propertyName, price }: PropertyCon
           href={whatsappHref}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center gap-2 rounded-full bg-emerald-500 py-3.5 text-sm font-medium text-white transition-[background-color,transform] duration-200 ease-out hover:bg-emerald-600 active:scale-[0.97]"
+          className="flex items-center justify-center gap-2 rounded-full bg-yellow-400 py-3.5 text-sm font-medium text-black transition-[background-color,transform] duration-200 ease-out hover:bg-yellow-600 active:scale-[0.97]"
         >
           <MessageCircle size={16} aria-hidden />
           Consultar por WhatsApp

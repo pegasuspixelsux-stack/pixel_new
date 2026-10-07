@@ -39,7 +39,7 @@ const stagger = {
 
 export default function About() {
   return (
-    <section id="nosotros" className="relative border-t border-fg/10 py-16 md:py-24 lg:py-32">
+    <section id="nosotros" className="bg-section relative border-t border-fg/10 py-16 md:py-24 lg:py-32">
       <div className="mx-auto w-full max-w-[1440px] px-6 lg:px-16">
         <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-2 lg:gap-16">
           <motion.div
@@ -48,7 +48,7 @@ export default function About() {
             whileInView="show"
             viewport={viewport}
           >
-            <motion.span variants={rise} className="mb-3 block text-xs font-medium tracking-widest text-emerald-500 uppercase">
+            <motion.span variants={rise} className="mb-3 block text-xs font-medium tracking-widest text-yellow-500 uppercase">
               Quiénes Somos
             </motion.span>
             <motion.h2
@@ -75,7 +75,7 @@ export default function About() {
                 variants={rise}
                 className="rounded-xl border border-fg/10 bg-surface/70 p-6 backdrop-blur-md transition-colors duration-300 hover:border-fg/20"
               >
-                <div className="mb-4 font-mono text-sm text-emerald-500">[{String(index + 1).padStart(2, "0")}]</div>
+                <div className="mb-4 font-mono text-sm text-yellow-500">[{String(index + 1).padStart(2, "0")}]</div>
                 <h3 className="mb-2 text-base font-medium">{pillar.title}</h3>
                 <p className="text-xs leading-relaxed text-fg/60">{pillar.description}</p>
               </motion.div>

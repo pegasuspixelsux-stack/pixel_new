@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import ValueProposition from "@/components/ValueProposition";
 import WhoWeAre from "@/components/WhoWeAre";
+import ConversionEcosystem from "@/components/ConversionEcosystem";
 import Grid from "@/components/Grid";
 import CtaBanner from "@/components/CtaBanner";
 import Contact from "@/components/Contact";
@@ -16,6 +17,9 @@ export default function Home() {
         <Hero />
         <Reveal>
           <ValueProposition />
+        </Reveal>
+        <Reveal>
+          <ConversionEcosystem />
         </Reveal>
         <Reveal>
           <Grid />

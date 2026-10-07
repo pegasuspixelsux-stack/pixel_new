@@ -53,15 +53,15 @@ export default function Hero() {
             variants={rise}
             className="mb-6 font-serif text-5xl leading-[1.05] tracking-[-0.02em] md:text-6xl lg:text-7xl"
           >
-            <span className="text-emerald-300">Tu socio tecnológico.</span>{" "}
-            <span className="italic">Diseñamos tu infraestructura digital.</span>
+            <span className="text-yellow-300">Tu socio tecnológico.</span>{" "}
+            Diseñamos tu <span className="italic">infraestructura digital.</span>
           </motion.h1>
 
           <motion.p
             variants={rise}
             className="mb-8 max-w-md text-base leading-relaxed text-white/80"
           >
-            Modernizamos la operación de tu empresa integrando captación de clientes, catálogos digitales y automatización de procesos bajo un estándar único para todo tu equipo.
+            Modernizamos la presencia online de tu empresa integrando captación de clientes, catálogos digitales y automatización de procesos bajo un estándar único para todo tu equipo.
           </motion.p>
 
           <motion.div variants={rise} className="flex flex-wrap items-center gap-4">

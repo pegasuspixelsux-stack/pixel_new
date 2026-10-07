@@ -11,7 +11,7 @@ export default function ProjectCard({ project, index }: { project: Project; inde
   return (
     <Link
       href={`/proyectos/${project.slug}`}
-      className="group relative block aspect-square cursor-pointer overflow-hidden rounded-2xl border border-slate-800/80 bg-[#0f1523]"
+      className="group relative block aspect-square cursor-pointer overflow-hidden rounded-2xl border border-slate-800/80 bg-[#0a0a0a]"
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
@@ -19,7 +19,7 @@ export default function ProjectCard({ project, index }: { project: Project; inde
         alt=""
         className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
       />
-      <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-[#070a11] via-[#070a11]/70 to-transparent" />
+      <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-[#000000] via-[#000000]/70 to-transparent" />
 
       {index !== undefined && (
         <div className="absolute top-4 left-4 right-4 z-10 flex items-center justify-between">
@@ -30,7 +30,7 @@ export default function ProjectCard({ project, index }: { project: Project; inde
       )}
 
       <div className="absolute inset-x-0 bottom-0 z-10 flex flex-col justify-end gap-3 p-6 md:p-8">
-        <p className="font-mono text-xs font-semibold tracking-wider text-blue-400 uppercase">
+        <p className="font-mono text-xs font-semibold tracking-wider text-yellow-400 uppercase">
           {project.category} · {project.client}
         </p>
         <h3 className="text-xl leading-tight font-bold text-white md:text-2xl">{project.title}</h3>
@@ -39,7 +39,7 @@ export default function ProjectCard({ project, index }: { project: Project; inde
         <ul className="flex flex-col gap-1.5">
           {project.deliverables.slice(0, CARD_DELIVERABLES).map((item) => (
             <li key={item} className="flex items-center gap-2.5 text-xs text-slate-300">
-              <span aria-hidden className="h-1.5 w-1.5 shrink-0 rounded-full bg-blue-400" />
+              <span aria-hidden className="h-1.5 w-1.5 shrink-0 rounded-full bg-yellow-400" />
               {item}
             </li>
           ))}

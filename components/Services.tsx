@@ -83,7 +83,7 @@ export default function Services() {
           variants={stagger}
           className="mb-14 max-w-2xl"
         >
-          <motion.span variants={rise} className="mb-3 block text-xs font-medium tracking-widest text-emerald-500 uppercase">
+          <motion.span variants={rise} className="mb-3 block text-xs font-medium tracking-widest text-yellow-500 uppercase">
             Ecosistema Integral
           </motion.span>
           <motion.h2 variants={rise} className="mb-4 font-serif text-4xl leading-tight tracking-[-0.01em] md:text-5xl">
@@ -113,14 +113,14 @@ export default function Services() {
                 aria-current={isActive ? "true" : undefined}
                 className={`flex flex-col gap-5 rounded-2xl border p-8 backdrop-blur-md transition-[border-color,background-color,box-shadow,transform] duration-300 ease-out ${
                   isActive
-                    ? "scale-[1.02] border-sky-400/60 bg-slate-900/90 shadow-[0_0_30px_-5px_rgba(56,189,248,0.25)]"
+                    ? "scale-[1.02] border-yellow-400/60 bg-slate-900/90 shadow-[0_0_30px_-5px_rgba(250,204,21,0.25)]"
                     : "border-fg/10 bg-surface/70"
                 }`}
               >
                 <span
                   className={`w-fit rounded-md border px-2.5 py-1 font-mono text-xs transition-colors duration-300 ${
                     isActive
-                      ? "border-sky-400/60 bg-sky-400/10 text-sky-300 shadow-[0_0_12px_rgba(56,189,248,0.35)]"
+                      ? "border-yellow-400/60 bg-yellow-400/10 text-yellow-300 shadow-[0_0_12px_rgba(250,204,21,0.35)]"
                       : "border-fg/15 text-fg/60"
                   }`}
                 >
