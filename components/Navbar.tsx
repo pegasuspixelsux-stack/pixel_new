@@ -100,7 +100,7 @@ export default function Navbar({ overHero = false }: { overHero?: boolean }) {
             aria-expanded={open}
             aria-controls="mobile-menu"
             aria-label={open ? "Cerrar menú" : "Abrir menú"}
-            className="flex h-10 w-10 items-center justify-center md:hidden"
+            className={`flex h-10 w-10 items-center justify-center md:hidden ${overHero ? "text-black" : ""}`}
           >
             {open ? <X size={18} aria-hidden /> : <Menu size={18} aria-hidden />}
           </button>
