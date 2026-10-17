@@ -7,7 +7,7 @@ export default function Hero() {
     // Starts at the top of the viewport, underneath the 80px sticky navbar.
     <section className="relative isolate -mt-20 flex min-h-svh w-full items-center overflow-hidden pt-20 text-white">
       <Image
-        src="/hero/punta%20(2).jpg"
+        src="/hero/punta.webp"
         alt=""
         fill
         priority
