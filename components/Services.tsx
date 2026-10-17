@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion } from "motion/react";
+import * as m from "motion/react-m";
 
 const modules = [
   {
@@ -76,26 +76,26 @@ export default function Services() {
   return (
     <section id="servicios" className="relative scroll-mt-24 border-t border-fg/10 py-16 md:py-24 lg:py-32">
       <div className="mx-auto w-full max-w-[1440px] px-6 lg:px-16">
-        <motion.div
+        <m.div
           initial="hidden"
           whileInView="show"
           viewport={viewport}
           variants={stagger}
           className="mb-14 max-w-2xl"
         >
-          <motion.span variants={rise} className="mb-3 block text-xs font-medium tracking-widest text-yellow-500 uppercase">
+          <m.span variants={rise} className="mb-3 block text-xs font-medium tracking-widest text-yellow-500 uppercase">
             Ecosistema Integral
-          </motion.span>
-          <motion.h2 variants={rise} className="mb-4 font-serif text-4xl leading-tight tracking-[-0.01em] md:text-5xl">
+          </m.span>
+          <m.h2 variants={rise} className="mb-4 font-serif text-4xl leading-tight tracking-[-0.01em] md:text-5xl">
             Tres módulos centrales para digitalizar tu negocio.
-          </motion.h2>
-          <motion.p variants={rise} className="text-sm leading-relaxed text-fg/60">
+          </m.h2>
+          <m.p variants={rise} className="text-sm leading-relaxed text-fg/60">
             Desplegamos el motor completo de captación y venta, respaldado por servicios de infraestructura técnica según las necesidades de tu empresa.
-          </motion.p>
-        </motion.div>
+          </m.p>
+        </m.div>
 
         {/* Core offer: three modules */}
-        <motion.ol
+        <m.ol
           initial="hidden"
           whileInView="show"
           viewport={viewport}
@@ -105,7 +105,7 @@ export default function Services() {
           {modules.map((module, index) => {
             const isActive = index === activeIndex;
             return (
-              <motion.li
+              <m.li
                 key={module.number}
                 variants={rise}
                 onMouseEnter={() => setHovered(index)}
@@ -128,15 +128,15 @@ export default function Services() {
                 </span>
                 <h3 className="font-serif text-2xl leading-snug">{module.title}</h3>
                 <p className="text-sm leading-relaxed text-fg/60">{module.description}</p>
-              </motion.li>
+              </m.li>
             );
           })}
-        </motion.ol>
+        </m.ol>
 
         {/* Complementary services */}
         <div className="mt-16 flex flex-col gap-6">
           <h3 className="font-mono text-xs tracking-widest text-fg/50 uppercase">Servicios complementarios</h3>
-          <motion.ul
+          <m.ul
             initial="hidden"
             whileInView="show"
             viewport={viewport}
@@ -144,16 +144,16 @@ export default function Services() {
             className="grid grid-cols-2 gap-4 md:grid-cols-4"
           >
             {addons.map((addon) => (
-              <motion.li
+              <m.li
                 key={addon.title}
                 variants={rise}
                 className="flex flex-col gap-2 rounded-xl border border-fg/10 bg-fg/5 p-5"
               >
                 <span className="text-sm font-medium">{addon.title}</span>
                 <span className="text-xs leading-relaxed text-fg/50">{addon.detail}</span>
-              </motion.li>
+              </m.li>
             ))}
-          </motion.ul>
+          </m.ul>
         </div>
       </div>
     </section>

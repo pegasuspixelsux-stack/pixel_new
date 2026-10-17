@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "motion/react";
+import * as m from "motion/react-m";
 
 const viewport = { once: true, margin: "-80px" };
 
@@ -17,26 +17,26 @@ const stagger = {
 export default function ValueProposition() {
   return (
     <section id="propuesta" className="relative scroll-mt-24 border-t border-fg/10 py-16 md:py-24 lg:py-32">
-      <motion.div
+      <m.div
         initial="hidden"
         whileInView="show"
         viewport={viewport}
         variants={stagger}
         className="mx-auto grid w-full max-w-[1440px] grid-cols-1 gap-10 px-6 lg:grid-cols-12 lg:gap-16 lg:px-16"
       >
-        <motion.div variants={rise} className="flex flex-col gap-6 lg:col-span-5">
+        <m.div variants={rise} className="flex flex-col gap-6 lg:col-span-5">
           <span className="block text-xs font-medium tracking-widest text-yellow-500 uppercase">
             Optimización comercial digital
           </span>
           <h2 className="font-serif text-4xl leading-tight tracking-[-0.01em] lg:text-5xl">
             El estándar digital que tu equipo necesita para captar y cerrar más clientes.
           </h2>
-        </motion.div>
+        </m.div>
 
-        <motion.p variants={rise} className="leading-relaxed text-fg/70 lg:col-span-6 lg:col-start-7 lg:self-center">
+        <m.p variants={rise} className="leading-relaxed text-fg/70 lg:col-span-6 lg:col-start-7 lg:self-center">
           Potenciamos la cara visible de tu negocio mediante catálogos inteligentes, fichas de inventario ágiles y flujos de calificación automatizados. Guiamos a tu visitante desde la primera impresión hasta el contacto directo, garantizando que tu equipo reciba prospectos calificados, listos para comprar, con el seguimiento organizado y toda la información clave para cerrar el trato al instante.
-        </motion.p>
-      </motion.div>
+        </m.p>
+      </m.div>
     </section>
   );
 }

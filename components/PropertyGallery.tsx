@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence } from "motion/react";
+import * as m from "motion/react-m";
 import { ChevronLeft, ChevronRight, Maximize2, X } from "lucide-react";
 
 interface PropertyGalleryProps {
@@ -39,7 +40,7 @@ export default function PropertyGallery({ images, alt, children }: PropertyGalle
     <>
       <section className="relative h-[70svh] min-h-[500px] w-full overflow-hidden bg-canvas">
         <AnimatePresence mode="wait" initial={false}>
-          <motion.img
+          <m.img
             key={images[index]}
             src={images[index]}
             alt={`${alt} ${index + 1}`}
@@ -88,7 +89,7 @@ export default function PropertyGallery({ images, alt, children }: PropertyGalle
 
       <AnimatePresence>
         {lightbox && (
-          <motion.div
+          <m.div
             role="dialog"
             aria-modal="true"
             aria-label="Vista previa de imagen"
@@ -117,7 +118,7 @@ export default function PropertyGallery({ images, alt, children }: PropertyGalle
             <span className="absolute bottom-6 left-1/2 -translate-x-1/2 font-mono text-xs text-white/70">
               {counter}
             </span>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
     </>

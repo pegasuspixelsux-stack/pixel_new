@@ -11,8 +11,9 @@ export default function Hero() {
         alt=""
         fill
         priority
+        quality={60}
         sizes="100vw"
-        className="-z-20 object-cover object-center motion-safe:animate-[hero-settle_2.4s_ease-out_both]"
+        className="-z-20 object-cover object-center"
       />
       {/* Dark wash on the left keeps the copy readable over the photo in both themes */}
       <div

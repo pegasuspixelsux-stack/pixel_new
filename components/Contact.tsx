@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { motion } from "motion/react";
+import * as m from "motion/react-m";
 import { Check, Clock, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import { siteConfig } from "@/config/site.config";
 
@@ -73,14 +73,14 @@ export default function Contact() {
     <section id="contacto" className="bg-section relative scroll-mt-24 border-t border-fg/10 py-16 md:py-24 lg:py-32">
       <div className="mx-auto w-full max-w-[1440px] px-6 lg:px-16">
         <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-12 lg:gap-16">
-          <motion.div
+          <m.div
             variants={stagger}
             initial="hidden"
             whileInView="show"
             viewport={viewport}
             className="flex flex-col gap-10 lg:col-span-5"
           >
-            <motion.div variants={rise}>
+            <m.div variants={rise}>
               <span className="mb-3 block text-xs font-medium tracking-widest text-yellow-500 uppercase">
                 Contacto
               </span>
@@ -91,11 +91,11 @@ export default function Contact() {
                 Nuestro equipo de asesores está disponible para responder sus consultas y coordinar visitas a las
                 propiedades de su interés.
               </p>
-            </motion.div>
+            </m.div>
 
-            <motion.ul variants={stagger} className="flex flex-col gap-6 border-t border-fg/10 pt-8">
+            <m.ul variants={stagger} className="flex flex-col gap-6 border-t border-fg/10 pt-8">
               {details.map(({ icon: Icon, label, lines, href, external }) => (
-                <motion.li key={label} variants={rise} className="flex items-start gap-4">
+                <m.li key={label} variants={rise} className="flex items-start gap-4">
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-fg/10 bg-fg/5 text-yellow-500">
                     <Icon size={16} aria-hidden />
                   </div>
@@ -118,12 +118,12 @@ export default function Contact() {
                       ),
                     )}
                   </div>
-                </motion.li>
+                </m.li>
               ))}
-            </motion.ul>
-          </motion.div>
+            </m.ul>
+          </m.div>
 
-          <motion.div
+          <m.div
             variants={rise}
             initial="hidden"
             whileInView="show"
@@ -204,7 +204,7 @@ export default function Contact() {
                 </form>
               )}
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </div>
     </section>

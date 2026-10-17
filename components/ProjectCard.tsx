@@ -17,6 +17,8 @@ export default function ProjectCard({ project, index }: { project: Project; inde
       <img
         src={project.heroImage}
         alt=""
+        loading="lazy"
+        decoding="async"
         className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
       />
       <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-[#000000] via-[#000000]/70 to-transparent" />

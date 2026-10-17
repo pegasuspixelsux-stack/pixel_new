@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState, type FormEvent } from "react";
-import { motion } from "motion/react";
+import * as m from "motion/react-m";
 import { ArrowLeft, Eye, EyeOff } from "lucide-react";
 
 const BACKGROUND_IMAGE =
@@ -91,7 +91,7 @@ export default function LoginPage() {
             <span className="font-serif text-lg italic lg:hidden">Pegasus Pixels</span>
           </div>
 
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
@@ -174,7 +174,7 @@ export default function LoginPage() {
                 {submitting ? "Ingresando…" : "Iniciar sesión"}
               </button>
             </form>
-          </motion.div>
+          </m.div>
 
           <p className="text-xs text-fg/40">
             &copy; {new Date().getFullYear()} Pegasus Pixels. Todos los derechos reservados.

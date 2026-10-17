@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "motion/react";
+import * as m from "motion/react-m";
 import { useCenterLit } from "@/components/useCenterLit";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 
@@ -102,7 +102,7 @@ const bottomRow: FeaturedProject[] = [
 function FeaturedCard({ project }: { project: FeaturedProject }) {
   const [ref, lit] = useCenterLit<HTMLAnchorElement>();
   return (
-    <motion.div variants={cardVariants}>
+    <m.div variants={cardVariants}>
       <Link
         ref={ref}
         data-lit={lit}
@@ -114,6 +114,8 @@ function FeaturedCard({ project }: { project: FeaturedProject }) {
           <img
             src={project.image}
             alt=""
+            loading="lazy"
+            decoding="async"
             className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 ease-out group-lit:scale-105"
           />
         ) : (
@@ -155,7 +157,7 @@ function FeaturedCard({ project }: { project: FeaturedProject }) {
           </p>
         </div>
       </Link>
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -163,7 +165,7 @@ export default function Grid() {
   return (
     <section id="proyectos" className="w-full scroll-mt-24">
       <div className="mx-auto w-full max-w-[1440px] px-6 py-24 lg:px-16 lg:py-32">
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
@@ -183,10 +185,10 @@ export default function Grid() {
             probada, la adaptamos visualmente a tu marca y la configuramos para que salgas al mercado en días, no en
             meses.
           </p>
-        </motion.div>
+        </m.div>
 
         <div className="flex flex-col gap-6">
-          <motion.div
+          <m.div
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, margin: "-80px" }}
@@ -196,9 +198,9 @@ export default function Grid() {
             {topRow.map((project) => (
               <FeaturedCard key={project.id} project={project} />
             ))}
-          </motion.div>
+          </m.div>
 
-          <motion.div
+          <m.div
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, margin: "-80px" }}
@@ -208,7 +210,7 @@ export default function Grid() {
             {bottomRow.map((project) => (
               <FeaturedCard key={project.id} project={project} />
             ))}
-          </motion.div>
+          </m.div>
         </div>
 
         <div className="mt-16 flex justify-center">

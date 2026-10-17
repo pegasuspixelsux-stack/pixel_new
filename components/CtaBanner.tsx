@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "motion/react";
+import * as m from "motion/react-m";
 import { MessageCircle } from "lucide-react";
 import { siteConfig } from "@/config/site.config";
 
@@ -21,7 +21,7 @@ export default function CtaBanner({
 }: CtaBannerProps) {
   return (
     <section className="border-t border-fg/10 px-6 py-16 md:py-24 lg:py-32">
-      <motion.div
+      <m.div
         initial={{ opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-80px" }}
@@ -54,7 +54,7 @@ export default function CtaBanner({
 
           <p className="text-xs tracking-wider text-fg/50 uppercase">Sin compromiso • Respuesta en menos de 24 hs</p>
         </div>
-      </motion.div>
+      </m.div>
     </section>
   );
 }

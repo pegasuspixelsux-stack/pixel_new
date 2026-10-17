@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { motion } from "motion/react";
+import * as m from "motion/react-m";
 import { ArrowRight } from "lucide-react";
 
 const pillars = [
@@ -79,7 +79,7 @@ export default function WhoWeAre() {
 
             if (!isActive) {
               return (
-                <motion.button
+                <m.button
                   key={pillar.id}
                   layout
                   type="button"
@@ -89,12 +89,12 @@ export default function WhoWeAre() {
                   className="flex w-full cursor-pointer items-center justify-between rounded-lg border border-neutral-800/80 bg-black/60 px-4 py-2.5 text-left opacity-40 backdrop-blur-md transition-opacity duration-300 hover:opacity-70"
                 >
                   <span className="font-mono text-xs font-semibold text-neutral-400">{pillar.tag}</span>
-                </motion.button>
+                </m.button>
               );
             }
 
             return (
-              <motion.div
+              <m.div
                 key={pillar.id}
                 layout
                 transition={{ layout: { duration: 0.5, ease: [0.16, 1, 0.3, 1] } }}
@@ -103,7 +103,7 @@ export default function WhoWeAre() {
                 <span className="font-mono text-xs font-semibold text-yellow-400">{pillar.tag}</span>
                 <h3 className="text-lg font-bold text-white md:text-xl">{pillar.title}</h3>
                 <p className="text-sm leading-relaxed text-neutral-200 md:text-base">{pillar.text}</p>
-              </motion.div>
+              </m.div>
             );
           })}
         </div>

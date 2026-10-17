@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { motion } from "motion/react";
+import * as m from "motion/react-m";
 import { ChevronDown, Feather, Menu, X } from "lucide-react";
 import { siteConfig } from "@/config/site.config";
 import { mainNav, type NavItem } from "@/config/navigation";
@@ -21,7 +21,7 @@ export default function Navbar({ overHero = false }: { overHero?: boolean }) {
   }
 
   return (
-    <motion.header
+    <m.header
       initial={{ opacity: 0, y: -12 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ type: "spring", stiffness: 260, damping: 30 }}
@@ -135,7 +135,7 @@ export default function Navbar({ overHero = false }: { overHero?: boolean }) {
           </ul>
         </div>
       )}
-    </motion.header>
+    </m.header>
   );
 }
 

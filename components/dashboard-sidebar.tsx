@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { motion } from "motion/react";
+import * as m from "motion/react-m";
 import {
   ChevronLeft,
   ChevronRight,
@@ -33,7 +33,7 @@ export default function DashboardSidebar() {
     href === "/dashboard" ? pathname === href : pathname.startsWith(href);
 
   return (
-    <motion.aside
+    <m.aside
       animate={{ width: collapsed ? 80 : 256 }}
       transition={{ type: "spring", stiffness: 260, damping: 32 }}
       className="sticky top-0 flex h-screen shrink-0 flex-col justify-between overflow-hidden border-r border-fg/10 bg-surface/60 p-4 backdrop-blur-md"
@@ -81,6 +81,6 @@ export default function DashboardSidebar() {
       >
         {collapsed ? "←" : "← Volver al sitio"}
       </Link>
-    </motion.aside>
+    </m.aside>
   );
 }

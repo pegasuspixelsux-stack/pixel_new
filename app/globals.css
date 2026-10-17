@@ -44,16 +44,6 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Hero photo settles from a slight zoom. Used through motion-safe: so reduced-motion visitors get a still image. */
-@keyframes hero-settle {
-  from {
-    transform: scale(1.08);
-  }
-  to {
-    transform: scale(1);
-  }
-}
-
 /* Hero copy enters with CSS only, so the headline is visible in the server HTML and paints before JS hydrates (LCP). */
 @keyframes hero-rise {
   from {

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion } from "motion/react";
+import * as m from "motion/react-m";
 
 const steps = [
   { number: "01", title: "Diagnóstico & Arquitectura" },
@@ -35,24 +35,24 @@ export default function MethodFlow() {
   return (
     <section id="metodologia" className="bg-section relative scroll-mt-24 border-t border-fg/10 py-16 md:py-24 lg:py-32">
       <div className="mx-auto grid w-full max-w-[1440px] grid-cols-1 items-center gap-16 px-6 lg:grid-cols-2 lg:px-16">
-        <motion.div
+        <m.div
           initial="hidden"
           whileInView="show"
           viewport={viewport}
           variants={{ hidden: {}, show: { transition: { staggerChildren: 0.08 } } }}
           className="flex flex-col gap-6"
         >
-          <motion.span variants={rise} className="block text-xs font-medium tracking-widest text-yellow-500 uppercase">
+          <m.span variants={rise} className="block text-xs font-medium tracking-widest text-yellow-500 uppercase">
             Proceso y metodología
-          </motion.span>
-          <motion.h2 variants={rise} className="font-serif text-4xl leading-tight tracking-[-0.01em] md:text-5xl">
+          </m.span>
+          <m.h2 variants={rise} className="font-serif text-4xl leading-tight tracking-[-0.01em] md:text-5xl">
             Un flujo estandarizado para transformar tu operación digital.
-          </motion.h2>
-          <motion.p variants={rise} className="max-w-md leading-relaxed text-fg/70">
+          </m.h2>
+          <m.p variants={rise} className="max-w-md leading-relaxed text-fg/70">
             Desplegamos un método paso a paso que minimiza la fricción, asegura la adopción de tu equipo y deja tu
             infraestructura funcionando bajo un mismo estándar desde el primer día.
-          </motion.p>
-        </motion.div>
+          </m.p>
+        </m.div>
 
         <ol className="flex flex-col gap-4">
           {steps.map((step, index) => {

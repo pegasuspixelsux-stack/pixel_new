@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "motion/react";
+import * as m from "motion/react-m";
 import { useCenterLit } from "@/components/useCenterLit";
 import {
   Filter,
@@ -80,7 +80,7 @@ function ServiceCard({ item }: { item: (typeof services)[number] }) {
   const Icon = item.icon;
   const [ref, lit] = useCenterLit<HTMLDivElement>();
   return (
-    <motion.div
+    <m.div
       ref={ref}
       data-lit={lit}
       variants={rise}
@@ -109,7 +109,7 @@ function ServiceCard({ item }: { item: (typeof services)[number] }) {
       <p className="text-sm leading-relaxed text-fg/70 transition-colors duration-300 group-lit:text-fg/90">
         {item.description}
       </p>
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -119,14 +119,14 @@ export default function ConversionEcosystem() {
       id="ecosistema"
       className="bg-section relative scroll-mt-24 border-t border-fg/10 py-16 md:py-24 lg:py-32"
     >
-      <motion.div
+      <m.div
         initial="hidden"
         whileInView="show"
         viewport={viewport}
         variants={stagger}
         className="mx-auto flex w-full max-w-[1440px] flex-col gap-12 px-6 lg:gap-16 lg:px-16"
       >
-        <motion.div variants={rise} className="flex max-w-3xl flex-col gap-6">
+        <m.div variants={rise} className="flex max-w-3xl flex-col gap-6">
           <span className="block text-xs font-medium tracking-widest text-yellow-500 uppercase">
             Ecosistema digital de conversión
           </span>
@@ -135,14 +135,14 @@ export default function ConversionEcosystem() {
             <br className="hidden md:block" />
             para captar, calificar y cerrar.
           </h2>
-        </motion.div>
+        </m.div>
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {services.map((item) => (
             <ServiceCard key={item.id} item={item} />
           ))}
         </div>
-      </motion.div>
+      </m.div>
     </section>
   );
 }
