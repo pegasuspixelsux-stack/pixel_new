@@ -1,19 +1,6 @@
-"use client";
-
 import Image from "next/image";
-import { motion } from "motion/react";
 
-const spring = { type: "spring", stiffness: 180, damping: 26 } as const;
-
-const rise = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: spring },
-};
-
-const container = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.09, delayChildren: 0.15 } },
-};
+const delay = (s: number) => ({ "--rise-delay": `${s}s` }) as React.CSSProperties;
 
 export default function Hero() {
   return (
@@ -38,33 +25,28 @@ export default function Hero() {
         className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_0%_100%,rgba(7,10,17,0.9)_0%,rgba(7,10,17,0.5)_50%,transparent_100%)]"
       />
 
-      <motion.div
-        variants={container}
-        initial="hidden"
-        animate="show"
-        className="mx-auto w-full max-w-[1440px] px-6 lg:px-16"
-      >
+      <div className="mx-auto w-full max-w-[1440px] px-6 lg:px-16">
         <div className="max-w-xl">
-          <motion.p variants={rise} className="mb-6 text-sm text-white/80">
+          <p style={delay(0.15)} className="hero-rise mb-6 text-sm text-white/80">
             PEGASUS PIXELS
-          </motion.p>
+          </p>
 
-          <motion.h1
-            variants={rise}
-            className="mb-6 font-serif text-5xl leading-[1.05] tracking-[-0.02em] md:text-6xl lg:text-7xl"
+          <h1
+            style={delay(0.24)}
+            className="hero-rise mb-6 font-serif text-5xl leading-[1.05] tracking-[-0.02em] md:text-6xl lg:text-7xl"
           >
             <span className="text-yellow-300">Tu socio tecnológico.</span>{" "}
             Diseñamos tu <span className="italic">infraestructura digital.</span>
-          </motion.h1>
+          </h1>
 
-          <motion.p
-            variants={rise}
-            className="mb-8 max-w-md text-base leading-relaxed text-white/80"
+          <p
+            style={delay(0.33)}
+            className="hero-rise mb-8 max-w-md text-base leading-relaxed text-white/80"
           >
             Modernizamos la presencia online de tu empresa integrando captación de clientes, catálogos digitales y automatización de procesos bajo un estándar único para todo tu equipo.
-          </motion.p>
+          </p>
 
-          <motion.div variants={rise} className="flex flex-wrap items-center gap-4">
+          <div style={delay(0.42)} className="hero-rise flex flex-wrap items-center gap-4">
             <a
               href="#contacto"
               className="rounded-full bg-white px-8 py-3.5 text-sm font-medium text-[#0D0E12] shadow-[0_0_0_rgba(255,255,255,0)] transition-[background-color,transform,box-shadow] duration-300 ease-out hover:bg-white/90 hover:shadow-[0_0_32px_rgba(255,255,255,0.22)] active:scale-[0.97]"
@@ -77,9 +59,9 @@ export default function Hero() {
             >
               Ver Casos de Éxito
             </a>
-          </motion.div>
+          </div>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }
