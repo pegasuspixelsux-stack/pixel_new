@@ -31,9 +31,9 @@ export default function Hero() {
             PEGASUS PIXELS
           </p>
 
+          {/* The headline is the LCP element, so it carries no entrance animation and paints with the first frame. */}
           <h1
-            style={delay(0.24)}
-            className="hero-rise mb-6 font-serif text-5xl leading-[1.05] tracking-[-0.02em] md:text-6xl lg:text-7xl"
+            className="mb-6 font-serif text-5xl leading-[1.05] tracking-[-0.02em] md:text-6xl lg:text-7xl"
           >
             <span className="text-yellow-300">Tu socio tecnológico.</span>{" "}
             Diseñamos tu <span className="italic">infraestructura digital.</span>
