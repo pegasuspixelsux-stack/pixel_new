@@ -1,4 +1,5 @@
 import Image from "next/image";
+import LazyPhoto from "@/components/LazyPhoto";
 import { bottomRow, topRow } from "@/config/featured";
 
 // Five boxes in two rows. The grid has 6 columns: the first row is 3 boxes of 2 columns, the second is 2 boxes of 3.
@@ -34,7 +35,11 @@ export default function Pillars() {
           key={title}
           className={`relative isolate flex flex-col justify-between overflow-hidden rounded-2xl border border-white/15 bg-black p-6 text-white transition-[border-color,box-shadow,transform] duration-300 ease-out motion-safe:lit:-translate-y-1 lit:border-accent/70 lit:shadow-[0_0_35px_var(--accent-glow)] lg:p-8 ${span}`}
         >
-          <Image src={image} alt="" fill priority={i === 0} sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" className="-z-20 object-cover" />
+          {i === 0 ? (
+            <Image src={image} alt="" fill priority sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, calc(100vw - 3rem)" quality={50} className="-z-20 object-cover" />
+          ) : (
+            <LazyPhoto src={image} sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, calc(100vw - 3rem)" />
+          )}
           <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-t from-black/80 via-black/40 to-black/20" />
           <span className="font-mono text-xs text-white/70">{String(i + 1).padStart(2, "0")}</span>
           <div>

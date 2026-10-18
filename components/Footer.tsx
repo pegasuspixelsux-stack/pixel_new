@@ -6,7 +6,7 @@ import ThemeSelector from "@/components/ThemeSelector";
 import { siteConfig } from "@/config/site.config";
 import { mainNav } from "@/config/navigation";
 
-// Same four items as the header, plus the login link.
+// Same items as the header, plus the login link.
 const navigation = [...mainNav, { label: "Ingresar", href: "/login" }];
 
 const categories = [
@@ -17,6 +17,7 @@ const categories = [
 ];
 
 const locations = [
+  { label: "Alta y Optimización DoorDash", href: "/servicios/doordash" },
   { label: "Catálogo inteligente", href: "/proyectos" },
   { label: "Captura de leads", href: "/proyectos" },
   { label: "Automatización de ventas", href: "/proyectos" },

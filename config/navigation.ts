@@ -20,6 +20,11 @@ export const mainNav: NavItem[] = [
       ...initialProjects.map((project) => ({ label: project.title, href: `/proyectos/${project.slug}` })),
     ],
   },
+  {
+    label: "Servicios",
+    href: "/servicios/doordash",
+    children: [{ label: "Servicio DoorDash", href: "/servicios/doordash" }],
+  },
   { label: "Nosotros", href: "/nosotros" },
   { label: "Contacto", href: "#contacto" },
 ];

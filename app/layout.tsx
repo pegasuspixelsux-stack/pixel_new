@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Geist, Inter, Instrument_Serif } from "next/font/google";
+import { Geist, Instrument_Serif } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import MotionProvider from "@/components/MotionProvider";
 
@@ -8,11 +9,13 @@ const geistSans = Geist({
   subsets: ["latin"],
 });
 
-// Inter's optical-size axis; the "display" cut is opsz 32 (see .font-inter-display).
-const inter = Inter({
+// Inter Display at weight 500 (opsz 32), cut from the Inter variable font and subset to Latin (~18KB instead of
+// 73KB for the full variable file). It is only used for headlines; see .font-inter-display.
+const inter = localFont({
+  src: "./fonts/InterDisplay-500.woff2",
   variable: "--font-inter",
-  subsets: ["latin"],
-  axes: ["opsz"],
+  weight: "500",
+  display: "swap",
 });
 
 const instrumentSerif = Instrument_Serif({
@@ -20,6 +23,8 @@ const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
   weight: "400",
   style: ["normal", "italic"],
+  // Only the logo and a few figures use it, so it is not worth preloading ahead of the hero photo.
+  preload: false,
 });
 
 export const metadata: Metadata = {

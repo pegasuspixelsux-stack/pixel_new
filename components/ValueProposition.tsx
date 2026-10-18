@@ -34,10 +34,10 @@ export default function ValueProposition() {
         </m.div>
 
         <div className="flex flex-col gap-6 lg:col-span-6 lg:col-start-7 lg:self-center">
-          <p className="font-[family-name:var(--font-inter)] leading-relaxed text-fg/70">
+          <p className="leading-relaxed text-fg/70">
             Potenciamos la cara visible de tu negocio mediante catálogos inteligentes, fichas de inventario ágiles y flujos de calificación automatizados. Guiamos a tu visitante desde la primera impresión hasta el contacto directo, garantizando que tu equipo reciba prospectos calificados, listos para comprar, con el seguimiento organizado y toda la información clave para cerrar el trato al instante.
           </p>
-          <p className="font-[family-name:var(--font-inter)] leading-relaxed text-fg/70">
+          <p className="leading-relaxed text-fg/70">
             Creamos aplicaciones a la medida de industrias que conocemos a fondo. Tomamos una arquitectura sólida y probada, la adaptamos visualmente a tu marca y la configuramos para que salgas al mercado en días, no en meses.
           </p>
         </div>

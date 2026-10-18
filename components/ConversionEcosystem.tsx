@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import LazyPhoto from "@/components/LazyPhoto";
 import * as m from "motion/react-m";
 import { useCenterLit } from "@/components/useCenterLit";
 
@@ -73,7 +73,7 @@ function ServiceCard({ item }: { item: (typeof services)[number] }) {
       variants={rise}
       className={`group relative flex flex-col justify-between gap-6 isolate overflow-hidden rounded-2xl aspect-square border border-fg/10 bg-black p-5 text-white lg:p-12 transition-all duration-300 ease-out motion-safe:lit:-translate-y-1 ${item.card}`}
     >
-      <Image src={item.image} alt="" fill sizes="(min-width: 640px) 50vw, 100vw" className="-z-20 object-cover" />
+      <LazyPhoto src={item.image} sizes="(min-width: 640px) 50vw, calc(100vw - 3rem)" margin="300px" />
       <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-t from-black/90 via-black/60 to-black/30" />
 
       <div className="flex items-center justify-between">

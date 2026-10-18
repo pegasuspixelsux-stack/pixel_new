@@ -41,16 +41,14 @@ body {
   color: var(--fg);
 }
 
-/* Inter Display: Inter at its largest optical size, for big headlines. */
+/* Inter Display (weight 500, opsz 32), loaded as a static cut in app/layout.tsx. */
 .font-inter-display {
   font-family: var(--font-inter), var(--font-geist-sans), sans-serif;
-  font-variation-settings: "opsz" 32;
 }
 
 /* Headings use Inter Display in both themes. Logos and figures keep the serif. */
 :is(h1, h2, h3, h4).font-serif {
   font-family: var(--font-inter), var(--font-geist-sans), sans-serif;
-  font-variation-settings: "opsz" 32;
   font-weight: 500;
   letter-spacing: -0.03em;
 }
