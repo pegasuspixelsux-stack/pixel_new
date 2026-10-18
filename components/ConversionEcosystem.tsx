@@ -77,39 +77,39 @@ function ServiceCard({ item }: { item: (typeof services)[number] }) {
       ref={ref}
       data-lit={lit}
       variants={rise}
-      className={`group relative flex flex-col justify-between gap-6 isolate overflow-hidden rounded-2xl aspect-square border border-fg/15 bg-canvas p-5 pb-4 text-fg lg:p-12 lg:pb-8 transition-all duration-300 ease-out motion-safe:lit:-translate-y-1 ${item.card}`}
+      className={`group relative flex flex-col justify-between gap-6 isolate overflow-hidden rounded-2xl aspect-square border border-fg/15 bg-black p-5 pb-4 text-white lg:p-12 lg:pb-8 transition-all duration-300 ease-out motion-safe:lit:-translate-y-1 ${item.card}`}
     >
       <LazyPhoto src={item.image} sizes="(min-width: 640px) 50vw, calc(100vw - 3rem)" margin="300px" />
-      <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-t from-canvas via-canvas/70 via-34% to-transparent to-70%" />
+      <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
       {/* Soft corner gradient under the number, so it reads on any photo */}
       <div
         aria-hidden
-        className="absolute inset-0 -z-10 bg-[radial-gradient(circle_240px_at_0_0,color-mix(in_srgb,var(--canvas)_55%,transparent),transparent)]"
+        className="absolute inset-0 -z-10 bg-[radial-gradient(circle_240px_at_0_0,rgba(0,0,0,0.55),transparent)]"
       />
 
       <div className="flex items-center justify-between">
-        <span className="font-inter-display text-[min(8.55vw,2.5rem)] leading-none font-medium tracking-[-0.03em] text-fg md:text-[min(4.6vw,4.5rem)]">
+        <span className="font-inter-display text-[min(8.55vw,2.5rem)] relative z-10 leading-none font-medium tracking-[-0.03em] text-white md:text-[min(4.6vw,4.5rem)]">
           {item.id}
         </span>
       </div>
 
-      <div className="flex flex-col gap-1 lg:gap-2">
+      <div className="relative z-10 flex flex-col gap-1 lg:gap-2">
         <div className="flex flex-col gap-0 lg:gap-0.5">
           <p
-            className={`font-mono text-xs tracking-wider uppercase ${item.accent}`}
+            className="font-mono text-xs tracking-wider text-blue-300 uppercase"
           >
             {item.subheading}
           </p>
           <h3 className="font-serif text-xl leading-snug lg:text-4xl">{item.title}</h3>
         </div>
 
-        <p className="-mt-0.5 text-xs leading-snug text-fg lg:-mt-1 lg:text-base lg:leading-normal transition-colors duration-300 group-lit:text-fg">
+        <p className="-mt-0.5 text-xs leading-snug text-slate-200 lg:-mt-1 lg:text-base lg:leading-normal transition-colors duration-300 group-lit:text-white">
           {item.description}
         </p>
         {/* The ::after stretches this link over the whole card, so the card itself is clickable */}
         <Link
           href={`/servicios/${item.slug}`}
-          className="inline-flex w-fit items-center gap-2 text-sm font-medium text-accent after:absolute after:inset-0 after:content-['']"
+          className="inline-flex w-fit items-center gap-2 text-sm font-medium text-blue-300 after:absolute after:inset-0 after:content-['']"
         >
           Ver servicio
           <ArrowRight size={14} aria-hidden className="transition-transform duration-200 group-lit:translate-x-1" />

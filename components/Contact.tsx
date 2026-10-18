@@ -22,7 +22,7 @@ const phoneHref = `tel:${siteConfig.contact.phone.replace(/\s/g, "")}`;
 const usPhoneHref = `tel:${siteConfig.contact.usPhone.replace(/\s/g, "")}`;
 
 const fieldClass =
-  "w-full rounded-xl border border-fg/10 bg-fg/5 px-4 py-3 text-sm text-fg placeholder:text-fg/40 transition-[border-color,background-color] duration-200 focus:border-fg/40 focus:bg-fg/10 focus:outline-none";
+  "w-full rounded-xl border border-fg/25 bg-fg/5 px-4 py-3 text-sm text-fg placeholder:text-fg/50 transition-[border-color,background-color] duration-200 focus:border-fg focus:bg-fg/10 focus:outline-none";
 
 const labelClass = "mb-1.5 block text-xs uppercase tracking-wider text-fg/60";
 
@@ -118,30 +118,37 @@ export default function Contact() {
             </m.div>
 
             <m.ul variants={stagger} className="flex flex-col gap-6 border-t border-fg/10 pt-8">
-              {details.map(({ icon: Icon, label, lines, href, external }) => (
-                <m.li key={label} variants={rise} className="flex items-start gap-4">
-                  <Icon size={20} aria-hidden className="mt-0.5 shrink-0 text-accent" />
-                  <div>
-                    <p className="text-xs tracking-wider text-fg/50 uppercase">{label}</p>
-                    {lines.map((line, index) =>
-                      href && index === 0 ? (
-                        <a
-                          key={line}
-                          href={href}
-                          {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                          className="mt-0.5 block text-sm font-medium transition-colors duration-200 hover:text-fg/70"
-                        >
-                          {line}
-                        </a>
-                      ) : (
-                        <p key={line} className={`mt-0.5 text-sm ${index === 0 ? "font-medium" : "text-fg/60"}`}>
+              {details.map(({ icon: Icon, label, lines, href, external }) => {
+                const content = (
+                  <>
+                    <Icon size={20} aria-hidden className="mt-0.5 shrink-0 text-accent" />
+                    <div>
+                      <p className="text-xs tracking-wider text-fg/60 uppercase">{label}</p>
+                      {lines.map((line, index) => (
+                        <p key={line} className={`mt-0.5 text-sm ${index === 0 ? "font-medium" : "text-fg/70"}`}>
                           {line}
                         </p>
-                      ),
+                      ))}
+                    </div>
+                  </>
+                );
+                // Rows with a link (phone, WhatsApp, email) are tappable as a whole, with a touch/hover background.
+                return (
+                  <m.li key={label} variants={rise}>
+                    {href ? (
+                      <a
+                        href={href}
+                        {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                        className="-mx-2 flex items-start gap-4 rounded-lg p-2 transition-colors duration-200 hover:bg-fg/5 active:bg-fg/10"
+                      >
+                        {content}
+                      </a>
+                    ) : (
+                      <div className="-mx-2 flex items-start gap-4 p-2">{content}</div>
                     )}
-                  </div>
-                </m.li>
-              ))}
+                  </m.li>
+                );
+              })}
             </m.ul>
           </m.div>
 

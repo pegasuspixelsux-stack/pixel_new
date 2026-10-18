@@ -32,16 +32,16 @@ export default function ProjectCard({ project, index }: { project: Project; inde
       )}
 
       <div className="absolute inset-x-0 bottom-0 z-10 flex flex-col justify-end gap-3 p-6 md:p-8">
-        <p className="font-mono text-xs font-semibold tracking-wider text-yellow-400 uppercase">
+        <p className="font-mono text-xs font-semibold tracking-wider text-blue-300 uppercase">
           {project.category} · {project.client}
         </p>
         <h3 className="text-xl leading-tight font-bold text-white md:text-2xl">{project.title}</h3>
-        <p className="line-clamp-2 text-xs leading-relaxed text-slate-300 md:text-sm">{project.summary}</p>
+        <p className="line-clamp-2 text-xs leading-relaxed text-slate-200 md:text-sm">{project.summary}</p>
 
         <ul className="flex flex-col gap-1.5">
           {project.deliverables.slice(0, CARD_DELIVERABLES).map((item) => (
-            <li key={item} className="flex items-center gap-2.5 text-xs text-slate-300">
-              <span aria-hidden className="h-1.5 w-1.5 shrink-0 rounded-full bg-yellow-400" />
+            <li key={item} className="flex items-center gap-2.5 text-xs text-slate-200">
+              <span aria-hidden className="h-1.5 w-1.5 shrink-0 rounded-full bg-blue-300" />
               {item}
             </li>
           ))}

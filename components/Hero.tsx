@@ -2,7 +2,13 @@ import Link from "next/link";
 import { ArrowRight, Star } from "lucide-react";
 import Pillars from "@/components/Pillars";
 
-const lines = ["Tu socio tecnológico", "Diseñamos tu infraestructura digital", "Ecosistemas digitales", "Agentes & Automatizaciones"];
+// Each capability is its own stacked line: strong text, the star, then a lighter continuation in the same type size.
+const lines = [
+  { primary: "Tu socio tecnológico" },
+  { primary: "Diseñamos tu infraestructura digital", secondary: "a la medida de tu negocio" },
+  { primary: "Ecosistemas digitales", secondary: "para captar y convertir" },
+  { primary: "Agentes & Automatizaciones", secondary: "respuesta inmediata 24/7" },
+];
 
 export default function Hero() {
   return (
@@ -13,11 +19,12 @@ export default function Hero() {
         <div className="hero-exit">
           <p className="mb-6 text-sm font-medium tracking-[0.2em] text-accent uppercase">Pegasus Pixels</p>
           {/* The headline is the LCP element, so it carries no entrance animation and paints with the first frame. */}
-          <h1 className="font-inter-display text-[8.55vw] font-medium leading-[1.05] tracking-[-0.03em] md:text-[min(4.6vw,4.5rem)] md:whitespace-nowrap">
-            {lines.map((line) => (
-              <span key={line} className="block">
-                {line}
-                <Star aria-hidden className="ml-[0.2em] inline-block size-[0.55em] fill-current text-accent align-[0.08em]" strokeWidth={0} />
+          <h1 className="font-inter-display text-[8.55vw] font-medium leading-[1.05] tracking-[-0.03em] md:text-[min(4.6vw,4.5rem)]">
+            {lines.map(({ primary, secondary }) => (
+              <span key={primary} className="mb-[0.18em] block last:mb-0">
+                {primary}
+                <Star aria-hidden className="mx-[0.2em] inline-block size-[0.55em] fill-current text-accent align-[0.08em]" strokeWidth={0} />
+                {secondary && <span className="inline-block text-fg/45">{secondary}</span>}
               </span>
             ))}
           </h1>

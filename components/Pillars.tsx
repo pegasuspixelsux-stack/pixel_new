@@ -35,28 +35,28 @@ export default function Pillars() {
       {boxes.map(({ title, href, image, text, span }, i) => (
         <li
           key={title}
-          className={`relative isolate flex flex-col justify-between overflow-hidden rounded-2xl border border-fg/15 bg-canvas p-6 pb-5 text-fg transition-[border-color,box-shadow,transform] duration-300 ease-out motion-safe:lit:-translate-y-1 lit:border-accent/70 lit:shadow-[0_0_35px_var(--accent-glow)] lg:p-8 lg:pb-6 ${span}`}
+          className={`relative isolate flex flex-col justify-between overflow-hidden rounded-2xl border border-fg/15 bg-black p-6 pb-5 text-white transition-[border-color,box-shadow,transform] duration-300 ease-out motion-safe:lit:-translate-y-1 lit:border-accent/70 lit:shadow-[0_0_35px_var(--accent-glow)] lg:p-8 lg:pb-6 ${span}`}
         >
           {i === 0 ? (
             <Image src={image} alt="" fill priority sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, calc(100vw - 3rem)" quality={50} className="-z-20 object-cover" />
           ) : (
             <LazyPhoto src={image} sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, calc(100vw - 3rem)" />
           )}
-          <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-t from-canvas via-canvas/70 via-28% to-transparent to-58%" />
+          <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
           {/* Soft corner gradient under the number, so it reads on any photo */}
           <div
             aria-hidden
-            className="absolute inset-0 -z-10 bg-[radial-gradient(circle_240px_at_0_0,color-mix(in_srgb,var(--canvas)_55%,transparent),transparent)]"
+            className="absolute inset-0 -z-10 bg-[radial-gradient(circle_240px_at_0_0,rgba(0,0,0,0.55),transparent)]"
           />
-          <span className="font-inter-display text-[8.55vw] leading-none font-medium tracking-[-0.03em] text-fg md:text-[min(4.6vw,4.5rem)]">{String(i + 1).padStart(2, "0")}</span>
-          <div>
-            <h2 className="font-inter-display text-xl font-medium lg:text-2xl">
+          <span className="font-inter-display text-[8.55vw] relative z-10 leading-none font-medium tracking-[-0.03em] text-white md:text-[min(4.6vw,4.5rem)]">{String(i + 1).padStart(2, "0")}</span>
+          <div className="relative z-10">
+            <h2 className="font-inter-display text-xl font-medium text-white lg:text-2xl">
               {/* The ::after stretches this link over the whole box, so the box itself is clickable */}
               <Link href={href} className="after:absolute after:inset-0 after:content-['']">
                 {title}
               </Link>
             </h2>
-            <p className="mt-px max-w-sm text-sm leading-snug text-fg">{text}</p>
+            <p className="mt-px max-w-sm text-sm leading-snug text-slate-200">{text}</p>
           </div>
         </li>
       ))}

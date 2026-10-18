@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Instrument_Serif } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
@@ -26,6 +26,9 @@ const instrumentSerif = Instrument_Serif({
   // Only the logo and a few figures use it, so it is not worth preloading ahead of the hero photo.
   preload: false,
 });
+
+// viewport-fit=cover lets env(safe-area-inset-bottom) report the phone's floating browser bar / home indicator.
+export const viewport: Viewport = { viewportFit: "cover" };
 
 export const metadata: Metadata = {
   title: "Pegasus Pixels | Socio Tecnológico para la Era Digital",
