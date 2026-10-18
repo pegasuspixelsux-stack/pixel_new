@@ -41,6 +41,17 @@ body {
   color: var(--fg);
 }
 
+/* DoorDash page: DoorDash red instead of the theme accent. A touch darker in light for text contrast. */
+.accent-doordash {
+  --accent: #ff3008;
+  --accent-glow: rgba(255, 48, 8, 0.32);
+}
+
+:root[data-theme="light"] .accent-doordash {
+  --accent: #d92a07;
+  --accent-glow: rgba(217, 42, 7, 0.28);
+}
+
 /* Inter Display (weight 500, opsz 32), loaded as a static cut in app/layout.tsx. */
 .font-inter-display {
   font-family: var(--font-inter), var(--font-geist-sans), sans-serif;

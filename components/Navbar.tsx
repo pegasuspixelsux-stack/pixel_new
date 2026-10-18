@@ -70,12 +70,15 @@ export default function Navbar({ overHero = false }: { overHero?: boolean }) {
                   </button>
 
                   {openDropdown === item.label && (
-                    <div className={`absolute top-full left-1/2 mt-4 w-80 -translate-x-1/2 rounded-2xl border p-2 shadow-xl backdrop-blur-md ${panelTone}`}>
-                      <ul className="flex flex-col">
-                        {item.children.map((child) => (
-                          <DropdownLink key={child.href} item={child} onSelect={closeAll} />
-                        ))}
-                      </ul>
+                    // The pt-4 sits inside the hover area, so the pointer never leaves it on the way from the button to the panel.
+                    <div className="absolute top-full left-1/2 w-80 -translate-x-1/2 pt-4">
+                      <div className={`rounded-2xl border p-2 shadow-xl backdrop-blur-md ${panelTone}`}>
+                        <ul className="flex flex-col">
+                          {item.children.map((child) => (
+                            <DropdownLink key={child.href} item={child} onSelect={closeAll} />
+                          ))}
+                        </ul>
+                      </div>
                     </div>
                   )}
                 </div>

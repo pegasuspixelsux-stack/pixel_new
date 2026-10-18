@@ -17,7 +17,7 @@ const categories = [
 ];
 
 const locations = [
-  { label: "Alta y Optimización DoorDash", href: "/servicios/doordash" },
+  { label: "DoorDash: Registro y Optimización", href: "/servicios/doordash" },
   { label: "Catálogo inteligente", href: "/proyectos" },
   { label: "Captura de leads", href: "/proyectos" },
   { label: "Automatización de ventas", href: "/proyectos" },

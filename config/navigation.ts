@@ -23,7 +23,7 @@ export const mainNav: NavItem[] = [
   {
     label: "Servicios",
     href: "/servicios/doordash",
-    children: [{ label: "Servicio DoorDash", href: "/servicios/doordash" }],
+    children: [{ label: "Registro y Optimización DoorDash", href: "/servicios/doordash" }],
   },
   { label: "Nosotros", href: "/nosotros" },
   { label: "Contacto", href: "#contacto" },
