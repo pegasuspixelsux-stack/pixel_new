@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowDown, ArrowRight, Check, ShieldCheck, X } from "lucide-react";
+import { ArrowDown, ArrowRight, Camera, Check, ShieldCheck, X } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
@@ -312,6 +312,52 @@ export default function DoorDashPage() {
                   Solicitar Auditoría de Menú Actual
                   <ArrowRight size={16} aria-hidden />
                 </Link>
+              </div>
+            </div>
+          </Reveal>
+        </section>
+
+        {/* Quiénes Somos: founder bio, directly above the footer */}
+        <section className="relative mx-auto w-full max-w-[1100px] px-6 py-16 md:py-20">
+          <Reveal>
+            <div className={`${glass} grid gap-8 rounded-3xl p-8 md:grid-cols-[320px_1fr] md:items-center md:gap-12 md:p-12`}>
+              {/* Placeholder for Alejandro González photo */}
+              <div
+                role="img"
+                aria-label="Foto de Alejandro González (pendiente)"
+                className="relative mx-auto flex aspect-square w-full max-w-[320px] items-center justify-center overflow-hidden rounded-2xl border border-fg/10 bg-gradient-to-br from-fg/[0.08] to-fg/[0.02] md:mx-0"
+              >
+                <Camera size={40} aria-hidden className="text-fg/30" />
+              </div>
+
+              <div>
+                <p className={eyebrow}>Sobre Nosotros</p>
+                <h2 className={`${h2} mt-4`}>Quiénes Somos</h2>
+                <h3 className="font-inter-display mt-6 text-xl font-medium md:text-2xl">Alejandro González</h3>
+                <p className="mt-1 text-sm text-fg/60">Fundador de Pegasus Pixels</p>
+
+                <div className="mt-6 flex flex-col gap-4 text-base leading-relaxed text-fg/70">
+                  <p>
+                    Mi nombre es Alejandro González. Durante los últimos 10 años he trabajado mano a mano con restaurantes
+                    de la zona implementando sistemas de punto de venta (POS), plataformas de pedidos en línea, presencia
+                    web profesional y la optimización estratégica de canales de delivery como DoorDash y Uber Eats.
+                  </p>
+                  <p>
+                    Mi objetivo principal es ayudar a cada negocio a maximizar el beneficio de sus ventas digitales,
+                    asegurando que la tecnología trabaje a favor del restaurante y que sus canales de ordenamiento sean
+                    verdaderamente rentables y sostenibles a largo plazo.
+                  </p>
+                </div>
+
+                <div className="mt-8 border-t border-fg/10 pt-6">
+                  <p aria-hidden className="font-serif text-4xl text-accent italic md:text-5xl">
+                    Alejandro González
+                  </p>
+                  <p className="mt-3 text-sm text-fg/70">
+                    <strong className="font-semibold text-fg">Alejandro González</strong> —{" "}
+                    <em>Fundador, Pegasus Pixels</em>
+                  </p>
+                </div>
               </div>
             </div>
           </Reveal>
