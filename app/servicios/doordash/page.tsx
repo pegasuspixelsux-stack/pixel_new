@@ -1,13 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Mrs_Saint_Delafield } from "next/font/google";
-import { ArrowDown, ArrowRight, Camera, Check, ShieldCheck, X } from "lucide-react";
+import { ArrowDown, ArrowRight, Check, ShieldCheck, X } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import LitCard from "@/components/LitCard";
-
-// Handwritten script for the founder's signature; only this page uses it.
-const signature = Mrs_Saint_Delafield({ weight: "400", subsets: ["latin"], display: "swap" });
+import FounderBio from "@/components/FounderBio";
 
 export const metadata: Metadata = {
   title: "DoorDash: Registro y Optimización de Menú | Pegasus Pixels",
@@ -85,7 +82,7 @@ const pegasus = [
   "Precios competitivos frente a la competencia de tu zona",
   "Combos y paquetes pensados para subir el AOV",
   "Registro, tableta y capacitación gestionados por nosotros",
-  "$0 de riesgo inicial: pagas cuando DoorDash te paga",
+  "Sin riesgo inicial: pagas cuando DoorDash te paga",
 ];
 
 const glass = "border border-fg/15 bg-fg/[0.05] backdrop-blur-md";
@@ -156,17 +153,19 @@ export default function DoorDashPage() {
         <section id="nuevos" className="relative mx-auto w-full max-w-[1100px] scroll-mt-24 px-6 pb-20 md:pb-28">
           <div className="reveal-up">
             <p className={eyebrow}>Para Nuevos Restaurantes y Food Trucks</p>
-            <h2 className={`${h2} mt-4 max-w-3xl`}>Servicio Llave en Mano: Registro y Configuración $0 Riesgo Inicial</h2>
+            <h2 className={`${h2} mt-4 max-w-3xl`}>Servicio Llave en Mano: Registro y Configuración Sin Riesgo Inicial</h2>
             <p className="mt-6 max-w-3xl text-base leading-relaxed text-fg/85 md:text-lg">
               Nos encargamos de todo el proceso de registro, trámite de tableta, capacitación y configuración inicial del
-              menú. Honorarios de $1,000 pagaderos solo después de recibir el bono de DoorDash.
+              menú. Nuestros honorarios se pagan solo después de que recibes el bono de bienvenida de DoorDash.
             </p>
           </div>
 
           <div className="reveal-up">
             <div className="mt-10 flex flex-col items-center gap-6 rounded-3xl border border-accent/30 bg-accent/[0.06] p-8 text-center shadow-[0_0_60px_-20px_var(--accent-glow)] backdrop-blur-md md:flex-row md:gap-10 md:p-12 md:text-left">
-              <div className="font-inter-display text-7xl leading-none font-medium tracking-[-0.04em] text-accent md:text-8xl">
-                $0
+              <div className="font-inter-display text-5xl leading-[1.05] font-medium tracking-[-0.03em] text-accent md:text-6xl">
+                Sin
+                <br />
+                riesgo
               </div>
               <div>
                 <p className="flex items-center justify-center gap-2 text-xs font-medium tracking-[0.18em] text-accent uppercase md:justify-start">
@@ -174,9 +173,9 @@ export default function DoorDashPage() {
                   Garantía libre de riesgo
                 </p>
                 <p className="mt-3 text-lg leading-relaxed text-fg/95 md:text-xl">
-                  No pagas nada por adelantado. Nuestro fee de <strong className="text-fg">$1,000</strong> se paga{" "}
+                  No pagas nada por adelantado. Nuestros honorarios se cubren{" "}
                   <strong className="text-fg">únicamente después</strong> de que recibes el bono de bienvenida oficial de
-                  DoorDash.
+                  DoorDash: si tú no ganas, nosotros tampoco.
                 </p>
               </div>
             </div>
@@ -322,52 +321,7 @@ export default function DoorDashPage() {
           </div>
         </section>
 
-        {/* Quiénes Somos: founder bio, directly above the footer */}
-        <section className="relative mx-auto w-full max-w-[1100px] px-6 py-16 md:py-20">
-          <div className="reveal-up">
-            <div className="grid gap-8 md:grid-cols-[320px_1fr] md:items-center md:gap-12">
-              {/* Placeholder for Alejandro González photo */}
-              <div
-                role="img"
-                aria-label="Foto de Alejandro González (pendiente)"
-                className="relative mx-auto flex aspect-square w-full items-center justify-center overflow-hidden rounded-2xl border border-fg/10 bg-gradient-to-br from-fg/[0.08] to-fg/[0.02] md:mx-0"
-              >
-                <Camera size={40} aria-hidden className="text-fg/30" />
-              </div>
-
-              <div>
-                <p className={eyebrow}>Sobre Nosotros</p>
-                <h2 className={`${h2} mt-4`}>Quiénes Somos</h2>
-                <h3 className="font-inter-display mt-6 text-xl font-medium md:text-2xl">Alejandro González</h3>
-                <p className="mt-1 text-sm text-fg/75">Fundador de Pegasus Pixels</p>
-
-                <div className="mt-6 flex flex-col gap-4 text-base leading-relaxed text-fg/85">
-                  <p>
-                    Mi nombre es Alejandro González. Durante los últimos 10 años he trabajado mano a mano con restaurantes
-                    de la zona implementando sistemas de punto de venta (POS), plataformas de pedidos en línea, presencia
-                    web profesional y la optimización estratégica de canales de delivery como DoorDash y Uber Eats.
-                  </p>
-                  <p>
-                    Mi objetivo principal es ayudar a cada negocio a maximizar el beneficio de sus ventas digitales,
-                    asegurando que la tecnología trabaje a favor del restaurante y que sus canales de ordenamiento sean
-                    verdaderamente rentables y sostenibles a largo plazo.
-                  </p>
-                </div>
-
-                <div className="mt-8">
-                  {/* Ink follows the theme: black on the light theme, white on the dark one (black would vanish there) */}
-                  <p aria-hidden className={`${signature.className} whitespace-nowrap text-[2.75rem] leading-tight text-fg sm:text-6xl md:text-7xl`}>
-                    Alejandro González
-                  </p>
-                  <p className="mt-3 text-sm text-fg/85">
-                    <strong className="font-semibold text-fg">Alejandro González</strong> —{" "}
-                    <em>Fundador, Pegasus Pixels</em>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        <FounderBio />
       </main>
       <Footer />
     </>

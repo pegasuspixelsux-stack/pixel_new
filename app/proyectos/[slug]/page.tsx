@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ArrowLeft, Check } from "lucide-react";
 import { initialProjects, projectBySlug, relatedProjects, type ProjectStatus } from "@/config/projects";
@@ -6,6 +7,8 @@ import { siteConfig } from "@/config/site.config";
 import Footer from "@/components/Footer";
 import CtaBanner from "@/components/CtaBanner";
 import ProjectCard from "@/components/ProjectCard";
+import ProjectLanding from "@/components/ProjectLanding";
+import { projectLandingBySlug, projectLandings } from "@/config/project-landings";
 
 const statusTone: Record<ProjectStatus, string> = {
   Activo: "bg-emerald-400/90 text-[#0D0E12]",
@@ -13,8 +16,17 @@ const statusTone: Record<ProjectStatus, string> = {
   Completado: "bg-white/20 text-white",
 };
 
+// /proyectos/[slug] serves two kinds of pages: the landing template (config/project-landings.ts: oikos, dealio,
+// talos, nauta) and the original case studies (config/projects.ts). Landing slugs are checked first.
 export function generateStaticParams() {
-  return initialProjects.map((project) => ({ slug: project.slug }));
+  return [...projectLandings, ...initialProjects].map((item) => ({ slug: item.slug }));
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const landing = projectLandingBySlug(slug);
+  if (!landing) return {};
+  return { title: `${landing.title} | Pegasus Pixels`, description: landing.heroDescription };
 }
 
 export default async function ProjectDetailPage({
@@ -23,6 +35,9 @@ export default async function ProjectDetailPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
+  const landing = projectLandingBySlug(slug);
+  if (landing) return <ProjectLanding landing={landing} />;
+
   const project = projectBySlug(slug);
   if (!project) notFound();
 

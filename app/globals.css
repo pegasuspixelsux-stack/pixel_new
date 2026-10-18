@@ -76,6 +76,58 @@ body {
   --on-brand: #ffffff;
 }
 
+/* Per-project accent palettes for the landing template (ProjectLandingConfig.accentColor). A bright tone on
+   dark, a deeper one on light so text stays readable. */
+.accent-emerald {
+  --accent: #34d399;
+  --accent-glow: rgba(52, 211, 153, 0.32);
+}
+
+:root[data-theme="light"] .accent-emerald {
+  --accent: #059669;
+  --accent-glow: rgba(5, 150, 105, 0.28);
+}
+
+.accent-blue {
+  --accent: #60a5fa;
+  --accent-glow: rgba(96, 165, 250, 0.32);
+}
+
+:root[data-theme="light"] .accent-blue {
+  --accent: #2563eb;
+  --accent-glow: rgba(37, 99, 235, 0.28);
+}
+
+.accent-amber {
+  --accent: #fbbf24;
+  --accent-glow: rgba(251, 191, 36, 0.32);
+}
+
+:root[data-theme="light"] .accent-amber {
+  --accent: #b45309;
+  --accent-glow: rgba(180, 83, 9, 0.28);
+}
+
+.accent-cyan {
+  --accent: #22d3ee;
+  --accent-glow: rgba(34, 211, 238, 0.32);
+}
+
+:root[data-theme="light"] .accent-cyan {
+  --accent: #0e7490;
+  --accent-glow: rgba(14, 116, 144, 0.28);
+}
+
+.accent-rose {
+  --accent: #fb7185;
+  --accent-glow: rgba(251, 113, 133, 0.32);
+}
+
+:root[data-theme="light"] .accent-rose {
+  --accent: #e11d48;
+  --accent-glow: rgba(225, 29, 72, 0.28);
+}
+
 /* Inter Display (weight 500, opsz 32), loaded as a static cut in app/layout.tsx. */
 .font-inter-display {
   font-family: var(--font-inter), var(--font-geist-sans), sans-serif;
