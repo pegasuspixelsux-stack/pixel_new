@@ -3,7 +3,7 @@ import { ArrowRight, Star } from "lucide-react";
 import Pillars from "@/components/Pillars";
 
 // Each capability is its own stacked line, ending with the star. Rows alternate full and a lighter (60%) text color; the stars stay solid.
-const lines = ["Tu socio tecnológico", "Diseñamos tu infraestructura digital", "Ecosistemas digitales", "Agentes & Automatizaciones"];
+const lines = ["Tu socio tecnológico", "Diseñamos tu infraestructura digital", "Ecosistemas comerciales", "Agentes & Automatizaciones"];
 
 export default function Hero() {
   return (

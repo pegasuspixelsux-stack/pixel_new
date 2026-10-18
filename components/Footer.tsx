@@ -18,9 +18,13 @@ const categories = [
 ];
 
 const locations = [
-  { label: "DoorDash: Registro y Optimización", href: "/servicios/doordash" },
-  ...serviceLinks.map((service) => ({ label: service.label, href: `/servicios/${service.slug}` })),
+  // The four ecosystem services first, then the diagnostic link; DoorDash and Ingeniería de Menú close the list.
+  ...serviceLinks.slice(0, 4).map((service) => ({ label: service.label, href: `/servicios/${service.slug}` })),
   { label: "Diagnóstico operativo", href: "/#contacto" },
+  ...serviceLinks.slice(4).map((service) => ({
+    label: "footerLabel" in service ? service.footerLabel : service.label,
+    href: `/servicios/${service.slug}`,
+  })),
 ];
 
 const legal = [

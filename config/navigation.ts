@@ -25,7 +25,6 @@ export const mainNav: NavItem[] = [
     label: "Servicios",
     href: "/servicios/doordash",
     children: [
-      { label: "Registro y Optimización DoorDash", href: "/servicios/doordash" },
       ...serviceLinks.map((service) => ({ label: service.label, href: `/servicios/${service.slug}` })),
     ],
   },
