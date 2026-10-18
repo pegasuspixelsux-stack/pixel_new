@@ -40,7 +40,7 @@ export default function Pillars() {
           <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-t from-black/80 via-black/40 to-black/20" />
           <span className="font-mono text-xs text-white/70">{String(i + 1).padStart(2, "0")}</span>
           <div>
-            <h3 className="font-inter-display text-xl font-medium lg:text-2xl">{title}</h3>
+            <h2 className="font-inter-display text-xl font-medium lg:text-2xl">{title}</h2>
             <p className="mt-2 max-w-sm text-sm leading-relaxed text-white/80">{text}</p>
           </div>
         </li>
