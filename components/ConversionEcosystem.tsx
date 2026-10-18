@@ -77,25 +77,30 @@ function ServiceCard({ item }: { item: (typeof services)[number] }) {
       ref={ref}
       data-lit={lit}
       variants={rise}
-      className={`group relative flex flex-col justify-between gap-6 isolate overflow-hidden rounded-2xl aspect-square border border-fg/15 bg-canvas p-5 text-fg lg:p-12 transition-all duration-300 ease-out motion-safe:lit:-translate-y-1 ${item.card}`}
+      className={`group relative flex flex-col justify-between gap-6 isolate overflow-hidden rounded-2xl aspect-square border border-fg/15 bg-canvas p-5 pb-4 text-fg lg:p-12 lg:pb-8 transition-all duration-300 ease-out motion-safe:lit:-translate-y-1 ${item.card}`}
     >
       <LazyPhoto src={item.image} sizes="(min-width: 640px) 50vw, calc(100vw - 3rem)" margin="300px" />
-      <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-t from-canvas/95 via-canvas/55 to-transparent" />
+      <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-t from-canvas/90 via-canvas/45 via-40% to-transparent to-72%" />
+      {/* Soft corner gradient under the number, so it reads on any photo */}
+      <div
+        aria-hidden
+        className="absolute inset-0 -z-10 bg-[radial-gradient(circle_240px_at_0_0,color-mix(in_srgb,var(--canvas)_55%,transparent),transparent)]"
+      />
 
       <div className="flex items-center justify-between">
-        <span className="font-inter-display text-[min(8.55vw,2.5rem)] leading-none font-medium tracking-[-0.03em] text-accent md:text-[min(4.6vw,4.5rem)]">
+        <span className="font-inter-display text-[min(8.55vw,2.5rem)] leading-none font-medium tracking-[-0.03em] text-fg md:text-[min(4.6vw,4.5rem)]">
           {item.id}
         </span>
       </div>
 
-      <div className="flex flex-col gap-6">
-        <div className="flex flex-col gap-2">
-          <h3 className="font-serif text-xl leading-snug lg:text-4xl">{item.title}</h3>
+      <div className="flex flex-col gap-2 lg:gap-3">
+        <div className="flex flex-col gap-0.5 lg:gap-1">
           <p
             className={`font-mono text-xs tracking-wider uppercase ${item.accent}`}
           >
             {item.subheading}
           </p>
+          <h3 className="font-serif text-xl leading-snug lg:text-4xl">{item.title}</h3>
         </div>
 
         <p className="text-xs leading-snug text-fg/90 lg:text-base lg:leading-relaxed transition-colors duration-300 group-lit:text-fg">
