@@ -5,6 +5,7 @@ import { Feather } from "lucide-react";
 import ThemeSelector from "@/components/ThemeSelector";
 import { siteConfig } from "@/config/site.config";
 import { mainNav } from "@/config/navigation";
+import { serviceLinks } from "@/config/service-links";
 
 // Same items as the header, plus the login link.
 const navigation = [...mainNav, { label: "Ingresar", href: "/login" }];
@@ -18,16 +19,16 @@ const categories = [
 
 const locations = [
   { label: "DoorDash: Registro y Optimización", href: "/servicios/doordash" },
-  { label: "Catálogo inteligente", href: "/proyectos" },
-  { label: "Captura de leads", href: "/proyectos" },
-  { label: "Automatización de ventas", href: "/proyectos" },
-  { label: "Diagnóstico operativo", href: "#contacto" },
+  ...serviceLinks.map((service) => ({ label: service.label, href: `/servicios/${service.slug}` })),
+  { label: "Diagnóstico operativo", href: "/#contacto" },
 ];
 
 const legal = [
   { label: "Política de Privacidad", href: "#" },
   { label: "Términos de Uso", href: "#" },
   { label: "Política de Cookies", href: "#" },
+  // Opens the dashboard; logged-out visitors are sent to the login page first.
+  { label: "Admin", href: "/dashboard" },
 ];
 
 const columnHeading = "mb-4 text-xs font-medium tracking-wider text-fg uppercase";

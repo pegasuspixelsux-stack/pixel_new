@@ -66,11 +66,31 @@ const details = [
 
 export default function Contact() {
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  // No CRM is connected yet, so this only confirms locally. Wire it to the lead store when Firebase lands.
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  // Sends the inquiry to /api/leads, which stores it for the dashboard (config for the real CRM comes later).
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setSent(true);
+    setError(null);
+    setSending(true);
+    const form = new FormData(event.currentTarget);
+    try {
+      const res = await fetch("/api/leads", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(Object.fromEntries(form.entries())),
+      });
+      if (!res.ok) {
+        const data = (await res.json().catch(() => null)) as { error?: string } | null;
+        setError(data?.error ?? "No pudimos enviar su consulta. Intente de nuevo.");
+      } else {
+        setSent(true);
+      }
+    } catch {
+      setError("No pudimos conectar. Revise su conexión e intente de nuevo.");
+    }
+    setSending(false);
   }
 
   return (
@@ -142,6 +162,8 @@ export default function Contact() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+                  {/* Honeypot: hidden from people, bots fill it */}
+                  <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden className="hidden" />
                   <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                     <div>
                       <label htmlFor="contact-name" className={labelClass}>
@@ -200,10 +222,16 @@ export default function Contact() {
 
                   <button
                     type="submit"
+                    disabled={sending}
                     className="mt-1 w-full rounded-full bg-fg py-3.5 text-sm font-medium text-canvas transition-[background-color,transform,box-shadow] duration-200 ease-out hover:bg-fg/90 hover:shadow-lg active:scale-[0.98]"
                   >
-                    Enviar consulta
+                    {sending ? "Enviando…" : "Enviar consulta"}
                   </button>
+                  {error && (
+                    <p role="alert" className="text-sm text-red-500">
+                      {error}
+                    </p>
+                  )}
                 </form>
               )}
             </div>

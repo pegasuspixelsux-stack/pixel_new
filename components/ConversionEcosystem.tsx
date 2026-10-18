@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import LazyPhoto from "@/components/LazyPhoto";
 import * as m from "motion/react-m";
 import { useCenterLit } from "@/components/useCenterLit";
@@ -24,6 +26,7 @@ const stagger = {
 const services = [
   {
     id: "01",
+    slug: "catalogos-digitales",
     image: "/photos/1460925895917-afdab827c52f.webp",
     title: "Catálogos Digitales",
     subheading: "Exposición Inteligente de Inventario",
@@ -34,6 +37,7 @@ const services = [
   },
   {
     id: "02",
+    slug: "agente-de-calificacion",
     image: "/photos/1519389950473-47ba0277781c.webp",
     title: "Agente de Calificación",
     subheading: "Filtro & Captura en Tiempo Real",
@@ -44,6 +48,7 @@ const services = [
   },
   {
     id: "03",
+    slug: "conexion-directa",
     image: "/photos/1556761175-5973dc0f32e7.webp",
     title: "Conexión Directa",
     subheading: "Cierre Comercial en Un Clic",
@@ -54,6 +59,7 @@ const services = [
   },
   {
     id: "04",
+    slug: "pipeline-de-seguimiento",
     image: "/photos/1504384308090-c894fdcc538d.webp",
     title: "Pipeline de Seguimiento",
     subheading: "Estandarización & Trazabilidad",
@@ -71,13 +77,13 @@ function ServiceCard({ item }: { item: (typeof services)[number] }) {
       ref={ref}
       data-lit={lit}
       variants={rise}
-      className={`group relative flex flex-col justify-between gap-6 isolate overflow-hidden rounded-2xl aspect-square border border-fg/10 bg-black p-5 text-white lg:p-12 transition-all duration-300 ease-out motion-safe:lit:-translate-y-1 ${item.card}`}
+      className={`group relative flex flex-col justify-between gap-6 isolate overflow-hidden rounded-2xl aspect-square border border-fg/15 bg-canvas p-5 text-fg lg:p-12 transition-all duration-300 ease-out motion-safe:lit:-translate-y-1 ${item.card}`}
     >
       <LazyPhoto src={item.image} sizes="(min-width: 640px) 50vw, calc(100vw - 3rem)" margin="300px" />
-      <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-t from-black/90 via-black/60 to-black/30" />
+      <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-t from-canvas/95 via-canvas/55 to-transparent" />
 
       <div className="flex items-center justify-between">
-        <span className="font-mono text-xs tracking-wider text-white/70">
+        <span className="font-inter-display text-[min(8.55vw,2.5rem)] leading-none font-medium tracking-[-0.03em] text-accent md:text-[min(4.6vw,4.5rem)]">
           {item.id}
         </span>
       </div>
@@ -92,9 +98,17 @@ function ServiceCard({ item }: { item: (typeof services)[number] }) {
           </p>
         </div>
 
-        <p className="text-xs leading-snug text-white/80 lg:text-base lg:leading-relaxed transition-colors duration-300 group-lit:text-white">
+        <p className="text-xs leading-snug text-fg/90 lg:text-base lg:leading-relaxed transition-colors duration-300 group-lit:text-fg">
           {item.description}
         </p>
+        {/* The ::after stretches this link over the whole card, so the card itself is clickable */}
+        <Link
+          href={`/servicios/${item.slug}`}
+          className="inline-flex w-fit items-center gap-2 text-sm font-medium text-accent after:absolute after:inset-0 after:content-['']"
+        >
+          Ver servicio
+          <ArrowRight size={14} aria-hidden className="transition-transform duration-200 group-lit:translate-x-1" />
+        </Link>
       </div>
     </m.div>
   );

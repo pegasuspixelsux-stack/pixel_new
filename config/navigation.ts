@@ -2,6 +2,7 @@
 // Main navigation shared by the header (desktop and mobile drawer) and the footer, so labels and paths stay identical.
 
 import { initialProjects } from "@/config/projects";
+import { serviceLinks } from "@/config/service-links";
 
 export interface NavItem {
   label: string;
@@ -23,7 +24,10 @@ export const mainNav: NavItem[] = [
   {
     label: "Servicios",
     href: "/servicios/doordash",
-    children: [{ label: "Registro y Optimización DoorDash", href: "/servicios/doordash" }],
+    children: [
+      { label: "Registro y Optimización DoorDash", href: "/servicios/doordash" },
+      ...serviceLinks.map((service) => ({ label: service.label, href: `/servicios/${service.slug}` })),
+    ],
   },
   { label: "Nosotros", href: "/nosotros" },
   { label: "Contacto", href: "#contacto" },

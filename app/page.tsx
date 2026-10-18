@@ -10,6 +10,8 @@ import Reveal from "@/components/Reveal";
 export default function Home() {
   return (
     <>
+      {/* Thin accent bar that fills as the page scrolls (CSS scroll-driven, see globals.css) */}
+      <div aria-hidden className="scroll-progress" />
       <Navbar overHero />
       <main className="relative flex w-full flex-1 flex-col">
         <Hero />

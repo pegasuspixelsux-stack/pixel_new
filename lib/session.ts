@@ -7,8 +7,9 @@ export const SESSION_MAX_AGE_SECONDS = 60 * 60 * 8; // 8 hours
 const encoder = new TextEncoder();
 
 async function hmacHex(message: string): Promise<string> {
-  const secret = process.env.SESSION_SECRET;
-  if (!secret) throw new Error("SESSION_SECRET is not set");
+  // The fallback only keeps the open demo login working when SESSION_SECRET is not configured. Set a real
+  // SESSION_SECRET in production (and replace this whole file with Firebase Auth).
+  const secret = process.env.SESSION_SECRET || "pegasus-demo-session-secret-change-me";
 
   const key = await crypto.subtle.importKey(
     "raw",

@@ -33,18 +33,18 @@ export default function Pillars() {
       {boxes.map(({ title, image, text, span }, i) => (
         <li
           key={title}
-          className={`relative isolate flex flex-col justify-between overflow-hidden rounded-2xl border border-white/15 bg-black p-6 text-white transition-[border-color,box-shadow,transform] duration-300 ease-out motion-safe:lit:-translate-y-1 lit:border-accent/70 lit:shadow-[0_0_35px_var(--accent-glow)] lg:p-8 ${span}`}
+          className={`relative isolate flex flex-col justify-between overflow-hidden rounded-2xl border border-fg/15 bg-canvas p-6 text-fg transition-[border-color,box-shadow,transform] duration-300 ease-out motion-safe:lit:-translate-y-1 lit:border-accent/70 lit:shadow-[0_0_35px_var(--accent-glow)] lg:p-8 ${span}`}
         >
           {i === 0 ? (
             <Image src={image} alt="" fill priority sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, calc(100vw - 3rem)" quality={50} className="-z-20 object-cover" />
           ) : (
             <LazyPhoto src={image} sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, calc(100vw - 3rem)" />
           )}
-          <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-t from-black/80 via-black/40 to-black/20" />
-          <span className="font-mono text-xs text-white/70">{String(i + 1).padStart(2, "0")}</span>
+          <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-t from-canvas/95 via-canvas/55 to-transparent" />
+          <span className="font-inter-display text-[8.55vw] leading-none font-medium tracking-[-0.03em] text-accent md:text-[min(4.6vw,4.5rem)]">{String(i + 1).padStart(2, "0")}</span>
           <div>
             <h2 className="font-inter-display text-xl font-medium lg:text-2xl">{title}</h2>
-            <p className="mt-2 max-w-sm text-sm leading-relaxed text-white/80">{text}</p>
+            <p className="mt-2 max-w-sm text-sm leading-relaxed text-fg/90">{text}</p>
           </div>
         </li>
       ))}

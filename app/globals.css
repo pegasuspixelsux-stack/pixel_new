@@ -17,8 +17,20 @@
   --surface: #ffffff;
   --section: #ffffff;
   --fg: #0d0e12;
-  --accent: #2563eb;
-  --accent-glow: rgba(37, 99, 235, 0.3);
+  --accent: #1e40af;
+  --accent-glow: rgba(30, 64, 175, 0.3);
+  color-scheme: light;
+}
+
+/* The dashboard always uses the light theme, whatever theme the visitor saved for the public site. Same
+   values as :root[data-theme="light"], plus the light accent. */
+.theme-light {
+  --canvas: #ffffff;
+  --surface: #ffffff;
+  --section: #ffffff;
+  --fg: #0d0e12;
+  --accent: #1e40af;
+  --accent-glow: rgba(30, 64, 175, 0.3);
   color-scheme: light;
 }
 
@@ -126,6 +138,48 @@ body {
 :root[data-theme="light"] .accent-rose {
   --accent: #e11d48;
   --accent-glow: rgba(225, 29, 72, 0.28);
+}
+
+/* Home page scroll effects, driven by the page scroll in CSS (no JavaScript). Browsers without scroll-driven
+   animations, and visitors who prefer reduced motion, simply get the static page. */
+@keyframes scroll-progress {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes hero-exit {
+  to {
+    opacity: 0.15;
+    transform: translateY(-64px) scale(0.98);
+  }
+}
+
+.scroll-progress {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 60;
+  height: 3px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  pointer-events: none;
+}
+
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .scroll-progress {
+      animation: scroll-progress linear both;
+      animation-timeline: scroll(root block);
+    }
+
+    /* Starts only once the hero begins to leave the screen, so the first paint is unaffected. */
+    .hero-exit {
+      animation: hero-exit linear both;
+      animation-timeline: view();
+      animation-range: exit 10% exit 90%;
+    }
+  }
 }
 
 /* Inter Display (weight 500, opsz 32), loaded as a static cut in app/layout.tsx. */

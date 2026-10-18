@@ -4,39 +4,21 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import * as m from "motion/react-m";
-import {
-  ChevronLeft,
-  ChevronRight,
-  LayoutDashboard,
-  LayoutGrid,
-  MessageSquare,
-  Settings,
-  Users,
-  type LucideIcon,
-} from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { siteConfig } from "@/config/site.config";
-
-const NAV_ITEMS: { label: string; href: string; icon: LucideIcon }[] = [
-  { label: "Panel de Control", href: "/dashboard", icon: LayoutDashboard },
-  { label: "Proyectos / Casos", href: "/dashboard/proyectos", icon: LayoutGrid },
-  { label: "Usuarios & Clientes", href: "/dashboard/users", icon: Users },
-  { label: "Leads & Consultas", href: "/dashboard/leads", icon: MessageSquare },
-  { label: "Configuración", href: "/dashboard/settings", icon: Settings },
-];
+import { NAV_ITEMS, isNavActive } from "@/components/dashboard-nav";
 
 export default function DashboardSidebar() {
   const pathname = usePathname();
   const [collapsed, setCollapsed] = useState(false);
 
-  // The overview only matches exactly; the other pages also match their sub-routes.
-  const isActive = (href: string) =>
-    href === "/dashboard" ? pathname === href : pathname.startsWith(href);
+  const isActive = (href: string) => isNavActive(pathname, href);
 
   return (
     <m.aside
       animate={{ width: collapsed ? 80 : 256 }}
       transition={{ type: "spring", stiffness: 260, damping: 32 }}
-      className="sticky top-0 flex h-screen shrink-0 flex-col justify-between overflow-hidden border-r border-fg/10 bg-surface/60 p-4 backdrop-blur-md"
+      className="sticky top-0 flex h-screen shrink-0 flex-col justify-between overflow-hidden border-r border-white/10 bg-black p-4 text-white backdrop-blur-md"
     >
       <div className="flex flex-col gap-10">
         <div className="flex items-center justify-between gap-2 px-2 pt-2">
@@ -46,7 +28,7 @@ export default function DashboardSidebar() {
             onClick={() => setCollapsed((v) => !v)}
             aria-label={collapsed ? "Expandir menú" : "Contraer menú"}
             aria-expanded={!collapsed}
-            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-fg/15 text-fg/70 transition-[background-color,transform] duration-200 hover:bg-fg/10 hover:text-fg active:scale-[0.94]"
+            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/15 text-white/70 transition-[background-color,transform] duration-200 hover:bg-white/10 hover:text-white active:scale-[0.94]"
           >
             {collapsed ? <ChevronRight size={16} aria-hidden /> : <ChevronLeft size={16} aria-hidden />}
           </button>
@@ -62,7 +44,7 @@ export default function DashboardSidebar() {
                 aria-current={active ? "page" : undefined}
                 title={collapsed ? label : undefined}
                 className={`flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm transition-colors duration-200 ${
-                  active ? "bg-fg/10 text-fg" : "text-fg/60 hover:bg-fg/5 hover:text-fg"
+                  active ? "bg-white/10 text-white" : "text-white/60 hover:bg-white/5 hover:text-white"
                 }`}
               >
                 <Icon size={18} strokeWidth={1.5} aria-hidden className="shrink-0" />
@@ -75,7 +57,7 @@ export default function DashboardSidebar() {
 
       <Link
         href="/"
-        className={`flex items-center gap-3 rounded-xl px-3 py-2.5 text-xs text-fg/50 transition-colors duration-200 hover:text-fg ${
+        className={`flex items-center gap-3 rounded-xl px-3 py-2.5 text-xs text-white/50 transition-colors duration-200 hover:text-white ${
           collapsed ? "justify-center" : ""
         }`}
       >
