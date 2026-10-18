@@ -8,7 +8,7 @@ import Reveal from "@/components/Reveal";
 export const metadata: Metadata = {
   title: "DoorDash: Registro y Optimización de Menú | Pegasus Pixels",
   description:
-    "Dos servicios para restaurantes y food trucks de Maryland: registro llave en mano en DoorDash sin riesgo inicial, o auditoría inteligente de tu menú actual para proteger tus márgenes.",
+    "Dos servicios para restaurantes y food trucks de Maryland, Washington D.C., Virginia, Delaware y Pennsylvania: registro llave en mano en DoorDash sin riesgo inicial, o auditoría inteligente de tu menú actual para proteger tus márgenes.",
 };
 
 const CTA_HREF = "/#contacto";
@@ -113,8 +113,8 @@ export default function DoorDashPage() {
             Registro y Optimización de Menú en <span className="text-accent">DoorDash</span>
           </h1>
           <p className="mx-auto mt-8 max-w-2xl text-base leading-relaxed text-fg/70 md:text-lg">
-            Dos servicios según dónde estés hoy, para restaurantes y food trucks de Maryland: activamos tu tienda sin
-            riesgo inicial, o auditamos tu menú actual para proteger tus márgenes.
+            Dos servicios según dónde estés hoy, para restaurantes y food trucks de Maryland, Washington D.C., Virginia, Delaware y
+            Pennsylvania: activamos tu tienda sin riesgo inicial, o auditamos tu menú actual para proteger tus márgenes.
           </p>
 
           <div className="mt-12 grid w-full gap-4 text-left md:grid-cols-2 md:gap-6">
