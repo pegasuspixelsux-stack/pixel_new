@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import LazyPhoto from "@/components/LazyPhoto";
 import { bottomRow, topRow } from "@/config/featured";
 
@@ -20,8 +21,9 @@ const spans = [
   "lg:col-span-3 aspect-square lg:aspect-auto",
 ];
 
-const boxes = [...topRow, ...bottomRow].map(({ title, description }, i) => ({
+const boxes = [...topRow, ...bottomRow].map(({ title, description, href }, i) => ({
   title,
+  href,
   text: description,
   image: photos[i],
   span: spans[i],
@@ -30,7 +32,7 @@ const boxes = [...topRow, ...bottomRow].map(({ title, description }, i) => ({
 export default function Pillars() {
   return (
     <ul className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-6 lg:auto-rows-fr lg:gap-6">
-      {boxes.map(({ title, image, text, span }, i) => (
+      {boxes.map(({ title, href, image, text, span }, i) => (
         <li
           key={title}
           className={`relative isolate flex flex-col justify-between overflow-hidden rounded-2xl border border-fg/15 bg-canvas p-6 pb-5 text-fg transition-[border-color,box-shadow,transform] duration-300 ease-out motion-safe:lit:-translate-y-1 lit:border-accent/70 lit:shadow-[0_0_35px_var(--accent-glow)] lg:p-8 lg:pb-6 ${span}`}
@@ -40,7 +42,7 @@ export default function Pillars() {
           ) : (
             <LazyPhoto src={image} sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, calc(100vw - 3rem)" />
           )}
-          <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-t from-canvas/90 via-canvas/40 via-30% to-transparent to-55%" />
+          <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-t from-canvas via-canvas/70 via-28% to-transparent to-58%" />
           {/* Soft corner gradient under the number, so it reads on any photo */}
           <div
             aria-hidden
@@ -48,8 +50,13 @@ export default function Pillars() {
           />
           <span className="font-inter-display text-[8.55vw] leading-none font-medium tracking-[-0.03em] text-fg md:text-[min(4.6vw,4.5rem)]">{String(i + 1).padStart(2, "0")}</span>
           <div>
-            <h2 className="font-inter-display text-xl font-medium lg:text-2xl">{title}</h2>
-            <p className="mt-1 max-w-sm text-sm leading-relaxed text-fg/90">{text}</p>
+            <h2 className="font-inter-display text-xl font-medium lg:text-2xl">
+              {/* The ::after stretches this link over the whole box, so the box itself is clickable */}
+              <Link href={href} className="after:absolute after:inset-0 after:content-['']">
+                {title}
+              </Link>
+            </h2>
+            <p className="mt-px max-w-sm text-sm leading-snug text-fg">{text}</p>
           </div>
         </li>
       ))}

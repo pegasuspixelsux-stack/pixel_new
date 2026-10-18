@@ -80,7 +80,7 @@ function ServiceCard({ item }: { item: (typeof services)[number] }) {
       className={`group relative flex flex-col justify-between gap-6 isolate overflow-hidden rounded-2xl aspect-square border border-fg/15 bg-canvas p-5 pb-4 text-fg lg:p-12 lg:pb-8 transition-all duration-300 ease-out motion-safe:lit:-translate-y-1 ${item.card}`}
     >
       <LazyPhoto src={item.image} sizes="(min-width: 640px) 50vw, calc(100vw - 3rem)" margin="300px" />
-      <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-t from-canvas/90 via-canvas/45 via-40% to-transparent to-72%" />
+      <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-t from-canvas via-canvas/70 via-34% to-transparent to-70%" />
       {/* Soft corner gradient under the number, so it reads on any photo */}
       <div
         aria-hidden
@@ -93,8 +93,8 @@ function ServiceCard({ item }: { item: (typeof services)[number] }) {
         </span>
       </div>
 
-      <div className="flex flex-col gap-2 lg:gap-3">
-        <div className="flex flex-col gap-0.5 lg:gap-1">
+      <div className="flex flex-col gap-1 lg:gap-2">
+        <div className="flex flex-col gap-0 lg:gap-0.5">
           <p
             className={`font-mono text-xs tracking-wider uppercase ${item.accent}`}
           >
@@ -103,7 +103,7 @@ function ServiceCard({ item }: { item: (typeof services)[number] }) {
           <h3 className="font-serif text-xl leading-snug lg:text-4xl">{item.title}</h3>
         </div>
 
-        <p className="text-xs leading-snug text-fg/90 lg:text-base lg:leading-relaxed transition-colors duration-300 group-lit:text-fg">
+        <p className="-mt-0.5 text-xs leading-snug text-fg lg:-mt-1 lg:text-base lg:leading-normal transition-colors duration-300 group-lit:text-fg">
           {item.description}
         </p>
         {/* The ::after stretches this link over the whole card, so the card itself is clickable */}

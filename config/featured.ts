@@ -79,7 +79,7 @@ export const bottomRow: FeaturedProject[] = [
     description:
       "El motor central sobre el que corren nuestras plataformas verticales: inventario, calificación de prospectos y seguimiento comercial.",
     category: "Operaciones",
-    href: "/proyectos",
+    href: "/proyectos/talos",
     glow: "lit:border-yellow-500/60 lit:shadow-[0_0_35px_rgba(250,204,21,0.18)]",
     accent: "text-yellow-500",
   },
