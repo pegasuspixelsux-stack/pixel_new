@@ -46,7 +46,9 @@ export default function DashboardSettingsPage() {
           rows={[
             ["Correo electrónico", siteConfig.contact.email],
             ["Teléfono", siteConfig.contact.phone],
-            ["Dirección", `${siteConfig.address.street}, ${siteConfig.address.city}`],
+            ["Teléfono EE. UU.", siteConfig.contact.usPhone],
+            ["WhatsApp", siteConfig.contact.whatsapp],
+            ["Ubicación", `${siteConfig.address.city}, ${siteConfig.address.state}, ${siteConfig.address.country}`],
           ]}
         />
       </div>

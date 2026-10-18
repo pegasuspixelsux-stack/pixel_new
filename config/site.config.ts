@@ -14,6 +14,7 @@ export interface SiteConfig {
   contact: {
     email: string;
     phone: string;
+    usPhone: string;
     whatsapp: string;
   };
   assets: {
@@ -42,17 +43,18 @@ export const siteConfig: SiteConfig = {
     zip: "20000",
   },
   contact: {
-    email: "contacto@pegasustalos.com",
-    phone: "+598 99 123 456",
-    whatsapp: "+59899123456",
+    email: "alejandro@pegasuspixels.com",
+    phone: "+598 91 028 324",
+    usPhone: "+1 202 422 4760",
+    whatsapp: "+12024224760",
   },
   assets: {
     heroImage:
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2560&auto=format&fit=crop",
+      "/photos/1600585154340-be6161a56a0c.webp",
     loginBackground:
-      "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2560&auto=format&fit=crop",
+      "/photos/1618005182384-a83a8bd57fbe.webp",
     placeholderProperty:
-      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=800&auto=format&fit=crop",
+      "/photos/1600596542815-ffad4c1539a9.webp",
   },
   settings: {
     currency: "USD",

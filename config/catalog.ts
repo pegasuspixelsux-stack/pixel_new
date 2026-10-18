@@ -37,10 +37,10 @@ export function badgeLabel(property: Property): string {
 }
 
 const galleryImages = [
-  "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2560&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2560&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2560&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?q=80&w=2560&auto=format&fit=crop",
+  "/photos/1600596542815-ffad4c1539a9.webp",
+  "/photos/1600585154340-be6161a56a0c.webp",
+  "/photos/1600607687939-ce8a6c25118c.webp",
+  "/photos/1600566753376-12c8ab7fb75b.webp",
 ];
 
 export const properties: Property[] = [
@@ -54,10 +54,10 @@ export const properties: Property[] = [
     status: "Available",
     specs: { sqm: 480, bedrooms: 4, bathrooms: 5, parking: 3 },
     images: [
-      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2560&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2560&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2560&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?q=80&w=2560&auto=format&fit=crop",
+      "/photos/1600596542815-ffad4c1539a9.webp",
+      "/photos/1600585154340-be6161a56a0c.webp",
+      "/photos/1600607687939-ce8a6c25118c.webp",
+      "/photos/1600566753376-12c8ab7fb75b.webp",
     ],
     description: [
       "Ubicada en una de las zonas más exclusivas de José Ignacio, Villa Manantiales combina una arquitectura contemporánea de líneas puras con terminaciones en madera noble y piedra local. Diseñada para maximizar la luz natural y brindar vistas panorámicas al océano Atlántico.",
@@ -154,7 +154,7 @@ export const properties: Property[] = [
     price: 1_250_000,
     status: "Available",
     specs: { sqm: 380, bedrooms: 4, bathrooms: 5, parking: 3 },
-    images: ["https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1200&auto=format&fit=crop"],
+    images: ["/photos/1512917774080-9991f1c4c750.webp"],
     description: [
       "Planta alta única con vista panorámica a la Isla Gorriti y espectaculares atardeceres sobre la Mansa. Cuenta con terraza privada, parrillero propio e hidromasaje.",
     ],
@@ -169,7 +169,7 @@ export const properties: Property[] = [
     price: 2_800_000,
     status: "Available",
     specs: { sqm: 520, bedrooms: 5, bathrooms: 6, parking: 4 },
-    images: ["https://images.unsplash.com/photo-1613977257363-707ba9348227?q=80&w=1200&auto=format&fit=crop"],
+    images: ["/photos/1613977257363-707ba9348227.webp"],
     description: [
       "Diseño vanguardista en hormigón visto y maderas nobles a pasos del faro. Amplia integración entre ambientes interiores y exteriores con piscina infinity.",
     ],
@@ -184,7 +184,7 @@ export const properties: Property[] = [
     price: 1_650_000,
     status: "Available",
     specs: { sqm: 450, bedrooms: 4, bathrooms: 4, parking: 3 },
-    images: ["https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1200&auto=format&fit=crop"],
+    images: ["/photos/1500382017468-9049fed747ef.webp"],
     description: [
       "Chacra de 5 hectáreas con tajamar propio y entorno natural arbolado a minutos de la playa. Privacidad total con vistas lejanas al Atlántico.",
     ],
@@ -199,7 +199,7 @@ export const properties: Property[] = [
     price: 890_000,
     status: "Available",
     specs: { sqm: 210, bedrooms: 3, bathrooms: 3, parking: 2 },
-    images: ["https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1200&auto=format&fit=crop"],
+    images: ["/photos/1545324418-cc1a3fa10c00.webp"],
     description: [
       "Unidad en torre de máxima categoría frente a la playa Brava. Gran balcón terraza con vistas directas al océano y servicio hotelero completo.",
     ],
@@ -214,7 +214,7 @@ export const properties: Property[] = [
     price: 620_000,
     status: "Available",
     specs: { sqm: 290, bedrooms: 4, bathrooms: 3, parking: 2 },
-    images: ["https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=1200&auto=format&fit=crop"],
+    images: ["/photos/1580587771525-78b9dba3b914.webp"],
     description: [
       "Cálida propiedad a tres cuadras del centro comercial de La Barra. Gran parque arbolado con piscina, deck y parrillero techado.",
     ],
@@ -229,7 +229,7 @@ export const properties: Property[] = [
     price: 340_000,
     status: "Available",
     specs: { sqm: 95, bedrooms: 2, bathrooms: 2, parking: 1 },
-    images: ["https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=1200&auto=format&fit=crop"],
+    images: ["/photos/1502672260266-1c1ef2d93688.webp"],
     description: [
       "Planta baja totalmente reciclada a nuevo frente al Puerto. Acabados minimalistas de alta calidad, ideal para vivienda permanente o renta.",
     ],
@@ -244,7 +244,7 @@ export const properties: Property[] = [
     price: 510_000,
     status: "Available",
     specs: { sqm: 180, bedrooms: 3, bathrooms: 2, parking: 2 },
-    images: ["https://images.unsplash.com/photo-1598228723793-52759bba239c?q=80&w=1200&auto=format&fit=crop"],
+    images: ["/photos/1598228723793-52759bba239c.webp"],
     description: [
       "Casa sólida en barrio residencial tranquilo cerca de colegios y servicios. Excelente construcción con estufa a leña y parrillero.",
     ],
@@ -259,7 +259,7 @@ export const properties: Property[] = [
     price: 780_000,
     status: "Available",
     specs: { sqm: 240, bedrooms: 4, bathrooms: 3, parking: 2 },
-    images: ["https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?q=80&w=1200&auto=format&fit=crop"],
+    images: ["/photos/1568605117036-5fe5e7bab0b7.webp"],
     description: [
       "Icónica propiedad con fachada en piedra local y tejas coloradas. Patio interno privado con parrillero protegido del viento.",
     ],
@@ -274,7 +274,7 @@ export const properties: Property[] = [
     price: 740_000,
     status: "Available",
     specs: { sqm: 160, bedrooms: 3, bathrooms: 3, parking: 2 },
-    images: ["https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=1200&auto=format&fit=crop"],
+    images: ["/photos/1600585154526-990dced4db0d.webp"],
     description: [
       "Dúplex moderno con solárium privado y jacuzzi en terraza superior. A metros de una de las playas más cotizadas de la costa.",
     ],
@@ -289,7 +289,7 @@ export const properties: Property[] = [
     price: 420_000,
     status: "Available",
     specs: { sqm: 1_200, bedrooms: 0, bathrooms: 0, parking: 0 },
-    images: ["https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1200&auto=format&fit=crop"],
+    images: ["/photos/1500382017468-9049fed747ef.webp"],
     description: [
       "Nivelado y listo para construir la residencia de tus sueños en un entorno protegido con vigilancia permanente y club house.",
     ],
@@ -304,7 +304,7 @@ export const properties: Property[] = [
     price: 295_000,
     status: "Available",
     specs: { sqm: 88, bedrooms: 2, bathrooms: 2, parking: 1 },
-    images: ["https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=1200&auto=format&fit=crop"],
+    images: ["/photos/1560448204-e02f11c3d0e2.webp"],
     description: [
       "Unidad de diseño contemporáneo con bajas expensas, ideal para inversión o primera vivienda cerca de la península.",
     ],
@@ -319,7 +319,7 @@ export const properties: Property[] = [
     price: 1_950_000,
     status: "Available",
     specs: { sqm: 600, bedrooms: 5, bathrooms: 6, parking: 4 },
-    images: ["https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1200&auto=format&fit=crop"],
+    images: ["/photos/1600607687939-ce8a6c25118c.webp"],
     description: [
       "Residencia señorial rodeada de pinos en zona de embajadas y residencias diplomáticas. Spa interno, sauna y piscina climatizada.",
     ],

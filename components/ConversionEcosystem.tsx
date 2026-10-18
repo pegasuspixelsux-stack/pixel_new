@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import * as m from "motion/react-m";
 import { useCenterLit } from "@/components/useCenterLit";
 
@@ -19,13 +20,11 @@ const stagger = {
   show: { transition: { staggerChildren: 0.08 } },
 };
 
-// TEMPORARY: Unsplash placeholder photos (Unsplash photo ids, one per card). Replace with real imagery.
-const unsplash = (id: string) => `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=1000&q=60`;
-
+// TEMPORARY placeholder photos, stored locally as WebP in /public/photos. Replace with real imagery.
 const services = [
   {
     id: "01",
-    image: "1460925895917-afdab827c52f",
+    image: "/photos/1460925895917-afdab827c52f.webp",
     title: "Catálogos Digitales",
     subheading: "Exposición Inteligente de Inventario",
     description:
@@ -35,7 +34,7 @@ const services = [
   },
   {
     id: "02",
-    image: "1519389950473-47ba0277781c",
+    image: "/photos/1519389950473-47ba0277781c.webp",
     title: "Agente de Calificación",
     subheading: "Filtro & Captura en Tiempo Real",
     description:
@@ -45,7 +44,7 @@ const services = [
   },
   {
     id: "03",
-    image: "1556761175-5973dc0f32e7",
+    image: "/photos/1556761175-5973dc0f32e7.webp",
     title: "Conexión Directa",
     subheading: "Cierre Comercial en Un Clic",
     description:
@@ -55,7 +54,7 @@ const services = [
   },
   {
     id: "04",
-    image: "1504384308090-c894fdcc538d",
+    image: "/photos/1504384308090-c894fdcc538d.webp",
     title: "Pipeline de Seguimiento",
     subheading: "Estandarización & Trazabilidad",
     description:
@@ -74,8 +73,7 @@ function ServiceCard({ item }: { item: (typeof services)[number] }) {
       variants={rise}
       className={`group relative flex flex-col justify-between gap-6 isolate overflow-hidden rounded-2xl aspect-square border border-fg/10 bg-black p-5 text-white lg:p-12 transition-all duration-300 ease-out motion-safe:lit:-translate-y-1 ${item.card}`}
     >
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={unsplash(item.image)} alt="" loading="lazy" decoding="async" className="absolute inset-0 -z-20 h-full w-full object-cover" />
+      <Image src={item.image} alt="" fill sizes="(min-width: 640px) 50vw, 100vw" className="-z-20 object-cover" />
       <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-t from-black/90 via-black/60 to-black/30" />
 
       <div className="flex items-center justify-between">

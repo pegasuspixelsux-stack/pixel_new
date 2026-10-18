@@ -7,7 +7,7 @@ import * as m from "motion/react-m";
 import { ArrowLeft, Eye, EyeOff } from "lucide-react";
 
 const BACKGROUND_IMAGE =
-  "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2560&auto=format&fit=crop";
+  "/photos/1618005182384-a83a8bd57fbe.webp";
 
 const inputClass =
   "w-full rounded-xl border border-fg/10 bg-fg/5 px-4 py-3.5 text-sm text-fg placeholder:text-fg/30 transition-[border-color,background-color] duration-200 focus:border-fg/40 focus:bg-fg/10 focus:outline-none focus:ring-0";

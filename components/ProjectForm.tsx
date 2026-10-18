@@ -230,13 +230,13 @@ export default function ProjectForm() {
           <label htmlFor="heroImage" className={labelClass}>
             Imagen principal (URL)
           </label>
-          <input id="heroImage" name="heroImage" type="url" placeholder="/projects/nombre.jpg" className={fieldClass} />
+          <input id="heroImage" name="heroImage" type="url" placeholder="/projects/nombre.webp" className={fieldClass} />
         </div>
         <div>
           <label htmlFor="gallery" className={labelClass}>
             Galería (una URL por línea)
           </label>
-          <textarea id="gallery" name="gallery" rows={3} placeholder="/projects/nombre-1.jpg" className={fieldClass} />
+          <textarea id="gallery" name="gallery" rows={3} placeholder="/projects/nombre-1.webp" className={fieldClass} />
         </div>
         <p className="text-xs text-fg/50">La subida de archivos se conectará con el almacenamiento cuando esté disponible.</p>
       </Section>

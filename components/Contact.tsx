@@ -19,6 +19,7 @@ const stagger = {
 
 const whatsappHref = `https://wa.me/${siteConfig.contact.whatsapp.replace(/\D/g, "")}`;
 const phoneHref = `tel:${siteConfig.contact.phone.replace(/\s/g, "")}`;
+const usPhoneHref = `tel:${siteConfig.contact.usPhone.replace(/\s/g, "")}`;
 
 const fieldClass =
   "w-full rounded-xl border border-fg/10 bg-fg/5 px-4 py-3 text-sm text-fg placeholder:text-fg/40 transition-[border-color,background-color] duration-200 focus:border-fg/40 focus:bg-fg/10 focus:outline-none";
@@ -28,17 +29,20 @@ const labelClass = "mb-1.5 block text-xs uppercase tracking-wider text-fg/60";
 const details = [
   {
     icon: MapPin,
-    label: "Oficina",
-    lines: [
-      `${siteConfig.address.street}`,
-      `${siteConfig.address.city}, ${siteConfig.address.state}, ${siteConfig.address.country}`,
-    ],
+    label: "Ubicación",
+    lines: [`${siteConfig.address.city}, ${siteConfig.address.state}, ${siteConfig.address.country}`],
   },
   {
     icon: Phone,
     label: "Teléfono directo",
     lines: [siteConfig.contact.phone],
     href: phoneHref,
+  },
+  {
+    icon: Phone,
+    label: "Teléfono EE. UU.",
+    lines: [siteConfig.contact.usPhone],
+    href: usPhoneHref,
   },
   {
     icon: MessageCircle,
@@ -96,9 +100,7 @@ export default function Contact() {
             <m.ul variants={stagger} className="flex flex-col gap-6 border-t border-fg/10 pt-8">
               {details.map(({ icon: Icon, label, lines, href, external }) => (
                 <m.li key={label} variants={rise} className="flex items-start gap-4">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-fg/10 bg-fg/5 text-accent">
-                    <Icon size={16} aria-hidden />
-                  </div>
+                  <Icon size={20} aria-hidden className="mt-0.5 shrink-0 text-accent" />
                   <div>
                     <p className="text-xs tracking-wider text-fg/50 uppercase">{label}</p>
                     {lines.map((line, index) =>
