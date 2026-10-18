@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
+import WhoWeAre from "@/components/WhoWeAre";
 import Services from "@/components/Services";
 import MethodFlow from "@/components/MethodFlow";
 import CtaBanner from "@/components/CtaBanner";
@@ -18,7 +19,7 @@ export default function NosotrosPage() {
       <Navbar />
       <main className="relative flex w-full flex-1 flex-col">
         {/* 1. Hero: Quiénes Somos & Filosofía */}
-        <section className="bg-section">
+        <section>
           <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-6 px-6 pt-24 pb-16 lg:px-16 lg:pt-32">
             <Reveal>
               <span className="block font-mono text-xs tracking-widest text-yellow-500 uppercase">
@@ -37,17 +38,22 @@ export default function NosotrosPage() {
           </div>
         </section>
 
-        {/* 2. Qué hacemos: 3 módulos + servicios complementarios */}
+        {/* 2. Quiénes somos: same section as the home page, minus the link back to this page */}
+        <Reveal>
+          <WhoWeAre showLink={false} />
+        </Reveal>
+
+        {/* 3. Qué hacemos: 3 módulos + servicios complementarios */}
         <Reveal>
           <Services />
         </Reveal>
 
-        {/* 3. Cómo lo hacemos: proceso en 4 pasos */}
+        {/* 4. Cómo lo hacemos: proceso en 4 pasos */}
         <Reveal>
           <MethodFlow />
         </Reveal>
 
-        {/* 4. Cierre: diagnóstico o WhatsApp */}
+        {/* 5. Cierre: diagnóstico o WhatsApp */}
         <Reveal>
           <CtaBanner />
         </Reveal>

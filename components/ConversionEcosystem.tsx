@@ -2,12 +2,6 @@
 
 import * as m from "motion/react-m";
 import { useCenterLit } from "@/components/useCenterLit";
-import {
-  Filter,
-  GitPullRequest,
-  LayoutGrid,
-  MessageSquare,
-} from "lucide-react";
 
 const viewport = { once: true, margin: "-80px" };
 
@@ -25,90 +19,85 @@ const stagger = {
   show: { transition: { staggerChildren: 0.08 } },
 };
 
+// TEMPORARY: Unsplash placeholder photos (Unsplash photo ids, one per card). Replace with real imagery.
+const unsplash = (id: string) => `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=1000&q=60`;
+
 const services = [
   {
     id: "01",
+    image: "1460925895917-afdab827c52f",
     title: "Catálogos Digitales",
     subheading: "Exposición Inteligente de Inventario",
     description:
       "Presentación visual de alta velocidad adaptada a móviles. Organiza tus productos o propiedades con navegación fluida para que el cliente encuentre exactamente lo que busca antes de contactarte.",
-    icon: LayoutGrid,
-    card: "lit:border-yellow-500/60 lit:shadow-[0_0_30px_rgba(250,204,21,0.15)]",
-    iconBox:
-      "group-lit:text-yellow-400 group-lit:bg-yellow-500/10 group-lit:border-yellow-500/30",
-    accent: "text-yellow-500",
+    card: "lit:border-accent/70 lit:shadow-[0_0_35px_var(--accent-glow)]",
+    accent: "text-accent",
   },
   {
     id: "02",
+    image: "1519389950473-47ba0277781c",
     title: "Agente de Calificación",
     subheading: "Filtro & Captura en Tiempo Real",
     description:
       "Flujos de preguntas estructuradas multiopción que guían al visitante. Identifica la intención real de compra y elimina la pérdida de tiempo con prospectos no calificados.",
-    icon: Filter,
-    card: "lit:border-yellow-500/60 lit:shadow-[0_0_30px_rgba(250,204,21,0.15)]",
-    iconBox:
-      "group-lit:text-yellow-400 group-lit:bg-yellow-500/10 group-lit:border-yellow-500/30",
-    accent: "text-yellow-500",
+    card: "lit:border-accent/70 lit:shadow-[0_0_35px_var(--accent-glow)]",
+    accent: "text-accent",
   },
   {
     id: "03",
+    image: "1556761175-5973dc0f32e7",
     title: "Conexión Directa",
     subheading: "Cierre Comercial en Un Clic",
     description:
       "Entrega instantánea de datos al vendedor vía WhatsApp. El cliente llega a tu canal de ventas con la ficha técnica completa de lo que necesita, listo para concretar la transacción.",
-    icon: MessageSquare,
-    card: "lit:border-yellow-500/60 lit:shadow-[0_0_30px_rgba(250,204,21,0.15)]",
-    iconBox:
-      "group-lit:text-yellow-400 group-lit:bg-yellow-500/10 group-lit:border-yellow-500/30",
-    accent: "text-yellow-500",
+    card: "lit:border-accent/70 lit:shadow-[0_0_35px_var(--accent-glow)]",
+    accent: "text-accent",
   },
   {
     id: "04",
+    image: "1504384308090-c894fdcc538d",
     title: "Pipeline de Seguimiento",
     subheading: "Estandarización & Trazabilidad",
     description:
       "Control total sobre la gestión comercial. Tu equipo opera bajo un estándar único y fácil de usar, asegurando que cada oportunidad reciba el recontacto adecuado sin fricción.",
-    icon: GitPullRequest,
-    card: "lit:border-yellow-500/60 lit:shadow-[0_0_30px_rgba(250,204,21,0.15)]",
-    iconBox:
-      "group-lit:text-yellow-400 group-lit:bg-yellow-500/10 group-lit:border-yellow-500/30",
-    accent: "text-yellow-500",
+    card: "lit:border-accent/70 lit:shadow-[0_0_35px_var(--accent-glow)]",
+    accent: "text-accent",
   },
 ];
 
 function ServiceCard({ item }: { item: (typeof services)[number] }) {
-  const Icon = item.icon;
   const [ref, lit] = useCenterLit<HTMLDivElement>();
   return (
     <m.div
       ref={ref}
       data-lit={lit}
       variants={rise}
-      className={`group relative flex flex-col gap-6 rounded-2xl border border-fg/10 bg-surface/60 p-8 backdrop-blur-md transition-all duration-300 ease-out motion-safe:lit:-translate-y-1 ${item.card}`}
+      className={`group relative flex flex-col justify-between gap-6 isolate overflow-hidden rounded-2xl aspect-square border border-fg/10 bg-black p-5 text-white lg:p-12 transition-all duration-300 ease-out motion-safe:lit:-translate-y-1 ${item.card}`}
     >
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src={unsplash(item.image)} alt="" loading="lazy" decoding="async" className="absolute inset-0 -z-20 h-full w-full object-cover" />
+      <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-t from-black/90 via-black/60 to-black/30" />
+
       <div className="flex items-center justify-between">
-        <span className="font-mono text-xs tracking-wider text-fg/50">
+        <span className="font-mono text-xs tracking-wider text-white/70">
           {item.id}
         </span>
-        <div
-          className={`rounded-xl border border-fg/10 bg-fg/5 p-3 text-fg/60 transition-all duration-300 ${item.iconBox}`}
-        >
-          <Icon className="h-5 w-5" aria-hidden="true" />
-        </div>
       </div>
 
-      <div className="flex flex-col gap-2">
-        <h3 className="font-serif text-2xl leading-snug">{item.title}</h3>
-        <p
-          className={`font-mono text-xs tracking-wider uppercase ${item.accent}`}
-        >
-          {item.subheading}
+      <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-2">
+          <h3 className="font-serif text-xl leading-snug lg:text-4xl">{item.title}</h3>
+          <p
+            className={`font-mono text-xs tracking-wider uppercase ${item.accent}`}
+          >
+            {item.subheading}
+          </p>
+        </div>
+
+        <p className="text-xs leading-snug text-white/80 lg:text-base lg:leading-relaxed transition-colors duration-300 group-lit:text-white">
+          {item.description}
         </p>
       </div>
-
-      <p className="text-sm leading-relaxed text-fg/70 transition-colors duration-300 group-lit:text-fg/90">
-        {item.description}
-      </p>
     </m.div>
   );
 }
@@ -117,7 +106,7 @@ export default function ConversionEcosystem() {
   return (
     <section
       id="ecosistema"
-      className="bg-section relative scroll-mt-24 border-t border-fg/10 py-16 md:py-24 lg:py-32"
+      className="relative scroll-mt-24 border-t border-fg/10 py-16 md:py-24 lg:py-32"
     >
       <m.div
         initial="hidden"
@@ -127,7 +116,7 @@ export default function ConversionEcosystem() {
         className="mx-auto flex w-full max-w-[1440px] flex-col gap-12 px-6 lg:gap-16 lg:px-16"
       >
         <m.div variants={rise} className="flex max-w-3xl flex-col gap-6">
-          <span className="block text-xs font-medium tracking-widest text-yellow-500 uppercase">
+          <span className="block text-xs font-medium tracking-widest text-accent uppercase">
             Ecosistema digital de conversión
           </span>
           <h2 className="font-serif text-4xl leading-tight tracking-[-0.01em] lg:text-5xl">
@@ -137,7 +126,7 @@ export default function ConversionEcosystem() {
           </h2>
         </m.div>
 
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:gap-8">
           {services.map((item) => (
             <ServiceCard key={item.id} item={item} />
           ))}

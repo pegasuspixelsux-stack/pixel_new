@@ -17,9 +17,9 @@ const categories = [
 ];
 
 const locations = [
-  { label: "Catálogo inteligente", href: "#proyectos" },
-  { label: "Captura de leads", href: "#proyectos" },
-  { label: "Automatización de ventas", href: "#proyectos" },
+  { label: "Catálogo inteligente", href: "/proyectos" },
+  { label: "Captura de leads", href: "/proyectos" },
+  { label: "Automatización de ventas", href: "/proyectos" },
   { label: "Diagnóstico operativo", href: "#contacto" },
 ];
 

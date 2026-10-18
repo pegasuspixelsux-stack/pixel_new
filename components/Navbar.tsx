@@ -12,8 +12,10 @@ export default function Navbar({ overHero = false }: { overHero?: boolean }) {
   const [open, setOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
-  const linkTone = overHero ? "text-white hover:text-white/80" : "text-fg/70 hover:text-fg";
-  const panelTone = overHero ? "border-white/15 bg-black text-white" : "border-fg/10 bg-canvas text-fg";
+  const linkTone = overHero ? "text-fg hover:text-fg/70" : "text-fg/70 hover:text-fg";
+  // Menu panels follow the theme: white with black text in light, black with white text in dark.
+  const panelTone = "border-fg/10 bg-canvas text-fg";
+  const panelLinkTone = "text-fg/80 hover:text-fg";
 
   function closeAll() {
     setOpen(false);
@@ -27,7 +29,7 @@ export default function Navbar({ overHero = false }: { overHero?: boolean }) {
       transition={{ type: "spring", stiffness: 260, damping: 30 }}
       className={
         overHero
-          ? "sticky top-0 z-50 h-20 w-full border-b border-white/10 bg-white/10 text-white [-webkit-backdrop-filter:blur(12px)] backdrop-blur-md"
+          ? "sticky top-0 z-50 h-20 w-full border-b border-fg/10 bg-canvas/80 text-fg [-webkit-backdrop-filter:blur(12px)] backdrop-blur-md"
           : "sticky top-0 z-50 h-20 w-full bg-canvas/70 backdrop-blur-md"
       }
     >
@@ -88,7 +90,7 @@ export default function Navbar({ overHero = false }: { overHero?: boolean }) {
           <a
             href="#contacto"
             className={`hidden rounded-full border px-5 py-2 text-sm font-medium transition-[background-color,transform] duration-200 ease-out active:scale-[0.97] md:inline-flex ${
-              overHero ? "border-white/40 hover:bg-white/10" : "border-fg/30 hover:bg-fg/10"
+              overHero ? "border-fg/40 hover:bg-fg/5" : "border-fg/30 hover:bg-fg/10"
             }`}
           >
             Consultar Agente
@@ -100,7 +102,7 @@ export default function Navbar({ overHero = false }: { overHero?: boolean }) {
             aria-expanded={open}
             aria-controls="mobile-menu"
             aria-label={open ? "Cerrar menú" : "Abrir menú"}
-            className={`flex h-10 w-10 items-center justify-center md:hidden ${overHero ? "text-black" : ""}`}
+            className={`flex h-10 w-10 items-center justify-center md:hidden`}
           >
             {open ? <X size={18} aria-hidden /> : <Menu size={18} aria-hidden />}
           </button>
@@ -116,14 +118,14 @@ export default function Navbar({ overHero = false }: { overHero?: boolean }) {
           <ul className="flex flex-col gap-5">
             {mainNav.map((item) => (
               <li key={item.label} className="flex flex-col gap-3">
-                <Link href={item.href} onClick={closeAll} className={`text-base font-medium transition-colors duration-200 ${linkTone}`}>
+                <Link href={item.href} onClick={closeAll} className={`text-base font-medium transition-colors duration-200 ${panelLinkTone}`}>
                   {item.label}
                 </Link>
                 {item.children && (
                   <ul className="flex flex-col gap-3 border-l border-fg/15 pl-4">
                     {item.children.map((child) => (
                       <li key={child.href}>
-                        <Link href={child.href} onClick={closeAll} className={`text-sm transition-colors duration-200 ${linkTone}`}>
+                        <Link href={child.href} onClick={closeAll} className={`text-sm transition-colors duration-200 ${panelLinkTone}`}>
                           {child.label}
                         </Link>
                       </li>

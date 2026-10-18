@@ -29,7 +29,8 @@ const pillars = [
 // Time each pillar stays expanded, long enough to read it comfortably.
 const ROTATE_MS = 6000;
 
-export default function WhoWeAre() {
+// showLink is off on /nosotros, where the "learn more" link would point back to the same page.
+export default function WhoWeAre({ showLink = true }: { showLink?: boolean }) {
   const [activeIndex, setActiveIndex] = useState(0);
 
   // Rotates the pillars. Visitors who prefer reduced motion keep the first card.
@@ -47,7 +48,7 @@ export default function WhoWeAre() {
   const stack = [(activeIndex - 1 + n) % n, activeIndex, (activeIndex + 1) % n];
 
   return (
-    <section id="quienes-somos" className="bg-section relative scroll-mt-24 border-t border-neutral-800/80 py-16 md:py-24 lg:py-32">
+    <section id="quienes-somos" className="relative scroll-mt-24 border-t border-neutral-800/80 py-16 md:py-24 lg:py-32">
       <div className="mx-auto grid w-full max-w-[1440px] grid-cols-1 items-center gap-12 px-6 lg:grid-cols-12 lg:gap-16 lg:px-16">
         {/* Left: brand text and link to /nosotros */}
         <div className="flex flex-col gap-6 lg:col-span-6">
@@ -60,15 +61,17 @@ export default function WhoWeAre() {
             operativas. Automatizamos la captación de leads, la publicación de inventarios y los flujos comerciales para
             que todo tu equipo trabaje bajo un estándar único, eficiente y fácil de aprender.
           </p>
-          <div>
-            <Link
-              href="/nosotros"
-              className="group inline-flex items-center gap-2 text-sm font-medium transition-colors duration-200 hover:text-yellow-400"
-            >
-              Conoce más sobre nuestra visión y metodología
-              <ArrowRight size={14} aria-hidden className="transition-transform duration-200 group-hover:translate-x-1" />
-            </Link>
-          </div>
+          {showLink && (
+            <div>
+              <Link
+                href="/nosotros"
+                className="group inline-flex items-center gap-2 text-sm font-medium transition-colors duration-200 hover:text-yellow-400"
+              >
+                Conoce más sobre nuestra visión y metodología
+                <ArrowRight size={14} aria-hidden className="transition-transform duration-200 group-hover:translate-x-1" />
+              </Link>
+            </div>
+          )}
         </div>
 
         {/* Right: the active pillar opens in full; the other two collapse into stripes above and below it. */}

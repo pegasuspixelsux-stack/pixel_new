@@ -6,14 +6,19 @@
   --surface: #0a0a0a;
   --section: #111111;
   --fg: #f8fafc;
+  /* Accent: yellow in dark, blue in light. The glow is the hover shadow color. */
+  --accent: #facc15;
+  --accent-glow: rgba(250, 204, 21, 0.28);
   color-scheme: dark;
 }
 
 :root[data-theme="light"] {
-  --canvas: #f5f4f0;
+  --canvas: #ffffff;
   --surface: #ffffff;
   --section: #ffffff;
   --fg: #0d0e12;
+  --accent: #2563eb;
+  --accent-glow: rgba(37, 99, 235, 0.3);
   color-scheme: light;
 }
 
@@ -26,6 +31,7 @@
   --color-surface: var(--surface);
   --color-section: var(--section);
   --color-fg: var(--fg);
+  --color-accent: var(--accent);
   --font-sans: var(--font-geist-sans);
   --font-serif: var(--font-instrument-serif);
 }
@@ -35,9 +41,22 @@ body {
   color: var(--fg);
 }
 
-/* Dark: a soft yellow glow anchored to the top-right corner, fixed so it does not move while scrolling. */
-:root:not([data-theme="light"]) body {
-  background: radial-gradient(circle at 100% 0%, rgba(250, 204, 21, 0.1) 0%, rgba(0, 0, 0, 1) 65%) fixed, #000000;
+/* Inter Display: Inter at its largest optical size, for big headlines. */
+.font-inter-display {
+  font-family: var(--font-inter), var(--font-geist-sans), sans-serif;
+  font-variation-settings: "opsz" 32;
+}
+
+/* Headings use Inter Display in both themes. Logos and figures keep the serif. */
+:is(h1, h2, h3, h4).font-serif {
+  font-family: var(--font-inter), var(--font-geist-sans), sans-serif;
+  font-variation-settings: "opsz" 32;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+}
+
+:is(h1, h2, h3, h4).font-serif .italic {
+  font-style: normal;
 }
 
 html {

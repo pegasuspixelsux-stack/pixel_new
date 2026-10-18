@@ -1,11 +1,18 @@
 import type { Metadata } from "next";
-import { Geist, Instrument_Serif } from "next/font/google";
+import { Geist, Inter, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import MotionProvider from "@/components/MotionProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+});
+
+// Inter's optical-size axis; the "display" cut is opsz 32 (see .font-inter-display).
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+  axes: ["opsz"],
 });
 
 const instrumentSerif = Instrument_Serif({
@@ -29,7 +36,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="es"
       suppressHydrationWarning
-      className={`${geistSans.variable} ${instrumentSerif.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${instrumentSerif.variable} ${inter.variable} h-full antialiased`}
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />

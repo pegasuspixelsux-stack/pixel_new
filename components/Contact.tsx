@@ -70,7 +70,7 @@ export default function Contact() {
   }
 
   return (
-    <section id="contacto" className="bg-section relative scroll-mt-24 border-t border-fg/10 py-16 md:py-24 lg:py-32">
+    <section id="contacto" className="relative scroll-mt-24 border-t border-fg/10 py-16 md:py-24 lg:py-32">
       <div className="mx-auto w-full max-w-[1440px] px-6 lg:px-16">
         <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-12 lg:gap-16">
           <m.div
@@ -81,7 +81,7 @@ export default function Contact() {
             className="flex flex-col gap-10 lg:col-span-5"
           >
             <m.div variants={rise}>
-              <span className="mb-3 block text-xs font-medium tracking-widest text-yellow-500 uppercase">
+              <span className="mb-3 block text-xs font-medium tracking-widest text-accent uppercase">
                 Contacto
               </span>
               <h2 className="mb-4 font-serif text-3xl leading-tight tracking-[-0.01em] lg:text-4xl">
@@ -96,7 +96,7 @@ export default function Contact() {
             <m.ul variants={stagger} className="flex flex-col gap-6 border-t border-fg/10 pt-8">
               {details.map(({ icon: Icon, label, lines, href, external }) => (
                 <m.li key={label} variants={rise} className="flex items-start gap-4">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-fg/10 bg-fg/5 text-yellow-500">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-fg/10 bg-fg/5 text-accent">
                     <Icon size={16} aria-hidden />
                   </div>
                   <div>
@@ -130,7 +130,7 @@ export default function Contact() {
             viewport={viewport}
             className="lg:col-span-7"
           >
-            <div className="rounded-2xl border border-fg/10 bg-surface/70 p-8 backdrop-blur-md">
+            <div className="rounded-2xl border border-fg/10 bg-surface/70 p-8 backdrop-blur-md transition-[border-color,box-shadow] duration-300 ease-out lit:border-accent/70 lit:shadow-[0_0_35px_var(--accent-glow)]">
               <h3 className="mb-6 text-xl font-medium">Enviar una consulta</h3>
 
               {sent ? (
