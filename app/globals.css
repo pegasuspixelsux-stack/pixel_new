@@ -32,6 +32,7 @@
   --color-section: var(--section);
   --color-fg: var(--fg);
   --color-accent: var(--accent);
+  --color-brand: var(--brand);
   --font-sans: var(--font-geist-sans);
   --font-serif: var(--font-instrument-serif);
 }
@@ -41,15 +42,38 @@ body {
   color: var(--fg);
 }
 
-/* DoorDash page: DoorDash red instead of the theme accent. A touch darker in light for text contrast. */
+/* Subtle scroll-in for blocks: content is fully visible by default, so browsers without scroll-driven
+   animations (or with reduced motion) simply show it. No JavaScript is involved. */
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal-up {
+      animation: reveal-up linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 35%;
+    }
+  }
+}
+
+/* DoorDash page: the theme accent (yellow in dark, blue in light) is used everywhere as usual; DoorDash red is
+   reserved for buttons and the headline highlight. A light coral on dark reads clearly on black, a deeper red on
+   white. --on-brand is the text color on solid red buttons. */
 .accent-doordash {
-  --accent: #ff3008;
-  --accent-glow: rgba(255, 48, 8, 0.32);
+  --brand: #ff6b57;
+  --brand-glow: rgba(255, 107, 87, 0.38);
+  --on-brand: #0a0a0a;
 }
 
 :root[data-theme="light"] .accent-doordash {
-  --accent: #d92a07;
-  --accent-glow: rgba(217, 42, 7, 0.28);
+  --brand: #d92a07;
+  --brand-glow: rgba(217, 42, 7, 0.28);
+  --on-brand: #ffffff;
 }
 
 /* Inter Display (weight 500, opsz 32), loaded as a static cut in app/layout.tsx. */
