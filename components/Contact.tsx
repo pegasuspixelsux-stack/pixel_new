@@ -92,8 +92,8 @@ export default function Contact() {
                 Agendemos su Diagnóstico Operativo.
               </h2>
               <p className="text-sm leading-relaxed text-fg/60">
-                Nuestro equipo de asesores está disponible para responder sus consultas y coordinar visitas a las
-                propiedades de su interés.
+                Nuestro equipo está disponible para responder sus consultas y coordinar una reunión para analizar las
+                necesidades digitales de su negocio.
               </p>
             </m.div>
 
@@ -138,7 +138,7 @@ export default function Contact() {
               {sent ? (
                 <div role="status" className="flex items-start gap-3 text-sm text-fg/80">
                   <Check size={16} className="mt-0.5 shrink-0" aria-hidden />
-                  <p>Recibimos su consulta. Un agente se comunicará con usted pronto.</p>
+                  <p>Recibimos su consulta. Nuestro equipo se comunicará con usted pronto.</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="flex flex-col gap-5">
@@ -173,13 +173,14 @@ export default function Contact() {
 
                   <div>
                     <label htmlFor="contact-type" className={labelClass}>
-                      Tipo de consulta
+                      Servicio de interés
                     </label>
-                    <select id="contact-type" name="type" defaultValue="buy" className={fieldClass}>
-                      <option value="buy">Comprar</option>
-                      <option value="sell">Vender</option>
-                      <option value="rent">Alquilar</option>
-                      <option value="appraisal">Tasación</option>
+                    <select id="contact-type" name="type" defaultValue="diagnostic" className={fieldClass}>
+                      <option value="diagnostic">Diagnóstico operativo</option>
+                      <option value="doordash">DoorDash: Registro y Optimización</option>
+                      <option value="web">Sitio web y catálogo digital</option>
+                      <option value="leads">Captación de leads y automatización</option>
+                      <option value="systems">Sistemas de gestión y POS</option>
                       <option value="other">Otro</option>
                     </select>
                   </div>
@@ -192,7 +193,7 @@ export default function Contact() {
                       id="contact-message"
                       name="message"
                       rows={5}
-                      placeholder="Describa su consulta o el tipo de propiedad que está buscando..."
+                      placeholder="Cuéntenos sobre su negocio y qué desea mejorar o automatizar..."
                       className={`${fieldClass} resize-none`}
                     />
                   </div>
