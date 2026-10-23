@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, Star } from "lucide-react";
-import Pillars from "@/components/Pillars";
+import { ServiceGrid } from "@/components/ConversionEcosystem";
 
 // Each capability is its own stacked line, ending with the star. Rows alternate full and a lighter (60%) text color; the stars stay solid.
 const lines = ["Tu socio tecnológico", "Diseñamos tu infraestructura digital", "Ecosistemas comerciales", "Agentes & Automatizaciones"];
@@ -24,7 +24,7 @@ export default function Hero() {
           </h1>
         </div>
 
-        <Pillars />
+        <ServiceGrid />
 
         <div className="mt-6 flex justify-center lg:mt-8">
           <Link

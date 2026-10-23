@@ -27,7 +27,7 @@ const services = [
   {
     id: "01",
     slug: "catalogos-digitales",
-    image: "/photos/1460925895917-afdab827c52f.webp",
+    image: "/hero/catalog_1.webp",
     title: "Catálogos Digitales",
     subheading: "Exposición Inteligente de Inventario",
     description:
@@ -119,7 +119,23 @@ function ServiceCard({ item }: { item: (typeof services)[number] }) {
   );
 }
 
-export default function ConversionEcosystem() {
+export function ServiceGrid() {
+  return (
+    <m.div
+      initial="hidden"
+      whileInView="show"
+      viewport={viewport}
+      variants={stagger}
+      className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:gap-8"
+    >
+      {services.map((item) => (
+        <ServiceCard key={item.id} item={item} />
+      ))}
+    </m.div>
+  );
+}
+
+export default function ConversionEcosystem({ children }: { children: React.ReactNode }) {
   return (
     <section
       id="ecosistema"
@@ -143,11 +159,7 @@ export default function ConversionEcosystem() {
           </h2>
         </m.div>
 
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:gap-8">
-          {services.map((item) => (
-            <ServiceCard key={item.id} item={item} />
-          ))}
-        </div>
+        {children}
       </m.div>
     </section>
   );

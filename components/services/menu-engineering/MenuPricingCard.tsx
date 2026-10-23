@@ -7,7 +7,7 @@ const plans = [
   {
     name: "Auditoría y Setup Inicial",
     price: "$299",
-    period: "pago único",
+    period: "· pago único",
     features: [
       "Diagnóstico completo de tu carta",
       "Estandarización de porciones",
@@ -40,9 +40,9 @@ export default function MenuPricingCard() {
             <div key={plan.name} className="reveal-up">
               <LitCard as="article" className={`${glass} ${cardHover} h-full rounded-2xl p-7 md:p-9`}>
                 <h3 className="font-inter-display text-xl leading-snug font-medium md:text-2xl">{plan.name}</h3>
-                <p className="mt-5 flex items-baseline gap-2">
-                  <span className="font-inter-display text-5xl font-medium tracking-[-0.03em] text-accent">{plan.price}</span>
-                  <span className="text-sm text-fg/80">{plan.period}</span>
+                {/* Starting price, shown small instead of a fixed price */}
+                <p className="mt-2 text-sm text-fg/80">
+                  Desde <span className="font-medium text-accent">{plan.price}</span> {plan.period}
                 </p>
                 <p className="mt-5 text-xs tracking-wider text-fg/70 uppercase">Incluye</p>
                 <ul className="mt-3 flex flex-col gap-3">

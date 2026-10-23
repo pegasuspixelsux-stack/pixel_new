@@ -5,6 +5,7 @@ import ConversionEcosystem from "@/components/ConversionEcosystem";
 import CtaBanner from "@/components/CtaBanner";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import Pillars from "@/components/Pillars";
 import Reveal from "@/components/Reveal";
 
 export default function Home() {
@@ -19,7 +20,9 @@ export default function Home() {
           <ValueProposition />
         </Reveal>
         <Reveal>
-          <ConversionEcosystem />
+          <ConversionEcosystem>
+            <Pillars />
+          </ConversionEcosystem>
         </Reveal>
         <Reveal>
           <CtaBanner />
