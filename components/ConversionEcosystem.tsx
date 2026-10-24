@@ -28,7 +28,7 @@ const services = [
     id: "01",
     slug: "catalogos-digitales",
     image: "/hero/app_mockup_1.webp",
-    title: "Sistemas de Gestión",
+    title: "Sistemas de Gestión Comercial",
     subheading: "Exposición Inteligente de Inventario",
     description:
       "Presentación visual de alta velocidad adaptada a móviles. Organiza tus productos o propiedades con navegación fluida para que el cliente encuentre exactamente lo que busca antes de contactarte.",
