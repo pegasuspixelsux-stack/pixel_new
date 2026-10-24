@@ -28,7 +28,7 @@ export default function CtaBanner({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ type: "spring", stiffness: 160, damping: 24 }}
-          className="flex w-full flex-col items-center gap-10 rounded-3xl border border-white/15 bg-black px-8 text-white transition-[border-color,box-shadow] duration-300 ease-out lit:border-accent/70 lit:shadow-[0_0_35px_var(--accent-glow)] py-14 text-center md:px-16"
+          className="flex w-full flex-col items-center gap-10 rounded-3xl border border-white/15 bg-neutral-800 px-8 text-white transition-[border-color,box-shadow] duration-300 ease-out lit:border-accent/70 lit:shadow-[0_0_35px_var(--accent-glow)] py-14 text-center md:px-16"
         >
           <div className="flex flex-col gap-4">
             <h2 className="font-serif text-3xl leading-tight tracking-[-0.01em] lg:text-4xl">{heading}</h2>

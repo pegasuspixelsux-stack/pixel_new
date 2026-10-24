@@ -27,7 +27,7 @@ const services = [
   {
     id: "01",
     slug: "catalogos-digitales",
-    image: "/hero/catalog_1.webp",
+    image: "/hero/app_mockup_1.webp",
     title: "Catálogos Digitales",
     subheading: "Exposición Inteligente de Inventario",
     description:
@@ -77,14 +77,14 @@ function ServiceCard({ item }: { item: (typeof services)[number] }) {
       ref={ref}
       data-lit={lit}
       variants={rise}
-      className={`group relative flex flex-col justify-between gap-6 isolate overflow-hidden rounded-2xl aspect-square border border-fg/15 bg-black p-5 pb-4 text-white lg:p-12 lg:pb-8 transition-all duration-300 ease-out motion-safe:lit:-translate-y-1 ${item.card}`}
+      className={`group relative flex flex-col justify-between gap-6 isolate overflow-hidden rounded-2xl aspect-square border border-fg/15 bg-neutral-900 p-5 pb-4 text-white lg:p-12 lg:pb-8 transition-all duration-300 ease-out motion-safe:lit:-translate-y-1 ${item.card}`}
     >
       <LazyPhoto src={item.image} sizes="(min-width: 640px) 50vw, calc(100vw - 3rem)" margin="300px" />
-      <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
-      {/* Soft corner gradient under the number, so it reads on any photo */}
+      <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-r from-black/90 via-black/50 to-transparent" />
+      {/* Dark grey corner glow behind the number */}
       <div
         aria-hidden
-        className="absolute inset-0 -z-10 bg-[radial-gradient(circle_240px_at_0_0,rgba(0,0,0,0.55),transparent)]"
+        className="absolute inset-0 -z-10 bg-[radial-gradient(circle_320px_at_0_0,rgba(64,64,64,0.85),transparent)]"
       />
 
       <div className="flex items-center justify-between">
@@ -93,7 +93,7 @@ function ServiceCard({ item }: { item: (typeof services)[number] }) {
         </span>
       </div>
 
-      <div className="relative z-10 flex flex-col gap-1 lg:gap-2">
+      <div className="relative z-10 flex w-1/2 flex-col gap-1 lg:gap-2">
         <div className="flex flex-col gap-0 lg:gap-0.5">
           <p
             className="font-mono text-xs tracking-wider text-blue-300 uppercase"
