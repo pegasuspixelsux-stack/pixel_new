@@ -80,7 +80,7 @@ function ServiceCard({ item }: { item: (typeof services)[number] }) {
       className={`group relative flex flex-col justify-between gap-6 isolate overflow-hidden rounded-2xl aspect-square border border-fg/15 bg-neutral-900 p-5 pb-4 text-white lg:p-12 lg:pb-8 transition-all duration-300 ease-out motion-safe:lit:-translate-y-1 ${item.card}`}
     >
       <LazyPhoto src={item.image} sizes="(min-width: 640px) 50vw, calc(100vw - 3rem)" margin="300px" />
-      <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-r from-black/90 via-black/50 to-transparent" />
+      <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-r from-black/5 via-black/5 to-transparent" />
       {/* Dark grey corner glow behind the number */}
       <div
         aria-hidden
