@@ -1,14 +1,13 @@
-import Link from "next/link";
-import { ArrowRight, Star } from "lucide-react";
-import { ServiceGrid } from "@/components/ConversionEcosystem";
+import { Star } from "lucide-react";
+import HeroTicker from "@/components/HeroTicker";
 
 // Each capability is its own stacked line, ending with the star. Rows alternate full and a lighter (60%) text color; the stars stay solid.
-const lines = ["Infraestructura digital", "para empresas modernas.", "Diseño Web · Automatizaciones"];
+const lines = ["Infraestructura digital~", "para empresas modernas.", "Diseño Web|Automatizaciones"];
 
 export default function Hero() {
   return (
     // Starts at the top of the viewport, underneath the 80px sticky navbar.
-    <section className="relative isolate -mt-20 flex min-h-svh w-full items-center overflow-x-clip pt-40 pb-24 lg:pt-52 lg:pb-40">
+    <section className="relative isolate -mt-20 flex min-h-[80svh] w-full lg:min-h-svh items-center overflow-x-clip pt-40 pb-10 lg:pt-52 lg:pb-16">
 
       <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-6 lg:gap-8 px-6 lg:px-16">
         <div className="hero-exit">
@@ -17,27 +16,19 @@ export default function Hero() {
           <h1 className="font-inter-display text-[8.55vw] font-medium leading-[0.98] tracking-[-0.03em] md:text-[min(4.6vw,4.5rem)]">
             {lines.map((line) => (
               <span key={line} className="mb-[0.04em] block text-fg last:mb-0 even:text-fg/60">
-                {line}
-                <Star aria-hidden className="mx-[0.2em] inline-block size-[0.55em] fill-current text-fg align-[0.08em]" strokeWidth={0} />
+                {line.split("|").map((part) => (
+                  <span key={part}>
+                    {part.replace("~", "")}
+                    {!part.endsWith("~") && <Star aria-hidden className="mx-[0.2em] inline-block size-[0.55em] fill-current text-fg align-[0.08em]" strokeWidth={0} />}
+                  </span>
+                ))}
               </span>
             ))}
           </h1>
-          <p className="mt-6 max-w-2xl text-lg text-fg/70 lg:text-xl">
-            Plataformas comerciales activas que capturan, procesan y convierten las 24 horas.
-          </p>
         </div>
 
-        <ServiceGrid />
+        <HeroTicker />
 
-        <div className="mt-6 flex justify-center lg:mt-8">
-          <Link
-            href="/proyectos"
-            className="flex items-center gap-2 rounded-full border border-fg/40 px-8 py-3.5 text-sm font-medium transition-[background-color,transform] duration-200 ease-out hover:bg-fg/5 active:scale-[0.97]"
-          >
-            Ver todos los proyectos
-            <ArrowRight size={14} aria-hidden />
-          </Link>
-        </div>
       </div>
     </section>
   );

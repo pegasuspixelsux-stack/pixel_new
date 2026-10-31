@@ -120,7 +120,7 @@ export default function ConversionEcosystem({ children }: { children: React.Reac
           <h2 className="font-serif text-4xl leading-tight tracking-[-0.01em] lg:text-5xl">
             <span className="italic">Infraestructura comercial</span> diseñada{" "}
             <br className="hidden md:block" />
-            para captar, calificar y cerrar.
+            para tu industria.
           </h2>
         </m.div>
 

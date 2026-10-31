@@ -221,3 +221,22 @@ html {
     scroll-behavior: auto;
   }
 }
+
+/* Hero image ticker: two identical sets side by side, shifted by exactly one set for a seamless loop. */
+@keyframes ticker {
+  to {
+    transform: translateX(-50%);
+  }
+}
+.ticker-track {
+  display: flex;
+  width: max-content;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .ticker-track {
+    animation: ticker 60s linear infinite;
+  }
+  .ticker:hover .ticker-track {
+    animation-play-state: paused;
+  }
+}

@@ -48,3 +48,6 @@ next-env.d.ts
 
 # temporary dashboard data store
 /.data
+
+.vercel
+.env*
