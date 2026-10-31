@@ -3,7 +3,7 @@ import { ArrowRight, Star } from "lucide-react";
 import { ServiceGrid } from "@/components/ConversionEcosystem";
 
 // Each capability is its own stacked line, ending with the star. Rows alternate full and a lighter (60%) text color; the stars stay solid.
-const lines = ["Tu socio tecnológico", "Diseñamos tu infraestructura digital", "Ecosistemas comerciales", "Agentes & Automatizaciones"];
+const lines = ["Infraestructura digital", "para empresas modernas.", "Diseño Web · Automatizaciones"];
 
 export default function Hero() {
   return (
@@ -22,6 +22,9 @@ export default function Hero() {
               </span>
             ))}
           </h1>
+          <p className="mt-6 max-w-2xl text-lg text-fg/70 lg:text-xl">
+            Plataformas comerciales activas que capturan, procesan y convierten las 24 horas.
+          </p>
         </div>
 
         <ServiceGrid />

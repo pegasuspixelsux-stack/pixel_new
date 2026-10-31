@@ -1,7 +1,5 @@
 "use client";
 
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import LazyPhoto from "@/components/LazyPhoto";
 import * as m from "motion/react-m";
 import { useCenterLit } from "@/components/useCenterLit";
@@ -26,47 +24,27 @@ const stagger = {
 const services = [
   {
     id: "01",
-    slug: "catalogos-digitales",
     image: "/hero/app_mockup_1.webp",
-    title: "Sistemas de Gestión Comercial",
-    subheading: "Exposición Inteligente de Inventario",
+    title: "Diseño Web",
     description:
-      "Presentación visual de alta velocidad adaptada a móviles. Organiza tus productos o propiedades con navegación fluida para que el cliente encuentre exactamente lo que busca antes de contactarte.",
+      "Interfaces de alta gama, ultrarrápidas, diseñadas para un impacto visual máximo y una conversión móvil impecable.",
     card: "lit:border-accent/70 lit:shadow-[0_0_35px_var(--accent-glow)]",
-    accent: "text-accent",
   },
   {
     id: "02",
-    slug: "agente-de-calificacion",
     image: "/photos/1519389950473-47ba0277781c.webp",
-    title: "Agente de Calificación",
-    subheading: "Filtro & Captura en Tiempo Real",
+    title: "Arquitectura de Bases de Datos",
     description:
-      "Flujos de preguntas estructuradas multiopción que guían al visitante. Identifica la intención real de compra y elimina la pérdida de tiempo con prospectos no calificados.",
+      "Estructuras de datos dedicadas y robustas que garantizan control absoluto y una memoria de negocio confiable.",
     card: "lit:border-accent/70 lit:shadow-[0_0_35px_var(--accent-glow)]",
-    accent: "text-accent",
   },
   {
     id: "03",
-    slug: "conexion-directa",
     image: "/photos/1556761175-5973dc0f32e7.webp",
-    title: "Conexión Directa",
-    subheading: "Cierre Comercial en Un Clic",
+    title: "Automatizaciones",
     description:
-      "Entrega instantánea de datos al vendedor vía WhatsApp. El cliente llega a tu canal de ventas con la ficha técnica completa de lo que necesita, listo para concretar la transacción.",
+      "Flujos inteligentes 24/7 y enrutamiento directo a WhatsApp que transforman consultas en pedidos listos para cerrar.",
     card: "lit:border-accent/70 lit:shadow-[0_0_35px_var(--accent-glow)]",
-    accent: "text-accent",
-  },
-  {
-    id: "04",
-    slug: "pipeline-de-seguimiento",
-    image: "/photos/1504384308090-c894fdcc538d.webp",
-    title: "Pipeline de Seguimiento",
-    subheading: "Estandarización & Trazabilidad",
-    description:
-      "Control total sobre la gestión comercial. Tu equipo opera bajo un estándar único y fácil de usar, asegurando que cada oportunidad reciba el recontacto adecuado sin fricción.",
-    card: "lit:border-accent/70 lit:shadow-[0_0_35px_var(--accent-glow)]",
-    accent: "text-accent",
   },
 ];
 
@@ -77,7 +55,7 @@ function ServiceCard({ item }: { item: (typeof services)[number] }) {
       ref={ref}
       data-lit={lit}
       variants={rise}
-      className={`group relative flex flex-col justify-between gap-6 isolate overflow-hidden rounded-2xl aspect-square border border-fg/15 bg-neutral-900 p-5 pb-4 text-white lg:p-12 lg:pb-8 transition-all duration-300 ease-out motion-safe:lit:-translate-y-1 ${item.card}`}
+      className={`group relative flex flex-col justify-between gap-6 isolate overflow-hidden rounded-2xl aspect-square border border-fg/15 bg-neutral-900 p-5 pb-4 text-white lg:p-8 lg:pb-6 transition-all duration-300 ease-out motion-safe:lit:-translate-y-1 ${item.card}`}
     >
       <LazyPhoto src={item.image} sizes="(min-width: 640px) 50vw, calc(100vw - 3rem)" margin="300px" />
       <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-r from-black/5 via-black/5 to-transparent" />
@@ -93,27 +71,14 @@ function ServiceCard({ item }: { item: (typeof services)[number] }) {
         </span>
       </div>
 
-      <div className="relative z-10 flex w-1/2 flex-col gap-1 lg:gap-2">
+      <div className="relative z-10 flex w-1/2 flex-col gap-1 sm:w-3/4 lg:gap-2">
         <div className="flex flex-col gap-0 lg:gap-0.5">
-          <p
-            className="font-mono text-xs tracking-wider text-blue-300 uppercase"
-          >
-            {item.subheading}
-          </p>
-          <h3 className="font-serif text-xl leading-snug lg:text-4xl">{item.title}</h3>
+          <h3 className="font-serif text-xl leading-snug lg:text-3xl">{item.title}</h3>
         </div>
 
         <p className="-mt-0.5 text-xs leading-snug text-slate-200 lg:-mt-1 lg:text-base lg:leading-normal transition-colors duration-300 group-lit:text-white">
           {item.description}
         </p>
-        {/* The ::after stretches this link over the whole card, so the card itself is clickable */}
-        <Link
-          href={`/servicios/${item.slug}`}
-          className="inline-flex w-fit items-center gap-2 text-sm font-medium text-blue-300 after:absolute after:inset-0 after:content-['']"
-        >
-          Ver servicio
-          <ArrowRight size={14} aria-hidden className="transition-transform duration-200 group-lit:translate-x-1" />
-        </Link>
       </div>
     </m.div>
   );
@@ -126,7 +91,7 @@ export function ServiceGrid() {
       whileInView="show"
       viewport={viewport}
       variants={stagger}
-      className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:gap-8"
+      className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8"
     >
       {services.map((item) => (
         <ServiceCard key={item.id} item={item} />
