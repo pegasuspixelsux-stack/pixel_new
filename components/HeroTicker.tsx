@@ -1,24 +1,14 @@
 import Image from "next/image";
 
-// Same photos as the service cards plus the hero mockups. Swap for real project imagery.
-const images = [
-  "/hero/app_mockup_1.webp",
-  "/hero/catalog_1.webp",
-  "/photos/1519389950473-47ba0277781c.webp",
-  "/photos/1556761175-5973dc0f32e7.webp",
-  "/photos/1504384308090-c894fdcc538d.webp",
-  "/photos/1551288049-bebda4e38f71.webp",
-  "/photos/1460925895917-afdab827c52f.webp",
-  "/photos/1518770660439-4636190af475.webp",
-];
+// Phone screenshots (402x874) from public/ticker_images. phone-7.png is a duplicate of phone-6.png, so it's skipped.
+const images = [1, 2, 3, 4, 5, 6, 8].map((n) => `/ticker_images/phone-${n}.png`);
 
 function Set({ hidden }: { hidden?: boolean }) {
   return (
     <ul aria-hidden={hidden || undefined} className="flex shrink-0 gap-4 pr-4 lg:gap-6 lg:pr-6">
       {images.map((src) => (
-        <li key={src} className="relative aspect-square w-60 shrink-0 overflow-hidden rounded-2xl border border-fg/15 bg-neutral-900 lg:w-72">
-          <Image src={src} alt="" fill sizes="288px" quality={50} className="object-cover" />
-          <div aria-hidden className="absolute inset-0 bg-gradient-to-r from-black/5 via-black/5 to-transparent" />
+        <li key={src} className="relative aspect-[402/874] h-96 shrink-0 lg:h-[30rem]">
+          <Image src={src} alt="" fill sizes="220px" quality={75} className="object-contain" />
         </li>
       ))}
     </ul>
