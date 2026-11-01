@@ -7,8 +7,8 @@ function Set({ hidden }: { hidden?: boolean }) {
   return (
     <ul aria-hidden={hidden || undefined} className="flex shrink-0 gap-4 pr-4 lg:gap-6 lg:pr-6">
       {images.map((src) => (
-        <li key={src} className="relative aspect-[402/874] h-96 shrink-0 lg:h-[30rem]">
-          <Image src={src} alt="" fill sizes="220px" quality={75} className="object-contain" />
+        <li key={src} className="relative aspect-[402/874] h-96 shrink-0 overflow-hidden lg:h-[30rem]">
+          <Image src={src} alt="" fill sizes="264px" quality={75} className="scale-[1.44] object-contain" />
         </li>
       ))}
     </ul>
