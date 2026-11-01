@@ -234,7 +234,7 @@ html {
 }
 @media (prefers-reduced-motion: no-preference) {
   .ticker-track {
-    animation: ticker 60s linear infinite;
+    animation: ticker 50s linear infinite;
   }
   .ticker:hover .ticker-track {
     animation-play-state: paused;
