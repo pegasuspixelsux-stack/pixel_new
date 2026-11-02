@@ -44,7 +44,7 @@ const services = [
     image: "/services_images/automation_web.webp",
     title: "Automatizaciones",
     description:
-      "Flujos inteligentes 24/7 y conexión directa a WhatsApp que transforman consultas en pedidos listos para cerrar.",
+      "Flujos inteligentes 24/7 y conexión directa a WhatsApp que transforman consultas en ventas listas para cerrar.",
     card: "lit:border-accent/70 lit:shadow-[0_0_35px_var(--accent-glow)]",
   },
 ];
