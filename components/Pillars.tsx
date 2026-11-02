@@ -7,7 +7,7 @@ import { bottomRow, topRow } from "@/config/featured";
 // Names and descriptions come from the featured projects (config/featured.ts), in the same order as the cards below.
 // TEMPORARY placeholder photos, stored locally as WebP in /public/photos. Replace with real project imagery.
 const photos = [
-  "/photos/1551288049-bebda4e38f71.webp",
+  "/services_images/dealio_web.webp",
   "/photos/1497366216548-37526070297c.webp",
   "/photos/1531297484001-80022131f5a1.webp",
   "/photos/1518770660439-4636190af475.webp",
@@ -42,21 +42,26 @@ export default function Pillars() {
           ) : (
             <LazyPhoto src={image} sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, calc(100vw - 3rem)" />
           )}
-          <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
-          {/* Soft corner gradient under the number, so it reads on any photo */}
-          <div
-            aria-hidden
-            className="absolute inset-0 -z-10 bg-[radial-gradient(circle_240px_at_0_0,rgba(0,0,0,0.55),transparent)]"
-          />
-          <span className="font-inter-display text-[8.55vw] relative z-10 leading-none font-medium tracking-[-0.03em] text-white md:text-[min(4.6vw,4.5rem)]">{String(i + 1).padStart(2, "0")}</span>
-          <div className="relative z-10">
-            <h2 className="font-inter-display text-xl font-medium text-white lg:text-2xl">
+          {/* The Dealio photo (first box) is shown clean, with no gradient overlays */}
+          {i !== 0 && (
+            <>
+              <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
+              {/* Soft corner gradient under the number, so it reads on any photo */}
+              <div
+                aria-hidden
+                className="absolute inset-0 -z-10 bg-[radial-gradient(circle_240px_at_0_0,rgba(0,0,0,0.55),transparent)]"
+              />
+            </>
+          )}
+          <span className={`font-inter-display text-[8.55vw] relative z-10 leading-none font-medium tracking-[-0.03em] md:text-[min(4.6vw,4.5rem)] ${i === 0 ? "text-black" : "text-white"}`}>{String(i + 1).padStart(2, "0")}</span>
+          <div className={`relative z-10 ${i === 0 ? "w-1/2" : ""}`}>
+            <h2 className={`font-inter-display text-xl font-medium lg:text-2xl ${i === 0 ? "text-black" : "text-white"}`}>
               {/* The ::after stretches this link over the whole box, so the box itself is clickable */}
               <Link href={href} className="after:absolute after:inset-0 after:content-['']">
                 {title}
               </Link>
             </h2>
-            <p className="mt-px max-w-sm text-sm leading-snug text-slate-200">{text}</p>
+            <p className={`mt-px max-w-sm text-sm leading-snug ${i === 0 ? "text-black" : "text-slate-200"}`}>{text}</p>
           </div>
         </li>
       ))}
