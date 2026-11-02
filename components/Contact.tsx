@@ -159,7 +159,7 @@ export default function Contact() {
             viewport={viewport}
             className="lg:col-span-7"
           >
-            <div className="rounded-2xl border border-fg/10 bg-surface/70 p-8 backdrop-blur-md transition-[border-color,box-shadow] duration-300 ease-out lit:border-accent/70 lit:shadow-[0_0_35px_var(--accent-glow)]">
+            <div className="flex aspect-square flex-col justify-center rounded-2xl border border-fg/10 bg-surface/70 p-8 backdrop-blur-md transition-[border-color,box-shadow] duration-300 ease-out lit:border-accent/70 lit:shadow-[0_0_35px_var(--accent-glow)]">
               <h3 className="mb-6 text-xl font-medium">Enviar una consulta</h3>
 
               {sent ? (
