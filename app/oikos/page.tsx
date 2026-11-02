@@ -34,6 +34,7 @@ const content: ProductLandingContent = {
       title: "Panel de Control Comercial",
       text: "Control de inventario de propiedades (alquiler, venta y desarrollos), seguimiento de leads y gestión del pipeline comercial.",
       placeholder: "CAPTURA: Panel de control",
+      stacked: true,
     },
   ],
   features: [

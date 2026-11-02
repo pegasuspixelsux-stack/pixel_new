@@ -15,12 +15,14 @@ const content: ProductLandingContent = {
   subheadline:
     "Dealio dota a tu automotora de un catálogo digital ultra rápido, un asistente virtual 24/7 que califica clientes y un panel de control para gestionar inventario y cerrar más operaciones.",
   heroPlaceholder: "HÉROE VISUAL: Catálogo Móvil + Tablero Talos",
+  heroImage: "/services_images/dealio_web_2.webp",
   pillars: [
     {
       icon: Smartphone,
       title: "Showroom Digital Moderno",
       text: "Catálogo móvil de alta velocidad, fotos en alta resolución y fichas limpias.",
       placeholder: "CAPTURA: Catálogo móvil",
+      image: "/services_images/dealio_mobile.webp",
     },
     {
       icon: Bot,
@@ -33,6 +35,8 @@ const content: ProductLandingContent = {
       title: "Panel de Control Comercial",
       text: "Control de stock, seguimiento de conversaciones y gestión del pipeline de ventas.",
       placeholder: "CAPTURA: Panel de control",
+      stacked: true,
+      image: "/services_images/dealio_panel.webp",
     },
   ],
   features: [

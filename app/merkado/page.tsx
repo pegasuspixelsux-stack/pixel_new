@@ -34,6 +34,7 @@ const content: ProductLandingContent = {
       title: "Panel de Gestión en Tiempo Real",
       text: "Actualiza precios, agrega o elimina ítems, marca productos sin stock y gestiona usuarios de forma instantánea.",
       placeholder: "CAPTURA: Panel de administración",
+      stacked: true,
     },
   ],
   features: [

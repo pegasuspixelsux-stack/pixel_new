@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { LucideIcon } from "lucide-react";
 import { ArrowRight, Check } from "lucide-react";
 import Navbar from "@/components/Navbar";
@@ -14,7 +15,9 @@ export interface ProductLandingContent {
   headline: string;
   subheadline: string;
   heroPlaceholder: string;
-  pillars: { icon: LucideIcon; title: string; text: string; placeholder: string }[];
+  /** Optional real hero image in /public. When set it replaces the placeholder (the placeholder text is then its alt text). */
+  heroImage?: string;
+  pillars: { icon: LucideIcon; title: string; text: string; placeholder: string; /** Optional real screenshot in /public that replaces the placeholder. */ image?: string; /** Extra classes for the image, e.g. a scale or translate to reframe it. */ imageClassName?: string; /** From lg, stack the mockup above the text instead of placing them side by side. */ stacked?: boolean }[];
   features: { id: string; eyebrow: string; title: string; items: string[]; placeholder: string; reverse: boolean }[];
   workflowTitle: string;
   steps: { title: string; text: string }[];
@@ -55,7 +58,20 @@ export default function ProductLanding({ content }: { content: ProductLandingCon
                 </a>
               </div>
             </div>
-            <ImagePlaceholder label={content.heroPlaceholder} aspect="aspect-[4/3] lg:aspect-square" />
+            {content.heroImage ? (
+              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-fg/15 lg:aspect-square">
+                <Image
+                  src={content.heroImage}
+                  alt={content.heroPlaceholder}
+                  fill
+                  priority
+                  sizes="(min-width: 1024px) 50vw, calc(100vw - 3rem)"
+                  className="object-cover"
+                />
+              </div>
+            ) : (
+              <ImagePlaceholder label={content.heroPlaceholder} aspect="aspect-[4/3] lg:aspect-square" />
+            )}
           </div>
         </section>
 
@@ -67,14 +83,25 @@ export default function ProductLanding({ content }: { content: ProductLandingCon
                 <span className={eyebrow}>Pilares del sistema</span>
                 <h2 className={h2}>Tres piezas, un solo sistema comercial.</h2>
               </div>
+              {/* Pillar cards: image behind the text on small screens, side by side (text left, mockup right) from lg, except stacked cards (mockup above, text below). */}
               <ul className="grid grid-cols-1 gap-6 md:grid-cols-3 lg:gap-8">
-                {pillars.map(({ icon: Icon, title, text, placeholder }) => (
-                  <li key={title} className={`flex flex-col gap-5 rounded-2xl p-5 lg:p-6 ${glass} ${cardHover}`}>
-                    <ImagePlaceholder label={placeholder} aspect="aspect-[4/3]" />
-                    <Icon size={22} aria-hidden className="text-accent" />
-                    <div className="flex flex-col gap-2">
-                      <h3 className="font-serif text-2xl leading-snug">{title}</h3>
-                      <p className="leading-relaxed text-fg/70">{text}</p>
+                {pillars.map(({ icon: Icon, title, text, placeholder, image, imageClassName, stacked }) => (
+                  <li key={title} className={`relative isolate flex min-h-[24rem] flex-col justify-end overflow-hidden rounded-2xl bg-white text-black ${stacked ? "lg:justify-end" : "lg:justify-center"} ${glass} ${cardHover}`}>
+                    {/* Below lg: image as full background with a white fade behind the text. From lg: text in the left half, mockup in the right half. */}
+                    <div className={`absolute inset-0 -z-20 ${stacked ? "lg:inset-x-6 lg:top-6 lg:bottom-[48%]" : "lg:left-1/2"}`}>
+                      {image ? (
+                        <Image src={image} alt={placeholder} fill sizes="(min-width: 1024px) 17vw, (min-width: 768px) 33vw, calc(100vw - 3rem)" className={`object-contain object-top lg:object-center ${imageClassName ?? ""}`} />
+                      ) : (
+                        <ImagePlaceholder label={placeholder} flush className="absolute inset-0 !border-0 text-black" />
+                      )}
+                    </div>
+                    <div aria-hidden className="absolute inset-x-0 bottom-0 -z-10 h-3/5 bg-gradient-to-t from-white via-white/90 to-transparent lg:hidden" />
+                    <div className={`relative flex flex-col gap-3 p-5 lg:p-6 ${stacked ? "" : "lg:w-1/2"}`}>
+                      <Icon size={22} aria-hidden className="text-black/70" />
+                      <div className="flex flex-col gap-2">
+                        <h3 className="font-serif text-2xl leading-snug">{title}</h3>
+                        <p className="leading-relaxed text-black/70">{text}</p>
+                      </div>
                     </div>
                   </li>
                 ))}
