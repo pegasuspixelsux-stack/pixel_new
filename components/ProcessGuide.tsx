@@ -32,12 +32,15 @@ export default function ProcessGuide() {
 
         <ol className="grid grid-cols-1 gap-6 md:grid-cols-3 lg:gap-8">
           {steps.map((step) => (
-            <li key={step.id} className="flex flex-col gap-4 rounded-2xl border border-fg/15 p-6 lg:p-8">
-              <span className="font-inter-display text-[min(8.55vw,2.5rem)] leading-none font-medium tracking-[-0.03em] text-accent lg:text-5xl">
+            <li key={step.id} className="flex aspect-square flex-col justify-end gap-4 rounded-2xl border border-fg/15 p-6 transition-[border-color,box-shadow] duration-300 ease-out hover:border-accent/70 hover:shadow-[0_0_35px_var(--accent-glow)] lg:p-8">
+              <span className="mb-auto self-start font-inter-display text-[min(8.55vw,2.5rem)] leading-none font-medium tracking-[-0.03em] text-accent lg:text-5xl">
                 {step.id}
               </span>
-              <h3 className="font-serif text-2xl leading-snug lg:text-3xl">{step.title}</h3>
-              <p className="leading-relaxed text-fg/70">{step.description}</p>
+              {/* Fixed-height text block: titles start at the same level; descriptions grow downward. */}
+              <div className="flex min-h-[60%] flex-col gap-4">
+                <h3 className="font-serif text-2xl leading-snug lg:text-3xl">{step.title}</h3>
+                <p className="leading-relaxed text-fg/70">{step.description}</p>
+              </div>
             </li>
           ))}
         </ol>
