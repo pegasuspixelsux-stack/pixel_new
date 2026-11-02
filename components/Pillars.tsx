@@ -38,7 +38,7 @@ export default function Pillars() {
           className={`relative isolate flex flex-col justify-between overflow-hidden rounded-2xl border border-fg/15 bg-black p-6 pb-5 text-white transition-[border-color,box-shadow,transform] duration-300 ease-out motion-safe:lit:-translate-y-1 lit:border-accent/70 lit:shadow-[0_0_35px_var(--accent-glow)] lg:p-8 lg:pb-6 ${span}`}
         >
           {i === 0 ? (
-            <Image src={image} alt="" fill priority sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, calc(100vw - 3rem)" quality={50} className="-z-20 object-cover" />
+            <Image src={image} alt="" fill priority sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, calc(100vw - 3rem)" quality={50} className="-z-20 -translate-x-[15%] scale-[1.36] object-cover" />
           ) : (
             <LazyPhoto src={image} sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, calc(100vw - 3rem)" />
           )}
