@@ -4,9 +4,9 @@ import { siteUrl } from "@/config/site-url";
 import ProductLanding, { type ProductLandingContent } from "@/components/ProductLanding";
 
 // Share card (WhatsApp, Facebook, X). The image URL is absolute, built from NEXT_PUBLIC_SITE_URL.
-const ogTitle = "Dealio | Tu Showroom Digital para Agendar Visitas al Dealer";
+const ogTitle = "Dealio | Tu Showroom Digital para Agendar Visitas a tu Concesionaria";
 const ogDescription =
-  "Presenta tu inventario con máxima velocidad y convierte interesados en citas presenciales. Facilita que tus clientes agenden su visita al dealer directamente por WhatsApp en segundos.";
+  "Presenta tu inventario con máxima velocidad y convierte interesados en citas presenciales. Facilita que tus clientes agenden su visita a tu concesionaria directamente por WhatsApp en segundos.";
 const ogImage = `${siteUrl}/og/dealio.jpg`;
 
 export const metadata: Metadata = {
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     siteName: "Pegasus Pixels",
     type: "website",
     locale: "es_ES",
-    images: [{ url: ogImage, width: 1200, height: 630, type: "image/jpeg", alt: "Dealio: showroom digital para agendar visitas al dealer" }],
+    images: [{ url: ogImage, width: 1200, height: 630, type: "image/jpeg", alt: "Dealio: showroom digital para agendar visitas a tu concesionaria" }],
   },
   twitter: { card: "summary_large_image", title: ogTitle, description: ogDescription, images: [ogImage] },
 };
