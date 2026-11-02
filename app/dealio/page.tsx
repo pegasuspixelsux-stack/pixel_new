@@ -10,6 +10,7 @@ export const metadata: Metadata = {
 
 const content: ProductLandingContent = {
   eyebrow: "⚡ La plataforma comercial para automotoras de usados",
+  brand: "Dealio",
   headline: "Convierte las visitas de tu web en ventas reales — 24/7.",
   subheadline:
     "Dealio dota a tu automotora de un catálogo digital ultra rápido, un asistente virtual 24/7 que califica clientes y un panel de control para gestionar inventario y cerrar más operaciones.",

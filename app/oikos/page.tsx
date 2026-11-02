@@ -9,7 +9,9 @@ export const metadata: Metadata = {
 };
 
 const content: ProductLandingContent = {
+  themeClass: "theme-oikos",
   eyebrow: "⚡ La plataforma comercial para inmobiliarias y desarrollos",
+  brand: "Oikos",
   headline: "Convierte las visitas de tu web en consultas calificadas — 24/7.",
   subheadline:
     "Oikos dota a tu inmobiliaria de un catálogo digital ultra rápido, un asistente virtual 24/7 que precalifica compradores e inversores, y un panel de control para gestionar propiedades y cerrar más operaciones.",

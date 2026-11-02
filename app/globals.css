@@ -34,6 +34,40 @@
   color-scheme: light;
 }
 
+/* Oikos landing: dark blue surfaces with a light blue accent, fixed whatever theme the visitor picked.
+   Applied by wrapping a page in .theme-oikos. */
+.theme-oikos {
+  --canvas: #0a1628;
+  --surface: #11233f;
+  --section: #0d1c34;
+  --fg: #eaf3fc;
+  --accent: #7cc4ff;
+  --accent-glow: rgba(124, 196, 255, 0.28);
+  /* Call-to-action banner: the page colors reversed, a light blue panel with dark blue text */
+  --cta-bg: #7cc4ff;
+  --cta-fg: #0a1628;
+  color-scheme: dark;
+  background: var(--canvas);
+  color: var(--fg);
+}
+
+/* Merkado landing: tan surfaces with dark brown text and a brown accent, fixed whatever theme the visitor picked.
+   Applied by wrapping a page in .theme-merkado. */
+.theme-merkado {
+  --canvas: #f9f3e7;
+  --surface: #fdfaf3;
+  --section: #fbf6ec;
+  --fg: #2a1a0f;
+  --accent: #6b4423;
+  --accent-glow: rgba(107, 68, 35, 0.3);
+  /* Call-to-action banner: the page colors reversed, a dark brown panel with tan text */
+  --cta-bg: #3a2415;
+  --cta-fg: #d9bf94;
+  color-scheme: light;
+  background: var(--canvas);
+  color: var(--fg);
+}
+
 /* "lit" = hovered, or marked data-lit by useCenterLit on touch screens. */
 @custom-variant lit (&:is(:hover, [data-lit="true"]));
 @custom-variant group-lit (:is(.group:hover, .group[data-lit="true"]) &);

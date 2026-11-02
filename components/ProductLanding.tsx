@@ -9,6 +9,8 @@ import { cardHover, ctaButton, eyebrow, glass, h2, secondaryButton } from "@/com
 
 export interface ProductLandingContent {
   eyebrow: string;
+  /** Optional product name shown as the first line of the h1, in the accent color. */
+  brand?: string;
   headline: string;
   subheadline: string;
   heroPlaceholder: string;
@@ -18,6 +20,8 @@ export interface ProductLandingContent {
   steps: { title: string; text: string }[];
   matrix: { problem: string; result: string }[];
   cta: { heading: string; body: string; label: string };
+  /** Optional class from globals.css (e.g. "theme-oikos") that fixes the page's palette. */
+  themeClass?: string;
 }
 
 const container = "mx-auto w-full max-w-[1440px] px-6 lg:px-16";
@@ -26,15 +30,16 @@ const section = "border-t border-fg/10 py-16 md:py-24 lg:py-32";
 export default function ProductLanding({ content }: { content: ProductLandingContent }) {
   const { pillars, features, steps, matrix } = content;
   return (
-    <>
+    <div className={content.themeClass}>
       <Navbar />
       <main className="relative flex w-full flex-1 flex-col">
         {/* Hero */}
-        <section className="pt-16 pb-16 md:pt-24 lg:pt-32 lg:pb-24">
+        <section className="pt-8 pb-16 md:pt-12 lg:pt-16 lg:pb-24">
           <div className={`${container} grid items-center gap-12 lg:grid-cols-2 lg:gap-16`}>
             <div className="flex flex-col gap-6">
               <span className={eyebrow}>{content.eyebrow}</span>
               <h1 className="font-inter-display text-4xl leading-[1.05] font-medium tracking-[-0.03em] md:text-6xl">
+                {content.brand && <span className="mb-2 block text-accent">{content.brand}</span>}
                 {content.headline}
               </h1>
               <p className="max-w-xl text-base leading-relaxed text-fg/70 md:text-lg">
@@ -170,12 +175,12 @@ export default function ProductLanding({ content }: { content: ProductLandingCon
 
         {/* CTA final */}
         <Reveal>
-          <CtaBanner heading={content.cta.heading} body={content.cta.body} primaryLabel={content.cta.label} />
+          <CtaBanner heading={content.cta.heading} body={content.cta.body} primaryLabel={content.cta.label} tone={content.themeClass ? "theme" : "reverse"} />
         </Reveal>
       </main>
       <Reveal>
         <Footer />
       </Reveal>
-    </>
+    </div>
   );
 }
