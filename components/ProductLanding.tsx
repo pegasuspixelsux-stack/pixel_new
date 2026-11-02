@@ -29,6 +29,8 @@ export interface ProductLandingContent {
   themeClass?: string;
   /** Use the desktop pillar card layout (text left / mockup right, stacked panel card) at every screen size. */
   desktopCards?: boolean;
+  /** Dark blue boxes with white text for the "Cómo funciona" steps. */
+  navySteps?: boolean;
 }
 
 const container = "mx-auto w-full max-w-[1440px] px-6 lg:px-16";
@@ -37,6 +39,7 @@ const section = "border-t border-fg/10 py-16 md:py-24 lg:py-32";
 export default function ProductLanding({ content }: { content: ProductLandingContent }) {
   const { pillars, features, steps, matrix } = content;
   const d = content.desktopCards === true;
+  const navy = content.navySteps === true;
   return (
     <div className={content.themeClass}>
       <Navbar />
@@ -162,12 +165,12 @@ export default function ProductLanding({ content }: { content: ProductLandingCon
               </div>
               <ol className="grid grid-cols-1 gap-6 md:grid-cols-3 lg:gap-8">
                 {steps.map((step, i) => (
-                  <LitCard as="li" key={step.title} className={`flex flex-col gap-4 rounded-2xl p-6 lg:p-8 ${glass} ${cardHover}`}>
-                    <span className="font-inter-display text-5xl leading-none font-medium tracking-[-0.03em] text-accent">
+                  <LitCard as="li" key={step.title} className={`flex flex-col gap-4 rounded-2xl p-6 lg:p-8 ${navy ? "border border-white/15 bg-[#0a2a5e] text-white" : glass} ${cardHover}`}>
+                    <span className={`font-inter-display text-5xl leading-none font-medium tracking-[-0.03em] ${navy ? "text-[#7cc4ff]" : "text-accent"}`}>
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <h3 className="font-serif text-2xl leading-snug lg:text-3xl">{step.title}</h3>
-                    <p className="leading-relaxed text-fg/70">{step.text}</p>
+                    <p className={`leading-relaxed ${navy ? "text-white/80" : "text-fg/70"}`}>{step.text}</p>
                   </LitCard>
                 ))}
               </ol>
@@ -219,7 +222,7 @@ export default function ProductLanding({ content }: { content: ProductLandingCon
 
         {/* CTA final */}
         <Reveal>
-          <CtaBanner heading={content.cta.heading} body={content.cta.body} primaryHref="#contacto" primaryLabel={content.cta.label} tone={content.themeClass ? "theme" : "reverse"} />
+          <CtaBanner heading={content.cta.heading} body={content.cta.body} primaryHref="#contacto" primaryLabel={content.cta.label} tone={content.themeClass ? "theme" : navy ? "navy" : "reverse"} />
         </Reveal>
 
         {/* Same contact section as the home page (id="contacto"), so the CTA buttons and the header button scroll to it. */}

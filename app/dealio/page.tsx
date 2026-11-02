@@ -3,18 +3,19 @@ import { Bot, LayoutDashboard, Smartphone } from "lucide-react";
 import ProductLanding, { type ProductLandingContent } from "@/components/ProductLanding";
 
 export const metadata: Metadata = {
-  title: "Dealio | Plataforma comercial para automotoras de usados | Pegasus Pixels",
+  title: "Dealio | Plataforma comercial para concesionarias | Pegasus Pixels",
   description:
     "Catálogo digital ultra rápido, asistente virtual 24/7 que califica clientes y panel de control para gestionar inventario y cerrar más operaciones.",
 };
 
 const content: ProductLandingContent = {
   desktopCards: true,
-  eyebrow: "⚡ La plataforma comercial para automotoras de usados",
+  navySteps: true,
+  eyebrow: "⚡ La plataforma comercial para concesionarias",
   brand: "Dealio",
   headline: "Convierte las visitas de tu web en ventas reales — 24/7.",
   subheadline:
-    "Dealio dota a tu automotora de un catálogo digital ultra rápido, un asistente virtual 24/7 que califica clientes y un panel de control para gestionar inventario y cerrar más operaciones.",
+    "Dealio dota a tu concesionaria de un catálogo digital ultra rápido, un asistente virtual 24/7 que califica clientes y un panel de control para gestionar inventario y cerrar más operaciones.",
   heroPlaceholder: "HÉROE VISUAL: Catálogo Móvil + Tablero Talos",
   heroImage: "/services_images/dealio_web_2.webp",
   pillars: [
@@ -81,7 +82,7 @@ const content: ProductLandingContent = {
   ],
   cta: {
     heading: "Agenda una presentación de Dealio.",
-    body: "Te mostramos el catálogo, el asistente y el panel funcionando con el stock de tu automotora.",
+    body: "Te mostramos el catálogo, el asistente y el panel funcionando con el stock de tu concesionaria.",
     label: "Agendar presentación",
   },
 };

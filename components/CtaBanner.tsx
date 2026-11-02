@@ -13,8 +13,8 @@ interface CtaBannerProps {
   primaryHref?: string;
   /** Label for the primary button. */
   primaryLabel?: string;
-  /** "black" keeps the original black banner; "theme" uses the page's palette; "reverse" swaps the page text and background colors (--cta-bg and --cta-fg, set by the page theme). */
-  tone?: "black" | "theme" | "reverse";
+  /** "black" keeps the original black banner; "theme" uses the page's palette; "reverse" swaps the page text and background colors; "navy" is dark blue with white text (--cta-bg and --cta-fg, set by the page theme). */
+  tone?: "black" | "theme" | "reverse" | "navy";
 }
 
 // Single centered column: copy on top, actions and micro-copy below.
@@ -27,7 +27,8 @@ export default function CtaBanner({
 }: CtaBannerProps) {
   const themed = tone !== "black";
   // "reverse" works on any page: the panel takes the page text color and the text takes the page background.
-  const vars = tone === "reverse" ? "[--cta-bg:var(--fg)] [--cta-fg:var(--canvas)]" : "";
+  const vars =
+    tone === "reverse" ? "[--cta-bg:var(--fg)] [--cta-fg:var(--canvas)]" : tone === "navy" ? "[--cta-bg:#0a2a5e] [--cta-fg:#ffffff]" : "";
   return (
     <section className="border-t border-fg/10 py-16 md:py-24 lg:py-32">
       {/* Same container as the other home sections, so the banner lines up with them */}
