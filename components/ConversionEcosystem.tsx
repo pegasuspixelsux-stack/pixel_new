@@ -7,24 +7,25 @@ import { useCenterLit } from "@/components/useCenterLit";
 const viewport = { once: true, margin: "-80px" };
 
 const rise = {
-  hidden: { opacity: 0, y: 16 },
+  hidden: { opacity: 0, y: 48, scale: 0.97 },
   show: {
     opacity: 1,
     y: 0,
-    transition: { type: "spring", stiffness: 160, damping: 24 },
+    scale: 1,
+    transition: { type: "spring", stiffness: 120, damping: 22 },
   },
 } as const;
 
 const stagger = {
   hidden: {},
-  show: { transition: { staggerChildren: 0.08 } },
+  show: { transition: { staggerChildren: 0.14 } },
 };
 
 // TEMPORARY placeholder photos, stored locally as WebP in /public/photos. Replace with real imagery.
 const services = [
   {
     id: "01",
-    image: "/services_images/Merkado_web.webp",
+    image: "/services_images/merkado_web_2.webp",
     title: "Diseño Web",
     description:
       "Interfaces de alta gama, ultrarrápidas, diseñadas para un impacto visual máximo y una conversión móvil impecable.",
@@ -32,18 +33,18 @@ const services = [
   },
   {
     id: "02",
-    image: "/photos/1519389950473-47ba0277781c.webp",
-    title: "Arquitectura de Bases de Datos",
+    image: "/services_images/car_dealer_web.webp",
+    title: "Bases de Datos",
     description:
       "Estructuras de datos dedicadas y robustas que garantizan control absoluto y una memoria de negocio confiable.",
     card: "lit:border-accent/70 lit:shadow-[0_0_35px_var(--accent-glow)]",
   },
   {
     id: "03",
-    image: "/photos/1556761175-5973dc0f32e7.webp",
+    image: "/services_images/automation_web.webp",
     title: "Automatizaciones",
     description:
-      "Flujos inteligentes 24/7 y enrutamiento directo a WhatsApp que transforman consultas en pedidos listos para cerrar.",
+      "Flujos inteligentes 24/7 y conexión directa a WhatsApp que transforman consultas en pedidos listos para cerrar.",
     card: "lit:border-accent/70 lit:shadow-[0_0_35px_var(--accent-glow)]",
   },
 ];
