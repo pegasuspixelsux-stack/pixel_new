@@ -63,7 +63,7 @@ export default function ProductLanding({ content }: { content: ProductLandingCon
               </div>
             </div>
             {content.heroImage ? (
-              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-fg/15 lg:aspect-square">
+              <div className="relative aspect-square w-full overflow-hidden rounded-2xl border border-fg/15">
                 <Image
                   src={content.heroImage}
                   alt={content.heroPlaceholder}
@@ -74,7 +74,7 @@ export default function ProductLanding({ content }: { content: ProductLandingCon
                 />
               </div>
             ) : (
-              <ImagePlaceholder label={content.heroPlaceholder} aspect="aspect-[4/3] lg:aspect-square" />
+              <ImagePlaceholder label={content.heroPlaceholder} aspect="aspect-square" />
             )}
           </div>
         </section>
