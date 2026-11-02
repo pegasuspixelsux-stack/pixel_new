@@ -37,7 +37,7 @@ const boxes = [...topRow, ...bottomRow].map(({ title, description, href }, i) =>
 export default function Pillars() {
   return (
     <ul className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-6 lg:auto-rows-fr lg:gap-6">
-      {boxes.map(({ title, href, moreHref, image, text, span }, i) => (
+      {boxes.map(({ title, moreHref, image, text, span }, i) => (
         <li
           key={title}
           className={`relative isolate flex flex-col justify-between overflow-hidden rounded-2xl border border-fg/15 bg-black p-6 pb-5 text-black transition-[border-color,box-shadow,transform] duration-300 ease-out motion-safe:lit:-translate-y-1 lit:border-accent/70 lit:shadow-[0_0_35px_var(--accent-glow)] lg:p-8 lg:pb-6 ${span}`}
@@ -52,7 +52,7 @@ export default function Pillars() {
           <div className="relative z-10 w-[45%]">
             <h2 className="font-inter-display text-xl font-medium lg:text-2xl">
               {/* The ::after stretches this link over the whole box, so the box itself is clickable */}
-              <Link href={href} className="after:absolute after:inset-0 after:content-['']">
+              <Link href={moreHref} className="after:absolute after:inset-0 after:content-['']">
                 {title}
               </Link>
             </h2>

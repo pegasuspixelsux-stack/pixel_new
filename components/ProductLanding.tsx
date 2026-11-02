@@ -4,6 +4,7 @@ import { ArrowRight, Check } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CtaBanner from "@/components/CtaBanner";
+import Contact from "@/components/Contact";
 import Reveal from "@/components/Reveal";
 import ImagePlaceholder from "@/components/ImagePlaceholder";
 import LitCard from "@/components/LitCard";
@@ -53,7 +54,7 @@ export default function ProductLanding({ content }: { content: ProductLandingCon
                 {content.subheadline}
               </p>
               <div className="flex flex-col gap-4 pt-2 sm:flex-row">
-                <a href="/#contacto" className={`${ctaButton} justify-center`}>
+                <a href="#contacto" className={`${ctaButton} justify-center`}>
                   Solicitar Demo
                   <ArrowRight size={16} aria-hidden />
                 </a>
@@ -218,7 +219,12 @@ export default function ProductLanding({ content }: { content: ProductLandingCon
 
         {/* CTA final */}
         <Reveal>
-          <CtaBanner heading={content.cta.heading} body={content.cta.body} primaryLabel={content.cta.label} tone={content.themeClass ? "theme" : "reverse"} />
+          <CtaBanner heading={content.cta.heading} body={content.cta.body} primaryHref="#contacto" primaryLabel={content.cta.label} tone={content.themeClass ? "theme" : "reverse"} />
+        </Reveal>
+
+        {/* Same contact section as the home page (id="contacto"), so the CTA buttons and the header button scroll to it. */}
+        <Reveal>
+          <Contact />
         </Reveal>
       </main>
       <Reveal>
