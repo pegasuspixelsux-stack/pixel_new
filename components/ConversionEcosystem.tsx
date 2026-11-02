@@ -80,7 +80,7 @@ function ServiceCard({ item }: { item: (typeof services)[number] }) {
 
       <div className="relative z-10 flex w-full flex-col gap-1 text-white lg:gap-2">
         <div className="flex flex-col gap-0 lg:gap-0.5">
-          <h3 className="font-serif text-xl leading-snug lg:text-3xl">{item.title}</h3>
+          <h3 className="font-serif text-4xl leading-tight lg:text-3xl lg:leading-snug">{item.title}</h3>
         </div>
 
         <p className="-mt-0.5 text-xs leading-snug text-white lg:-mt-1 lg:text-base lg:leading-normal">
