@@ -8,7 +8,6 @@ export default function Hero() {
   return (
     // Starts at the top of the viewport, underneath the 80px sticky navbar.
     <section className="relative isolate -mt-20 flex min-h-[80svh] w-full lg:min-h-svh items-center overflow-x-clip pt-40 pb-10 lg:pt-52 lg:pb-16">
-
       <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-6 lg:gap-8 px-6 lg:px-16">
         <div className="hero-exit">
           <p className="mb-6 text-sm font-medium tracking-[0.2em] text-accent uppercase">Pegasus Pixels</p>

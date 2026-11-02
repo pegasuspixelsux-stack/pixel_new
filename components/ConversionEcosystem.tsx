@@ -24,7 +24,7 @@ const stagger = {
 const services = [
   {
     id: "01",
-    image: "/hero/app_mockup_1.webp",
+    image: "/services_images/Merkado_web.webp",
     title: "Diseño Web",
     description:
       "Interfaces de alta gama, ultrarrápidas, diseñadas para un impacto visual máximo y una conversión móvil impecable.",
@@ -65,18 +65,24 @@ function ServiceCard({ item }: { item: (typeof services)[number] }) {
         className="absolute inset-0 -z-10 bg-[radial-gradient(circle_320px_at_0_0,rgba(64,64,64,0.85),transparent)]"
       />
 
+      {/* Tan vertical gradient at the bottom, behind the black text */}
+      <div
+        aria-hidden
+        className="absolute inset-x-0 -bottom-[20%] -z-10 h-3/5 bg-gradient-to-t from-[#5C3A21] via-[#5C3A21]/85 to-transparent"
+      />
+
       <div className="flex items-center justify-between">
         <span className="font-inter-display text-[min(8.55vw,2.5rem)] relative z-10 leading-none font-medium tracking-[-0.03em] text-white md:text-[min(4.6vw,4.5rem)]">
           {item.id}
         </span>
       </div>
 
-      <div className="relative z-10 flex w-1/2 flex-col gap-1 sm:w-3/4 lg:gap-2">
+      <div className="relative z-10 flex w-full flex-col gap-1 text-white lg:gap-2">
         <div className="flex flex-col gap-0 lg:gap-0.5">
           <h3 className="font-serif text-xl leading-snug lg:text-3xl">{item.title}</h3>
         </div>
 
-        <p className="-mt-0.5 text-xs leading-snug text-slate-200 lg:-mt-1 lg:text-base lg:leading-normal transition-colors duration-300 group-lit:text-white">
+        <p className="-mt-0.5 text-xs leading-snug text-white lg:-mt-1 lg:text-base lg:leading-normal">
           {item.description}
         </p>
       </div>
