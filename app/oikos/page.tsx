@@ -6,6 +6,18 @@ export const metadata: Metadata = {
   title: "Oikos | Plataforma comercial para inmobiliarias y desarrollos | Pegasus Pixels",
   description:
     "Catálogo digital ultra rápido, asistente virtual 24/7 que precalifica compradores e inversores y panel de control para gestionar propiedades y cerrar más operaciones.",
+  // Own title and URL for the share card; the image falls back to the site default (/og/default.jpg) until this page gets its own.
+  openGraph: {
+    title: "Oikos | Plataforma comercial para inmobiliarias y desarrollos | Pegasus Pixels",
+    description:
+      "Catálogo digital ultra rápido, asistente virtual 24/7 que precalifica compradores e inversores y panel de control para gestionar propiedades y cerrar más operaciones.",
+    url: "/oikos",
+    siteName: "Pegasus Pixels",
+    type: "website",
+    locale: "es_ES",
+    images: [{ url: "/og/default.jpg", width: 1200, height: 630, type: "image/jpeg", alt: "Pegasus Pixels: infraestructura digital para empresas modernas" }],
+  },
+  twitter: { card: "summary_large_image", images: ["/og/default.jpg"] },
 };
 
 const content: ProductLandingContent = {

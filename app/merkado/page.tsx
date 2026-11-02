@@ -6,6 +6,18 @@ export const metadata: Metadata = {
   title: "Merkado | Catálogo digital y pedidos por WhatsApp | Pegasus Pixels",
   description:
     "Catálogo digital intuitivo para pedidos directos por WhatsApp y panel de control para administrar productos, precios y stock en tiempo real.",
+  // Own title and URL for the share card; the image falls back to the site default (/og/default.jpg) until this page gets its own.
+  openGraph: {
+    title: "Merkado | Catálogo digital y pedidos por WhatsApp | Pegasus Pixels",
+    description:
+      "Catálogo digital intuitivo para pedidos directos por WhatsApp y panel de control para administrar productos, precios y stock en tiempo real.",
+    url: "/merkado",
+    siteName: "Pegasus Pixels",
+    type: "website",
+    locale: "es_ES",
+    images: [{ url: "/og/default.jpg", width: 1200, height: 630, type: "image/jpeg", alt: "Pegasus Pixels: infraestructura digital para empresas modernas" }],
+  },
+  twitter: { card: "summary_large_image", images: ["/og/default.jpg"] },
 };
 
 const content: ProductLandingContent = {

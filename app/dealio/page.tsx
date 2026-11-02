@@ -6,6 +6,17 @@ export const metadata: Metadata = {
   title: "Dealio | Plataforma comercial para concesionarias | Pegasus Pixels",
   description:
     "Catálogo digital ultra rápido, asistente virtual 24/7 que califica clientes y panel de control para gestionar inventario y cerrar más operaciones.",
+  openGraph: {
+    title: "Dealio | Plataforma comercial para concesionarias",
+    description:
+      "Catálogo digital ultra rápido, asistente virtual 24/7 que califica clientes y panel de control para gestionar inventario y cerrar más operaciones.",
+    url: "/dealio",
+    siteName: "Pegasus Pixels",
+    type: "website",
+    locale: "es_ES",
+    images: [{ url: "/og/dealio.jpg", width: 1200, height: 630, type: "image/jpeg", alt: "Dealio: la plataforma comercial para concesionarias" }],
+  },
+  twitter: { card: "summary_large_image", images: ["/og/dealio.jpg"] },
 };
 
 const content: ProductLandingContent = {

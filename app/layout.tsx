@@ -30,10 +30,30 @@ const instrumentSerif = Instrument_Serif({
 // viewport-fit=cover lets env(safe-area-inset-bottom) report the phone's floating browser bar / home indicator.
 export const viewport: Viewport = { viewportFit: "cover" };
 
+// Absolute site URL. Open Graph needs fully qualified URLs, so relative paths like "/og/default.jpg" are resolved
+// against this. Set NEXT_PUBLIC_SITE_URL in Vercel (Production) if the site moves to its own domain.
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://pixelnew.vercel.app";
+
+const siteTitle = "Pegasus Pixels | Socio Tecnológico para la Era Digital";
+const siteDescription =
+  "Infraestructura digital para modernizar y estandarizar tu empresa: catálogo inteligente, captura de leads, automatización de ventas y gestión centralizada.";
+
 export const metadata: Metadata = {
-  title: "Pegasus Pixels | Socio Tecnológico para la Era Digital",
-  description:
-    "Infraestructura digital para modernizar y estandarizar tu empresa: catálogo inteligente, captura de leads, automatización de ventas y gestión centralizada.",
+  metadataBase: new URL(siteUrl),
+  title: siteTitle,
+  description: siteDescription,
+  // Default share card for every page. Pages with their own `openGraph` (e.g. /dealio) replace it.
+  // WhatsApp wants a JPG or PNG, 1200x630, ideally under 300KB, served over https.
+  openGraph: {
+    title: siteTitle,
+    description: siteDescription,
+    siteName: "Pegasus Pixels",
+    url: "/",
+    type: "website",
+    locale: "es_ES",
+    images: [{ url: "/og/default.jpg", width: 1200, height: 630, type: "image/jpeg", alt: "Pegasus Pixels: infraestructura digital para empresas modernas" }],
+  },
+  twitter: { card: "summary_large_image", images: ["/og/default.jpg"] },
 };
 
 // Runs before first paint so the saved theme never flashes. Dark is the default; only an explicit "light" choice overrides it.
