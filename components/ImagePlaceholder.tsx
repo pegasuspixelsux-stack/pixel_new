@@ -24,7 +24,7 @@ export default function ImagePlaceholder({ label, aspect = "aspect-[4/3]", class
         aria-hidden
         className="absolute inset-0 bg-[repeating-linear-gradient(135deg,transparent_0_14px,color-mix(in_oklab,var(--fg)_5%,transparent)_14px_15px)]"
       />
-      <span className="relative font-mono text-[11px] leading-relaxed tracking-wider text-fg/60 uppercase sm:text-xs">
+      <span className={`relative font-mono text-[11px] leading-relaxed tracking-wider uppercase sm:text-xs ${flush ? "text-black/50" : "text-fg/60"}`}>
         [ {label} ]
       </span>
       {children}

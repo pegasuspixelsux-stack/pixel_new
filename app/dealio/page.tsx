@@ -9,6 +9,7 @@ export const metadata: Metadata = {
 };
 
 const content: ProductLandingContent = {
+  desktopCards: true,
   eyebrow: "⚡ La plataforma comercial para automotoras de usados",
   brand: "Dealio",
   headline: "Convierte las visitas de tu web en ventas reales — 24/7.",

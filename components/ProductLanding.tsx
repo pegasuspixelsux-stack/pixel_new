@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import CtaBanner from "@/components/CtaBanner";
 import Reveal from "@/components/Reveal";
 import ImagePlaceholder from "@/components/ImagePlaceholder";
+import LitCard from "@/components/LitCard";
 import { cardHover, ctaButton, eyebrow, glass, h2, secondaryButton } from "@/components/landing-styles";
 
 export interface ProductLandingContent {
@@ -25,6 +26,8 @@ export interface ProductLandingContent {
   cta: { heading: string; body: string; label: string };
   /** Optional class from globals.css (e.g. "theme-oikos") that fixes the page's palette. */
   themeClass?: string;
+  /** Use the desktop pillar card layout (text left / mockup right, stacked panel card) at every screen size. */
+  desktopCards?: boolean;
 }
 
 const container = "mx-auto w-full max-w-[1440px] px-6 lg:px-16";
@@ -32,6 +35,7 @@ const section = "border-t border-fg/10 py-16 md:py-24 lg:py-32";
 
 export default function ProductLanding({ content }: { content: ProductLandingContent }) {
   const { pillars, features, steps, matrix } = content;
+  const d = content.desktopCards === true;
   return (
     <div className={content.themeClass}>
       <Navbar />
@@ -86,24 +90,36 @@ export default function ProductLanding({ content }: { content: ProductLandingCon
               {/* Pillar cards: image behind the text on small screens, side by side (text left, mockup right) from lg, except stacked cards (mockup above, text below). */}
               <ul className="grid grid-cols-1 gap-6 md:grid-cols-3 lg:gap-8">
                 {pillars.map(({ icon: Icon, title, text, placeholder, image, imageClassName, stacked }) => (
-                  <li key={title} className={`relative isolate flex min-h-[24rem] flex-col justify-end overflow-hidden rounded-2xl bg-white text-black ${stacked ? "lg:justify-end" : "lg:justify-center"} ${glass} ${cardHover}`}>
-                    {/* Below lg: image as full background with a white fade behind the text. From lg: text in the left half, mockup in the right half. */}
-                    <div className={`absolute inset-0 -z-20 ${stacked ? "lg:inset-x-6 lg:top-6 lg:bottom-[48%]" : "lg:left-1/2"}`}>
+                  <LitCard
+                    as="li"
+                    key={title}
+                    className={`relative isolate flex min-h-[24rem] flex-col overflow-hidden rounded-2xl bg-white text-black ${
+                      d ? (stacked ? "justify-end" : "justify-center") : stacked ? "justify-end lg:justify-end" : "justify-end lg:justify-center"
+                    } ${glass} ${cardHover}`}
+                  >
+                    {/* Image behind the text on small screens, side by side (text left, mockup right) from lg, except stacked cards (mockup above, text below). With desktopCards the desktop layout applies at every size. */}
+                    <div
+                      className={`absolute inset-0 -z-20 ${
+                        d
+                          ? stacked ? "inset-x-6 top-6 bottom-[48%]" : "left-1/2"
+                          : stacked ? "lg:inset-x-6 lg:top-6 lg:bottom-[48%]" : "lg:left-1/2"
+                      }`}
+                    >
                       {image ? (
-                        <Image src={image} alt={placeholder} fill sizes="(min-width: 1024px) 17vw, (min-width: 768px) 33vw, calc(100vw - 3rem)" className={`object-contain object-top lg:object-center ${imageClassName ?? ""}`} />
+                        <Image src={image} alt={placeholder} fill sizes="(min-width: 1024px) 17vw, (min-width: 768px) 33vw, calc(100vw - 3rem)" className={`object-contain ${d ? "object-center" : "object-top lg:object-center"} ${imageClassName ?? ""}`} />
                       ) : (
                         <ImagePlaceholder label={placeholder} flush className="absolute inset-0 !border-0 text-black" />
                       )}
                     </div>
-                    <div aria-hidden className="absolute inset-x-0 bottom-0 -z-10 h-3/5 bg-gradient-to-t from-white via-white/90 to-transparent lg:hidden" />
-                    <div className={`relative flex flex-col gap-3 p-5 lg:p-6 ${stacked ? "" : "lg:w-1/2"}`}>
+                    <div aria-hidden className={`absolute inset-x-0 bottom-0 -z-10 h-3/5 bg-gradient-to-t from-white via-white/90 to-transparent ${d ? "hidden" : "lg:hidden"}`} />
+                    <div className={`relative flex flex-col gap-3 ${d ? "p-4 lg:p-6" : "p-5 lg:p-6"} ${stacked ? "" : d ? "w-1/2" : "lg:w-1/2"}`}>
                       <Icon size={22} aria-hidden className="text-black/70" />
                       <div className="flex flex-col gap-2">
-                        <h3 className="font-serif text-2xl leading-snug">{title}</h3>
-                        <p className="leading-relaxed text-black/70">{text}</p>
+                        <h3 className={`font-serif leading-snug ${d ? "text-xl lg:text-2xl" : "text-2xl"}`}>{title}</h3>
+                        <p className={`leading-relaxed text-black/70 ${d ? "text-sm lg:text-base" : ""}`}>{text}</p>
                       </div>
                     </div>
-                  </li>
+                  </LitCard>
                 ))}
               </ul>
             </div>
@@ -145,13 +161,13 @@ export default function ProductLanding({ content }: { content: ProductLandingCon
               </div>
               <ol className="grid grid-cols-1 gap-6 md:grid-cols-3 lg:gap-8">
                 {steps.map((step, i) => (
-                  <li key={step.title} className={`flex flex-col gap-4 rounded-2xl p-6 lg:p-8 ${glass} ${cardHover}`}>
+                  <LitCard as="li" key={step.title} className={`flex flex-col gap-4 rounded-2xl p-6 lg:p-8 ${glass} ${cardHover}`}>
                     <span className="font-inter-display text-5xl leading-none font-medium tracking-[-0.03em] text-accent">
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <h3 className="font-serif text-2xl leading-snug lg:text-3xl">{step.title}</h3>
                     <p className="leading-relaxed text-fg/70">{step.text}</p>
-                  </li>
+                  </LitCard>
                 ))}
               </ol>
             </div>
