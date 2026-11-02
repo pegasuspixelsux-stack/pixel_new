@@ -83,7 +83,7 @@ function ServiceCard({ item }: { item: (typeof services)[number] }) {
           <h3 className="font-serif text-4xl leading-tight lg:text-3xl lg:leading-snug">{item.title}</h3>
         </div>
 
-        <p className="-mt-0.5 text-xs leading-snug text-white lg:-mt-1 lg:text-base lg:leading-normal">
+        <p className="-mt-0.5 text-sm leading-snug text-white lg:-mt-1 lg:text-base lg:leading-normal">
           {item.description}
         </p>
       </div>
