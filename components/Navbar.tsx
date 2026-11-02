@@ -11,6 +11,8 @@ import { mainNav, type NavItem } from "@/config/navigation";
 export default function Navbar({ overHero = false }: { overHero?: boolean }) {
   const [open, setOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  // Mobile drawer accordion: which section is expanded.
+  const [openSection, setOpenSection] = useState<string | null>(null);
 
   const linkTone = overHero ? "text-fg hover:text-fg/70" : "text-fg/70 hover:text-fg";
   // Menu panels follow the theme: white with black text in light, black with white text in dark.
@@ -20,6 +22,7 @@ export default function Navbar({ overHero = false }: { overHero?: boolean }) {
   function closeAll() {
     setOpen(false);
     setOpenDropdown(null);
+    setOpenSection(null);
   }
 
   return (
@@ -54,11 +57,19 @@ export default function Navbar({ overHero = false }: { overHero?: boolean }) {
                   className="relative"
                   onMouseEnter={() => setOpenDropdown(item.label)}
                   onMouseLeave={() => setOpenDropdown(null)}
+                  onKeyDown={(event) => {
+                    if (event.key === "Escape") setOpenDropdown(null);
+                  }}
+                  onBlur={(event) => {
+                    // Close when keyboard focus leaves the whole dropdown (button + panel).
+                    if (!event.currentTarget.contains(event.relatedTarget)) setOpenDropdown(null);
+                  }}
                 >
                   <button
                     type="button"
                     onClick={() => setOpenDropdown((current) => (current === item.label ? null : item.label))}
                     aria-expanded={openDropdown === item.label}
+                    aria-haspopup="true"
                     className={`flex items-center gap-1 text-sm font-medium transition-colors duration-200 ${linkTone}`}
                   >
                     {item.label}
@@ -72,13 +83,18 @@ export default function Navbar({ overHero = false }: { overHero?: boolean }) {
                   {openDropdown === item.label && (
                     // The pt-4 sits inside the hover area, so the pointer never leaves it on the way from the button to the panel.
                     <div className="absolute top-full left-1/2 w-80 -translate-x-1/2 pt-4">
-                      <div className={`rounded-2xl border p-2 shadow-xl backdrop-blur-md ${panelTone}`}>
+                      <m.div
+                        initial={{ opacity: 0, y: -8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.18, ease: "easeOut" }}
+                        className={`rounded-2xl border p-2 shadow-xl backdrop-blur-md ${panelTone}`}
+                      >
                         <ul className="flex flex-col">
                           {item.children.map((child) => (
                             <DropdownLink key={child.href} item={child} onSelect={closeAll} />
                           ))}
                         </ul>
-                      </div>
+                      </m.div>
                     </div>
                   )}
                 </div>
@@ -121,19 +137,39 @@ export default function Navbar({ overHero = false }: { overHero?: boolean }) {
           <ul className="flex flex-col gap-5">
             {mainNav.map((item) => (
               <li key={item.label} className="flex flex-col gap-3">
-                <Link href={item.href} onClick={closeAll} className={`text-base font-medium transition-colors duration-200 ${panelLinkTone}`}>
-                  {item.label}
-                </Link>
-                {item.children && (
-                  <ul className="flex flex-col gap-3 border-l border-fg/15 pl-4">
-                    {item.children.map((child) => (
-                      <li key={child.href}>
-                        <Link href={child.href} onClick={closeAll} className={`text-sm transition-colors duration-200 ${panelLinkTone}`}>
-                          {child.label}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
+                {item.children ? (
+                  <>
+                    <button
+                      type="button"
+                      onClick={() => setOpenSection((current) => (current === item.label ? null : item.label))}
+                      aria-expanded={openSection === item.label}
+                      aria-controls={`mobile-section-${item.label}`}
+                      className={`flex w-full items-center justify-between text-left text-base font-medium transition-colors duration-200 ${panelLinkTone}`}
+                    >
+                      {item.label}
+                      <ChevronDown
+                        size={16}
+                        aria-hidden
+                        className={`transition-transform duration-200 ${openSection === item.label ? "rotate-180" : ""}`}
+                      />
+                    </button>
+                    {openSection === item.label && (
+                      <ul id={`mobile-section-${item.label}`} className="flex flex-col gap-3 border-l border-fg/15 pl-4">
+                        {item.children.map((child) => (
+                          <li key={child.href}>
+                            <Link href={child.href} onClick={closeAll} className={`block text-sm transition-colors duration-200 ${panelLinkTone}`}>
+                              {child.label}
+                              {child.description && <span className="mt-0.5 block text-xs text-fg/60">{child.description}</span>}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </>
+                ) : (
+                  <Link href={item.href} onClick={closeAll} className={`text-base font-medium transition-colors duration-200 ${panelLinkTone}`}>
+                    {item.label}
+                  </Link>
                 )}
               </li>
             ))}
@@ -150,9 +186,10 @@ function DropdownLink({ item, onSelect }: { item: NavItem; onSelect: () => void 
       <Link
         href={item.href}
         onClick={onSelect}
-        className="block rounded-xl px-4 py-3 text-sm transition-colors duration-200 hover:bg-fg/10"
+        className="block rounded-xl px-4 py-3 text-sm transition-colors duration-200 hover:bg-fg/10 focus-visible:bg-fg/10"
       >
-        {item.label}
+        <span className="block font-medium">{item.label}</span>
+        {item.description && <span className="mt-0.5 block text-xs leading-snug text-fg/60">{item.description}</span>}
       </Link>
     </li>
   );

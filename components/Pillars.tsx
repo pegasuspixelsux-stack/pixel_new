@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import LazyPhoto from "@/components/LazyPhoto";
 import { bottomRow, topRow } from "@/config/featured";
 
@@ -21,9 +22,13 @@ const spans = [
   "lg:col-span-3 aspect-square lg:aspect-auto",
 ];
 
+// "Ver más" goes to the product landing when there is one (Dealio, Oikos), otherwise to the project page.
+const landings: Record<string, string> = { Dealio: "/dealio", Oikos: "/oikos" };
+
 const boxes = [...topRow, ...bottomRow].map(({ title, description, href }, i) => ({
   title,
   href,
+  moreHref: landings[title] ?? href,
   text: description,
   image: photos[i],
   span: spans[i],
@@ -32,36 +37,35 @@ const boxes = [...topRow, ...bottomRow].map(({ title, description, href }, i) =>
 export default function Pillars() {
   return (
     <ul className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-6 lg:auto-rows-fr lg:gap-6">
-      {boxes.map(({ title, href, image, text, span }, i) => (
+      {boxes.map(({ title, href, moreHref, image, text, span }, i) => (
         <li
           key={title}
-          className={`relative isolate flex flex-col justify-between overflow-hidden rounded-2xl border border-fg/15 bg-black p-6 pb-5 text-white transition-[border-color,box-shadow,transform] duration-300 ease-out motion-safe:lit:-translate-y-1 lit:border-accent/70 lit:shadow-[0_0_35px_var(--accent-glow)] lg:p-8 lg:pb-6 ${span}`}
+          className={`relative isolate flex flex-col justify-between overflow-hidden rounded-2xl border border-fg/15 bg-black p-6 pb-5 text-black transition-[border-color,box-shadow,transform] duration-300 ease-out motion-safe:lit:-translate-y-1 lit:border-accent/70 lit:shadow-[0_0_35px_var(--accent-glow)] lg:p-8 lg:pb-6 ${span}`}
         >
           {i === 0 ? (
             <Image src={image} alt="" fill priority sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, calc(100vw - 3rem)" quality={50} className="-z-20 -translate-x-[15%] scale-[1.36] object-cover" />
           ) : (
             <LazyPhoto src={image} sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, calc(100vw - 3rem)" />
           )}
-          {/* The Dealio photo (first box) is shown clean, with no gradient overlays */}
-          {i !== 0 && (
-            <>
-              <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
-              {/* Soft corner gradient under the number, so it reads on any photo */}
-              <div
-                aria-hidden
-                className="absolute inset-0 -z-10 bg-[radial-gradient(circle_240px_at_0_0,rgba(0,0,0,0.55),transparent)]"
-              />
-            </>
-          )}
-          <span className={`font-inter-display text-[8.55vw] relative z-10 leading-none font-medium tracking-[-0.03em] md:text-[min(4.6vw,4.5rem)] ${i === 0 ? "text-black" : "text-white"}`}>{String(i + 1).padStart(2, "0")}</span>
-          <div className={`relative z-10 ${i === 0 ? "w-1/2" : ""}`}>
-            <h2 className={`font-inter-display text-xl font-medium lg:text-2xl ${i === 0 ? "text-black" : "text-white"}`}>
+          {/* Photos are shown clean, with no gradient overlays */}
+          <span className="font-inter-display text-[8.55vw] relative z-10 leading-none font-medium tracking-[-0.03em] md:text-[min(4.6vw,4.5rem)]">{String(i + 1).padStart(2, "0")}</span>
+          <div className="relative z-10 w-[45%]">
+            <h2 className="font-inter-display text-xl font-medium lg:text-2xl">
               {/* The ::after stretches this link over the whole box, so the box itself is clickable */}
               <Link href={href} className="after:absolute after:inset-0 after:content-['']">
                 {title}
               </Link>
             </h2>
-            <p className={`mt-px max-w-sm text-sm leading-snug ${i === 0 ? "text-black" : "text-slate-200"}`}>{text}</p>
+            <p className="mt-px max-w-sm text-sm leading-snug">{text}</p>
+            {/* Subtle divider, then the "Ver más" link (sits above the box-wide link) */}
+            <hr className="mt-4 border-0 border-t border-black/25" />
+            <Link
+              href={moreHref}
+              className="relative mt-3 inline-flex items-center gap-1.5 text-sm font-medium transition-[gap] duration-200 hover:gap-2.5 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-black"
+            >
+              Ver más
+              <ArrowRight size={16} aria-hidden />
+            </Link>
           </div>
         </li>
       ))}

@@ -4,11 +4,11 @@ import Link from "next/link";
 import { Feather } from "lucide-react";
 import ThemeSelector from "@/components/ThemeSelector";
 import { siteConfig } from "@/config/site.config";
-import { mainNav } from "@/config/navigation";
+import { footerNav } from "@/config/navigation";
 import { serviceLinks } from "@/config/service-links";
 
 // Same items as the header, plus the login link.
-const navigation = [...mainNav, { label: "Ingresar", href: "/login" }];
+const navigation = [...footerNav, { label: "Ingresar", href: "/login" }];
 
 const categories = [
   { label: "Automotriz", href: "/proyectos?categoria=Automotriz" },

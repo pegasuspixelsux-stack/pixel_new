@@ -11,6 +11,8 @@ interface CtaBannerProps {
   body?: string;
   /** Link for the primary button. Defaults to the contact form on the homepage. */
   primaryHref?: string;
+  /** Label for the primary button. */
+  primaryLabel?: string;
 }
 
 // Single centered column: copy on top, actions and micro-copy below.
@@ -18,6 +20,7 @@ export default function CtaBanner({
   heading = "¿Listo para llevar tu operación al siguiente nivel?",
   body = "Estructura tu negocio, automatiza la captura de clientes y brinda a tu equipo herramientas digitales profesionales.",
   primaryHref = "/#contacto",
+  primaryLabel = "Agendar Diagnóstico Operativo",
 }: CtaBannerProps) {
   return (
     <section className="border-t border-fg/10 py-16 md:py-24 lg:py-32">
@@ -41,7 +44,7 @@ export default function CtaBanner({
                 href={primaryHref}
                 className="rounded-full bg-white px-8 py-3.5 text-center text-sm font-medium text-black transition-[background-color,transform,box-shadow] duration-300 ease-out hover:bg-white/90 hover:shadow-[0_0_32px_rgba(255,255,255,0.22)] active:scale-[0.97]"
               >
-                Agendar Diagnóstico Operativo
+                {primaryLabel}
               </a>
               <a
                 href={whatsappHref}
