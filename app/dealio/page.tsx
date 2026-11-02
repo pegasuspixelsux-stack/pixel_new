@@ -1,22 +1,28 @@
 import type { Metadata } from "next";
 import { Bot, LayoutDashboard, Smartphone } from "lucide-react";
+import { siteUrl } from "@/config/site-url";
 import ProductLanding, { type ProductLandingContent } from "@/components/ProductLanding";
+
+// Share card (WhatsApp, Facebook, X). The image URL is absolute, built from NEXT_PUBLIC_SITE_URL.
+const ogTitle = "Dealio | Tu Showroom Digital para Agendar Visitas al Dealer";
+const ogDescription =
+  "Presenta tu inventario con máxima velocidad y convierte interesados en citas presenciales. Facilita que tus clientes agenden su visita al dealer directamente por WhatsApp en segundos.";
+const ogImage = `${siteUrl}/og/dealio.jpg`;
 
 export const metadata: Metadata = {
   title: "Dealio | Plataforma comercial para concesionarias | Pegasus Pixels",
   description:
     "Catálogo digital ultra rápido, asistente virtual 24/7 que califica clientes y panel de control para gestionar inventario y cerrar más operaciones.",
   openGraph: {
-    title: "Dealio | Plataforma comercial para concesionarias",
-    description:
-      "Catálogo digital ultra rápido, asistente virtual 24/7 que califica clientes y panel de control para gestionar inventario y cerrar más operaciones.",
-    url: "/dealio",
+    title: ogTitle,
+    description: ogDescription,
+    url: `${siteUrl}/dealio`,
     siteName: "Pegasus Pixels",
     type: "website",
     locale: "es_ES",
-    images: [{ url: "/og/dealio.jpg", width: 1200, height: 630, type: "image/jpeg", alt: "Dealio: la plataforma comercial para concesionarias" }],
+    images: [{ url: ogImage, width: 1200, height: 630, type: "image/jpeg", alt: "Dealio: showroom digital para agendar visitas al dealer" }],
   },
-  twitter: { card: "summary_large_image", images: ["/og/dealio.jpg"] },
+  twitter: { card: "summary_large_image", title: ogTitle, description: ogDescription, images: [ogImage] },
 };
 
 const content: ProductLandingContent = {

@@ -3,6 +3,7 @@ import { Geist, Instrument_Serif } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import MotionProvider from "@/components/MotionProvider";
+import { siteUrl } from "@/config/site-url";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,10 +30,6 @@ const instrumentSerif = Instrument_Serif({
 
 // viewport-fit=cover lets env(safe-area-inset-bottom) report the phone's floating browser bar / home indicator.
 export const viewport: Viewport = { viewportFit: "cover" };
-
-// Absolute site URL. Open Graph needs fully qualified URLs, so relative paths like "/og/default.jpg" are resolved
-// against this. Set NEXT_PUBLIC_SITE_URL in Vercel (Production) if the site moves to its own domain.
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://pixelnew.vercel.app";
 
 const siteTitle = "Pegasus Pixels | Socio Tecnológico para la Era Digital";
 const siteDescription =
