@@ -1,15 +1,15 @@
 import { Star } from "lucide-react";
-import HeroTicker from "@/components/HeroTicker";
+import HeroMockups from "@/components/HeroMockups";
 
 // Each capability is its own stacked line, ending with the star. Rows alternate full and a lighter (60%) text color; the stars stay solid.
-const lines = ["Infraestructura digital~", "para empresas modernas.", "Diseño Web|Automatizaciones"];
+const lines = ["Infraestructura digital", "Automatizaciones", "Diseño Web"];
 
 export default function Hero() {
   return (
     // Starts at the top of the viewport, underneath the 80px sticky navbar.
-    <section className="relative isolate -mt-20 flex min-h-[80svh] w-full lg:min-h-svh items-center overflow-x-clip pt-40 pb-10 lg:pt-52 lg:pb-16">
+    <section className="relative isolate -mt-20 flex min-h-[80svh] w-full lg:min-h-svh items-center overflow-x-clip pt-32 pb-10 lg:pt-26 lg:pb-16">
       <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-6 lg:gap-8 px-6 lg:px-16">
-        <div className="hero-exit">
+        <div className="hero-exit text-center">
           <p className="mb-6 text-sm font-medium tracking-[0.2em] text-accent uppercase">Pegasus Pixels</p>
           {/* The headline is the LCP element, so it carries no entrance animation and paints with the first frame. */}
           <h1 className="font-inter-display text-[8.55vw] font-medium leading-[0.98] tracking-[-0.03em] md:text-[min(4.6vw,4.5rem)]">
@@ -26,7 +26,7 @@ export default function Hero() {
           </h1>
         </div>
 
-        <HeroTicker />
+        <HeroMockups />
 
       </div>
     </section>
