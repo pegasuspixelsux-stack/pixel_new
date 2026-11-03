@@ -41,11 +41,17 @@ const services = [
   },
   {
     id: "02",
-    image: "/services_images/car_dealer_web.webp",
+    // Same layout as the Diseño Web card: inventory screen mockup on the left, text on the right, white card.
+    image: "/services_images/inventario_mockup.webp",
+    imageClassName: "scale-[1.4] object-contain object-center p-2",
+    bg: "bg-white",
+    split: true,
+    // "Ver más" goes to the Dealio landing, the product shown in the mockup.
+    href: "/dealio",
     title: "Bases de Datos",
     description:
       "Estructuras de datos dedicadas y robustas que garantizan control absoluto y una memoria de negocio confiable.",
-    card: "lit:border-accent/70 lit:shadow-[0_0_35px_var(--accent-glow)]",
+    card: "",
   },
   {
     id: "03",
