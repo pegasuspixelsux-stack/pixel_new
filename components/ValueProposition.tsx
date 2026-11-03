@@ -29,7 +29,7 @@ export default function ValueProposition() {
             Optimización comercial digital
           </span>
           <h2 className="font-inter-display text-4xl font-medium leading-tight tracking-[-0.03em] lg:text-5xl">
-            El estándar digital que tu equipo necesita para captar y cerrar más clientes.
+            El estándar digital que<br className="hidden md:block" /> tu equipo necesita.
           </h2>
         </m.div>
 
