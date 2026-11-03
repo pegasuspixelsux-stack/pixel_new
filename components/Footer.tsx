@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { Feather } from "lucide-react";
-import ThemeSelector from "@/components/ThemeSelector";
 import { siteConfig } from "@/config/site.config";
 import { footerNav } from "@/config/navigation";
 import { serviceLinks } from "@/config/service-links";
@@ -104,7 +103,6 @@ export default function Footer() {
                 {item.label}
               </a>
             ))}
-            <ThemeSelector />
           </div>
         </div>
       </div>

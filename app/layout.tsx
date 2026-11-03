@@ -53,19 +53,16 @@ export const metadata: Metadata = {
   twitter: { card: "summary_large_image", images: ["/og/default.jpg"] },
 };
 
-// Runs before first paint so the saved theme never flashes. Dark is the default; only an explicit "light" choice overrides it.
-const themeScript = `try{document.documentElement.dataset.theme=localStorage.getItem("pt-theme")==="light"?"light":"dark"}catch(e){document.documentElement.dataset.theme="dark"}`;
-
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="es"
+      // The public site is always light (there is no light/dark switch). Set in the HTML itself, so there is no flash and
+      // it also overrides any theme a visitor saved earlier.
+      data-theme="light"
       suppressHydrationWarning
       className={`${geistSans.variable} ${instrumentSerif.variable} ${inter.variable} h-full antialiased`}
     >
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
-      </head>
       <body className="min-h-screen flex flex-col overflow-x-hidden bg-canvas text-fg font-sans">
         <MotionProvider>{children}</MotionProvider>
       </body>
