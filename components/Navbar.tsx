@@ -7,7 +7,7 @@ import { ChevronDown, Feather, Menu, X } from "lucide-react";
 import { siteConfig } from "@/config/site.config";
 import { mainNav, type NavItem } from "@/config/navigation";
 
-// Fixed 80px height so the hero can offset itself by the same amount (-mt-20 / pt-20).
+// Fixed height (56px on phones, 80px from md) so the hero can offset itself by the same amount (-mt-14 md:-mt-20).
 export default function Navbar({ overHero = false }: { overHero?: boolean }) {
   const [open, setOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
@@ -32,8 +32,8 @@ export default function Navbar({ overHero = false }: { overHero?: boolean }) {
       transition={{ type: "spring", stiffness: 260, damping: 30 }}
       className={
         overHero
-          ? "sticky top-0 z-50 h-20 w-full border-b border-fg/10 bg-canvas/80 text-fg [-webkit-backdrop-filter:blur(12px)] backdrop-blur-md"
-          : "sticky top-0 z-50 h-20 w-full bg-canvas/70 backdrop-blur-md"
+          ? "sticky top-0 z-50 h-14 w-full border-b md:h-20 border-fg/10 bg-canvas/80 text-fg [-webkit-backdrop-filter:blur(12px)] backdrop-blur-md"
+          : "sticky top-0 z-50 h-14 w-full bg-canvas/70 md:h-20 backdrop-blur-md"
       }
     >
       <nav className="mx-auto flex h-full max-w-[1440px] items-center justify-between px-6 lg:px-16">
@@ -132,7 +132,7 @@ export default function Navbar({ overHero = false }: { overHero?: boolean }) {
       {open && (
         <div
           id="mobile-menu"
-          className={`absolute inset-x-0 top-full max-h-[calc(100svh-5rem)] overflow-y-auto border-b px-6 py-6 backdrop-blur-md md:hidden ${panelTone}`}
+          className={`absolute inset-x-0 top-full max-h-[calc(100svh-3.5rem)] overflow-y-auto border-b px-6 py-6 backdrop-blur-md md:hidden ${panelTone}`}
         >
           <ul className="flex flex-col gap-5">
             {mainNav.map((item) => (

@@ -14,7 +14,7 @@ const mockups = [
 
 export default function HeroMockups() {
   return (
-    <ul aria-label="Proyectos" className="-mx-6 flex w-[calc(100%+3rem)] items-center justify-center overflow-hidden md:mx-0 md:w-full md:overflow-visible">
+    <ul aria-label="Proyectos" className="-mx-6 -my-4 flex w-[calc(100%+3rem)] items-center justify-center overflow-hidden md:mx-0 md:-my-5 md:w-full md:overflow-visible">
       {mockups.map(({ src, cls }, i) => (
         <li key={src} className={`relative aspect-[402/874] shrink-0 overflow-hidden ${cls}`}>
           <Image
