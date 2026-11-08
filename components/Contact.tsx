@@ -109,11 +109,10 @@ export default function Contact() {
                 Contacto
               </span>
               <h2 className="mb-4 font-serif text-3xl leading-tight tracking-[-0.01em] lg:text-4xl">
-                Agendemos su Diagnóstico Operativo.
+                Inicia tu transformación digital.
               </h2>
               <p className="text-sm leading-relaxed text-fg/60">
-                Nuestro equipo está disponible para responder sus consultas y coordinar una reunión para analizar las
-                necesidades digitales de su negocio.
+                Analicemos la estructura de tu negocio para definir la solución ideal. Ponte en contacto directamente o agenda una consulta estratégica.
               </p>
             </m.div>
 
@@ -160,7 +159,7 @@ export default function Contact() {
             className="lg:col-span-7"
           >
             <div className="flex aspect-square flex-col justify-center rounded-2xl border border-fg/10 bg-surface/70 p-8 backdrop-blur-md transition-[border-color,box-shadow] duration-300 ease-out lit:border-accent/70 lit:shadow-[0_0_35px_var(--accent-glow)]">
-              <h3 className="mb-6 text-xl font-medium">Enviar una consulta</h3>
+              <h3 className="mb-6 text-xl font-medium">Envíanos un mensaje</h3>
 
               {sent ? (
                 <div role="status" className="flex items-start gap-3 text-sm text-fg/80">
@@ -174,15 +173,15 @@ export default function Contact() {
                   <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                     <div>
                       <label htmlFor="contact-name" className={labelClass}>
-                        Nombre y apellido
+                        Nombre completo
                       </label>
-                      <input id="contact-name" name="name" required autoComplete="name" className={fieldClass} />
+                      <input id="contact-name" name="name" required autoComplete="name" placeholder="Escribe tu nombre" className={fieldClass} />
                     </div>
                     <div>
-                      <label htmlFor="contact-phone" className={labelClass}>
-                        Teléfono / WhatsApp
+                      <label htmlFor="contact-company" className={labelClass}>
+                        Empresa / Negocio
                       </label>
-                      <input id="contact-phone" name="phone" type="tel" autoComplete="tel" className={fieldClass} />
+                      <input id="contact-company" name="company" autoComplete="organization" placeholder="Nombre de tu empresa" className={fieldClass} />
                     </div>
                   </div>
 
@@ -196,21 +195,21 @@ export default function Contact() {
                       type="email"
                       required
                       autoComplete="email"
+                      placeholder="tu@email.com"
                       className={fieldClass}
                     />
                   </div>
 
                   <div>
                     <label htmlFor="contact-type" className={labelClass}>
-                      Servicio de interés
+                      Servicio o producto de interés
                     </label>
-                    <select id="contact-type" name="type" defaultValue="diagnostic" className={fieldClass}>
-                      <option value="diagnostic">Diagnóstico operativo</option>
-                      <option value="doordash">DoorDash: Registro y Optimización</option>
-                      <option value="web">Sitio web y catálogo digital</option>
-                      <option value="leads">Captación de leads y automatización</option>
-                      <option value="systems">Sistemas de gestión y POS</option>
-                      <option value="other">Otro</option>
+                    <select id="contact-type" name="type" defaultValue="consulting" className={fieldClass}>
+                      <option value="consulting">Consultoría Tecnológica & Automatización</option>
+                      <option value="dealio">Plataforma Dealio (Automotriz)</option>
+                      <option value="oikos">Plataforma Oikos (Inmobiliaria)</option>
+                      <option value="nomos">Plataforma Nomos (Corporativo)</option>
+                      <option value="custom">Desarrollo Web & Sistemas a Medida</option>
                     </select>
                   </div>
 
@@ -222,18 +221,29 @@ export default function Contact() {
                       id="contact-message"
                       name="message"
                       rows={5}
-                      placeholder="Cuéntenos sobre su negocio y qué desea mejorar o automatizar..."
+                      placeholder="Describe brevemente las necesidades de tu proyecto"
                       className={`${fieldClass} resize-none`}
                     />
                   </div>
 
-                  <button
-                    type="submit"
-                    disabled={sending}
-                    className="mt-1 w-full rounded-full bg-fg py-3.5 text-sm font-medium text-canvas transition-[background-color,transform,box-shadow] duration-200 ease-out hover:bg-fg/90 hover:shadow-lg active:scale-[0.98]"
-                  >
-                    {sending ? "Enviando…" : "Enviar consulta"}
-                  </button>
+                  <div className="mt-1 flex flex-col gap-3 sm:flex-row">
+                    <button
+                      type="submit"
+                      disabled={sending}
+                      className="w-full rounded-full bg-[#FFFF00] py-3.5 text-sm font-semibold text-black transition-[background-color,transform,box-shadow] duration-200 ease-out hover:bg-[#FFFF00]/90 hover:shadow-[0_0_32px_rgba(255,255,0,0.35)] active:scale-[0.98] disabled:opacity-60 sm:flex-1"
+                    >
+                      {sending ? "Enviando…" : "Enviar Consulta"}
+                    </button>
+                    <a
+                      href={whatsappHref}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex w-full items-center justify-center gap-2 rounded-full border border-fg/40 py-3.5 text-sm font-semibold transition-[background-color,transform] duration-200 ease-out hover:bg-fg/10 active:scale-[0.98] sm:flex-1"
+                    >
+                      <MessageCircle size={16} aria-hidden />
+                      Contactar directo por WhatsApp
+                    </a>
+                  </div>
                   {error && (
                     <p role="alert" className="text-sm text-red-500">
                       {error}

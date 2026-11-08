@@ -3,12 +3,11 @@ import Hero from "@/components/Hero";
 import ValueProposition from "@/components/ValueProposition";
 import ServicesSection from "@/components/ServicesSection";
 import ProductsSection from "@/components/ProductsSection";
-import ConversionEcosystem from "@/components/ConversionEcosystem";
-import ProcessGuide from "@/components/ProcessGuide";
+import HowWeWork from "@/components/HowWeWork";
+import HomeFaq from "@/components/HomeFaq";
 import CtaBanner from "@/components/CtaBanner";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-import Pillars from "@/components/Pillars";
 import Reveal from "@/components/Reveal";
 
 export default function Home() {
@@ -29,15 +28,20 @@ export default function Home() {
           <ProductsSection />
         </Reveal>
         <Reveal>
-          <ConversionEcosystem>
-            <Pillars />
-          </ConversionEcosystem>
+          <HowWeWork />
         </Reveal>
         <Reveal>
-          <ProcessGuide />
+          <HomeFaq />
         </Reveal>
         <Reveal>
-          <CtaBanner />
+          <CtaBanner
+            tone="hero"
+            heading="¿Listo para modernizar la infraestructura de tu negocio?"
+            body="Hablemos de tu proyecto hoy mismo. Analizamos tus necesidades y te mostramos cómo nuestras plataformas y automatizaciones pueden optimizar tu operación."
+            primaryLabel="Agendar Consulta Inicial"
+            secondaryLabel="Contactar por WhatsApp"
+            note=""
+          />
         </Reveal>
         <Reveal>
           <Contact />

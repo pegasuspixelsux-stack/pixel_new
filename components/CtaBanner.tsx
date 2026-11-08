@@ -15,8 +15,10 @@ interface CtaBannerProps {
   primaryLabel?: string;
   /** Micro-copy under the buttons. Defaults to the standard "Sin compromiso" line. */
   note?: string;
+  /** Label for the WhatsApp button. */
+  secondaryLabel?: string;
   /** "black" keeps the original black banner; "theme" uses the page's palette; "reverse" swaps the page text and background colors; "navy" is dark blue with white text (--cta-bg and --cta-fg, set by the page theme). */
-  tone?: "black" | "theme" | "reverse" | "navy";
+  tone?: "black" | "theme" | "reverse" | "navy" | "hero";
 }
 
 // Single centered column: copy on top, actions and micro-copy below.
@@ -26,12 +28,13 @@ export default function CtaBanner({
   primaryHref = "/#contacto",
   primaryLabel = "Agendar Diagnóstico Operativo",
   note = "Sin compromiso • Respuesta en menos de 24 hs",
+  secondaryLabel = "Hablar por WhatsApp",
   tone = "black",
 }: CtaBannerProps) {
   const themed = tone !== "black";
   // "reverse" works on any page: the panel takes the page text color and the text takes the page background.
   const vars =
-    tone === "reverse" ? "[--cta-bg:var(--fg)] [--cta-fg:var(--canvas)]" : tone === "navy" ? "[--cta-bg:#0a2a5e] [--cta-fg:#ffffff]" : "";
+    tone === "reverse" ? "[--cta-bg:var(--fg)] [--cta-fg:var(--canvas)]" : tone === "navy" ? "[--cta-bg:#0a2a5e] [--cta-fg:#ffffff]" : tone === "hero" ? "[--cta-bg:#050f26] [--cta-fg:#ffffff]" : "";
   return (
     <section className="border-t border-fg/10 py-16 md:py-24 lg:py-32">
       {/* Same container as the other home sections, so the banner lines up with them */}
@@ -63,11 +66,11 @@ export default function CtaBanner({
                 className={`flex items-center justify-center gap-2 rounded-full border px-8 py-3.5 text-sm font-medium transition-[background-color,transform] duration-200 ease-out active:scale-[0.97] ${themed ? "border-[var(--cta-fg)]/50 text-[var(--cta-fg)] hover:bg-[var(--cta-fg)]/10" : "border-white/40 text-white hover:bg-white/10"}`}
               >
                 <MessageCircle size={16} aria-hidden />
-                Hablar por WhatsApp
+                {secondaryLabel}
               </a>
             </div>
 
-            <p className={`text-xs tracking-wider uppercase ${themed ? "text-[var(--cta-fg)]/60" : "text-white/50"}`}>{note}</p>
+            {note && <p className={`text-xs tracking-wider uppercase ${themed ? "text-[var(--cta-fg)]/60" : "text-white/50"}`}>{note}</p>}
           </div>
         </m.div>
       </div>

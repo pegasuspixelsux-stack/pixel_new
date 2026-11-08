@@ -3,28 +3,25 @@
 import Link from "next/link";
 import { Feather } from "lucide-react";
 import { siteConfig } from "@/config/site.config";
-import { footerNav } from "@/config/navigation";
-import { serviceLinks } from "@/config/service-links";
 
-// Same items as the header, plus the login link.
-const navigation = [...footerNav, { label: "Ingresar", href: "/login" }];
-
-const categories = [
-  { label: "Automotriz", href: "/proyectos?categoria=Automotriz" },
-  { label: "Inmobiliaria", href: "/proyectos?categoria=Inmobiliaria" },
-  { label: "Gastronomía", href: "/proyectos?categoria=Gastronomía" },
-  { label: "Servicios", href: "/proyectos?categoria=Servicios" },
+const solutions = [
+  { label: "Consultoría Tecnológica", href: "/#servicios" },
+  { label: "Automatización de Procesos", href: "/#servicios" },
+  { label: "Desarrollo Web & Sistemas", href: "/#servicios" },
+  { label: "Dealio — Automotriz", href: "/dealio" },
+  { label: "Oikos — Inmobiliario", href: "/oikos" },
+  // No Nomos page yet: points at the products section.
+  { label: "Nomos — Corporativo", href: "/#productos" },
 ];
 
-const locations = [
-  // The four ecosystem services first, then the diagnostic link; DoorDash and Ingeniería de Menú close the list.
-  ...serviceLinks.slice(0, 4).map((service) => ({ label: service.label, href: `/servicios/${service.slug}` })),
-  { label: "Diagnóstico operativo", href: "/#contacto" },
-  ...serviceLinks.slice(4).map((service) => ({
-    label: "footerLabel" in service ? service.footerLabel : service.label,
-    href: `/servicios/${service.slug}`,
-  })),
+const company = [
+  { label: "Sobre Nosotros", href: "/nosotros" },
+  { label: "Cómo Trabajamos", href: "/#como-trabajamos" },
+  { label: "Preguntas Frecuentes", href: "/#faq" },
+  { label: "Contacto", href: "/#contacto" },
 ];
+
+const whatsappNumber = siteConfig.contact.whatsapp.startsWith("+") ? siteConfig.contact.whatsapp : `+${siteConfig.contact.whatsapp}`;
 
 const legal = [
   { label: "Política de Privacidad", href: "#" },
@@ -39,7 +36,7 @@ const columnLink = "text-sm text-fg/60 transition-colors duration-200 hover:text
 
 export default function Footer() {
   return (
-    <footer className="relative z-10 w-full border-t border-fg/10 pb-[max(3rem,env(safe-area-inset-bottom))]">
+    <footer className="hero-dark-alt relative z-10 w-full pb-[max(3rem,env(safe-area-inset-bottom))]">
       <div className="mx-auto flex w-full max-w-[1440px] flex-col px-6 pt-12 pb-8 lg:px-16">
         {/* Navigation columns */}
         <div className="grid grid-cols-2 gap-10 border-b border-fg/10 py-12 md:grid-cols-4">
@@ -51,45 +48,53 @@ export default function Footer() {
                 <span className="text-[11px] font-medium uppercase tracking-[0.2em]">Pixels</span>
               </span>
             </Link>
-            <p className="max-w-xs text-xs leading-relaxed text-fg/60">{siteConfig.description}</p>
-          </div>
-
-          <div>
-            <p className={columnHeading}>Navegación</p>
-            <ul className="flex flex-col gap-2.5">
-              {navigation.map((item) => (
-                <li key={item.label}>
-                  <Link href={item.href} className={columnLink}>
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <p className={columnHeading}>Categorías</p>
-            <ul className="flex flex-col gap-2.5">
-              {categories.map((item) => (
-                <li key={item.label}>
-                  <Link href={item.href} className={columnLink}>
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            <p className="max-w-xs text-xs leading-relaxed text-fg/60">Consultoría tecnológica, arquitectura de sistemas y soluciones digitales integrales.</p>
           </div>
 
           <div>
             <p className={columnHeading}>Soluciones</p>
             <ul className="flex flex-col gap-2.5">
-              {locations.map((item) => (
+              {solutions.map((item) => (
                 <li key={item.label}>
                   <Link href={item.href} className={columnLink}>
                     {item.label}
                   </Link>
                 </li>
               ))}
+            </ul>
+          </div>
+
+          <div>
+            <p className={columnHeading}>Empresa</p>
+            <ul className="flex flex-col gap-2.5">
+              {company.map((item) => (
+                <li key={item.label}>
+                  <Link href={item.href} className={columnLink}>
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <p className={columnHeading}>Contacto Directo</p>
+            <ul className="flex flex-col gap-2.5 text-sm text-fg/60">
+              <li>
+                <span className="text-fg">Ubicación:</span> Punta del Este / Maldonado, Uruguay
+              </li>
+              <li>
+                <span className="text-fg">Email:</span>{" "}
+                <a href={`mailto:${siteConfig.contact.email}`} className="transition-colors duration-200 hover:text-fg">
+                  {siteConfig.contact.email}
+                </a>
+              </li>
+              <li>
+                <span className="text-fg">WhatsApp:</span>{" "}
+                <a href={`https://wa.me/${siteConfig.contact.whatsapp.replace(/\D/g, "")}`} target="_blank" rel="noopener noreferrer" className="transition-colors duration-200 hover:text-fg">
+                  {whatsappNumber}
+                </a>
+              </li>
             </ul>
           </div>
         </div>

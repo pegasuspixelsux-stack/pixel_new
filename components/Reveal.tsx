@@ -1,18 +1,7 @@
-"use client";
-
 import type { ReactNode } from "react";
-import * as m from "motion/react-m";
 
-// Fades a block in and lifts it slightly the first time it scrolls into view.
+// Section entry animation removed: sections now render in place with no fade or lift.
+// Kept as a pass-through so the many <Reveal> wrappers across pages keep working.
 export default function Reveal({ children }: { children: ReactNode }) {
-  return (
-    <m.div
-      initial={{ opacity: 0, y: 80, scale: 0.96 }}
-      whileInView={{ opacity: 1, y: 0, scale: 1 }}
-      viewport={{ once: true, margin: "-120px" }}
-      transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-    >
-      {children}
-    </m.div>
-  );
+  return <>{children}</>;
 }

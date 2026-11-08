@@ -18,7 +18,17 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Ingresa tu nombre y un correo válido." }, { status: 400 });
   }
 
-  await addLead({ name, email, phone: text(body.phone, 40), type: text(body.type, 40), message: text(body.message, 2000) });
+  // The lead store has no company column, so the company goes at the top of the message.
+  const company = text(body.company, 120);
+  const message = text(body.message, 2000);
+  await addLead({
+    name,
+    email,
+    phone: text(body.phone, 40),
+    type: text(body.type, 40),
+    message: company ? `Empresa: ${company}${message ? `
+${message}` : ""}` : message,
+  });
   return NextResponse.json({ ok: true });
 }
 

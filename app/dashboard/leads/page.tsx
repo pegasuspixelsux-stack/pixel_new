@@ -12,6 +12,11 @@ const typeLabels: Record<string, string> = {
   leads: "Captación de leads y automatización",
   systems: "Sistemas de gestión y POS",
   other: "Otro",
+  consulting: "Consultoría Tecnológica & Automatización",
+  dealio: "Plataforma Dealio (Automotriz)",
+  oikos: "Plataforma Oikos (Inmobiliaria)",
+  nomos: "Plataforma Nomos (Corporativo)",
+  custom: "Desarrollo Web & Sistemas a Medida",
 };
 
 const dateFormat = new Intl.DateTimeFormat("es", { dateStyle: "medium", timeStyle: "short" });
