@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-// Five phone screenshots filling the full content width, graduated by size: the center one is the biggest, the two
+// Hidden on phones (shown from md up). Five phone screenshots filling the full content width, graduated by size: the center one is the biggest, the two
 // next to it are smaller, and the two at the ends are the smallest. All keep the screenshots' 402x874 proportions and
 // are centered vertically. The widths add up to exactly 100% with no gaps, so the boxes touch. On phones only three show and the list bleeds to the screen edges: the center box is 56% of the screen and each side box is 44%, centered so that half of each side box is cut off by the screen edge.
 const mockups = [
@@ -14,7 +14,7 @@ const mockups = [
 
 export default function HeroMockups() {
   return (
-    <ul aria-label="Proyectos" className="-mx-6 -my-4 flex w-[calc(100%+3rem)] items-center justify-center overflow-hidden md:mx-0 md:-my-5 md:w-full md:overflow-visible">
+    <ul aria-label="Proyectos" className="hidden items-center justify-center md:mx-0 md:-my-5 md:flex md:w-full md:overflow-visible">
       {mockups.map(({ src, cls, delay }, i) => (
         <li key={src} style={{ "--rise-delay": delay } as React.CSSProperties} className={`hero-rise relative aspect-[402/874] shrink-0 overflow-hidden ${cls}`}>
           <Image

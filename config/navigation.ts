@@ -18,6 +18,7 @@ const systems: NavItem[] = [
   { label: "Dealio", href: "/dealio", description: "Plataforma comercial y catálogo para automotoras." },
   { label: "Oikos", href: "/oikos", description: "Catálogo digital y gestión para inmobiliarias." },
   { label: "Merkado", href: "/merkado", description: "Pedidos por WhatsApp y catálogo para alimentos y distribuidores." },
+  { label: "Merkado B2B", href: "/merkado-b2b", description: "Pedidos por WhatsApp y catálogo para alimentos y distribuidores." },
 ];
 
 const serviciosNav: NavItem = {
@@ -31,6 +32,7 @@ export const mainNav: NavItem[] = [
   { label: "Inicio", href: "/" },
   { label: "Sistemas", href: "/dealio", children: systems },
   serviciosNav,
+  { label: "Merkado B2B", href: "/merkado-b2b" },
   { label: "Nosotros", href: "/nosotros" },
 ];
 

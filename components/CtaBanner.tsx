@@ -13,6 +13,8 @@ interface CtaBannerProps {
   primaryHref?: string;
   /** Label for the primary button. */
   primaryLabel?: string;
+  /** Micro-copy under the buttons. Defaults to the standard "Sin compromiso" line. */
+  note?: string;
   /** "black" keeps the original black banner; "theme" uses the page's palette; "reverse" swaps the page text and background colors; "navy" is dark blue with white text (--cta-bg and --cta-fg, set by the page theme). */
   tone?: "black" | "theme" | "reverse" | "navy";
 }
@@ -23,6 +25,7 @@ export default function CtaBanner({
   body = "Estructura tu negocio, automatiza la captura de clientes y brinda a tu equipo herramientas digitales profesionales.",
   primaryHref = "/#contacto",
   primaryLabel = "Agendar Diagnóstico Operativo",
+  note = "Sin compromiso • Respuesta en menos de 24 hs",
   tone = "black",
 }: CtaBannerProps) {
   const themed = tone !== "black";
@@ -64,7 +67,7 @@ export default function CtaBanner({
               </a>
             </div>
 
-            <p className={`text-xs tracking-wider uppercase ${themed ? "text-[var(--cta-fg)]/60" : "text-white/50"}`}>Sin compromiso • Respuesta en menos de 24 hs</p>
+            <p className={`text-xs tracking-wider uppercase ${themed ? "text-[var(--cta-fg)]/60" : "text-white/50"}`}>{note}</p>
           </div>
         </m.div>
       </div>
