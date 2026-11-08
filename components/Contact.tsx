@@ -94,7 +94,7 @@ export default function Contact() {
   }
 
   return (
-    <section id="contacto" className="relative scroll-mt-24 border-t border-fg/10 py-16 md:py-24 lg:py-32">
+    <section id="contacto" className="hero-dark-alt relative scroll-mt-24 py-16 md:py-24 lg:py-32">
       <div className="mx-auto w-full max-w-[1440px] px-6 lg:px-16">
         <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-12 lg:gap-16">
           <m.div
@@ -105,7 +105,7 @@ export default function Contact() {
             className="flex flex-col gap-10 lg:col-span-5"
           >
             <m.div variants={rise}>
-              <span className="mb-3 block text-xs font-medium tracking-widest text-accent uppercase">
+              <span className="mb-3 block text-xs font-medium tracking-widest text-[#FFFF00] uppercase">
                 Contacto
               </span>
               <h2 className="mb-4 font-serif text-3xl leading-tight tracking-[-0.01em] lg:text-4xl">

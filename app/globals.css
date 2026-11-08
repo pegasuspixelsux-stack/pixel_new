@@ -262,6 +262,8 @@ html {
 .hero-dark,
 .hero-dark-alt {
   --canvas: #050f26;
+  --surface: #0b1c40;
+  --section: #0b1c40;
   --fg: #f8fafc;
   --accent: #60a5fa;
   --accent-glow: rgba(96, 165, 250, 0.35);
@@ -273,13 +275,9 @@ html {
   color: var(--fg);
 }
 
-/* Same navy panel as the hero with the corners swapped: yellow glow top-right, blue glow bottom-left. Declared
-   after .hero-dark so its background wins; the color tokens come from the shared rule above. */
+/* Same navy panel as the hero, solid (no corner glows). The color tokens come from the shared rule above. */
 .hero-dark-alt {
-  background:
-    radial-gradient(ellipse 85% 110% at 100% 0%, rgba(255, 255, 0, 0.55) 0%, rgba(255, 255, 0, 0.2) 40%, transparent 75%),
-    radial-gradient(ellipse 95% 120% at 0% 100%, rgba(37, 99, 235, 0.85) 0%, rgba(37, 99, 235, 0.3) 40%, transparent 75%),
-    #050f26;
+  background: #050f26;
 }
 
 /* The sticky navbar sits over the dark hero, so while the page is near the top it takes the dark tokens and

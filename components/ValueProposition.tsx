@@ -25,7 +25,7 @@ export default function ValueProposition() {
         className="mx-auto grid w-full max-w-[1440px] grid-cols-1 gap-10 px-6 lg:grid-cols-12 lg:gap-16 lg:px-16"
       >
         <m.div variants={rise} className="flex flex-col gap-6 lg:col-span-5">
-          <span className="block text-xs font-medium tracking-widest text-accent uppercase">
+          <span className="block text-xs font-medium tracking-widest text-[#FFFF00] uppercase">
             Optimización comercial digital
           </span>
           <h2 className="font-inter-display text-4xl font-medium leading-tight tracking-[-0.03em] lg:text-5xl">

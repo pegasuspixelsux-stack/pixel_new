@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import ValueProposition from "@/components/ValueProposition";
 import ServicesSection from "@/components/ServicesSection";
+import ProductsSection from "@/components/ProductsSection";
 import ConversionEcosystem from "@/components/ConversionEcosystem";
 import ProcessGuide from "@/components/ProcessGuide";
 import CtaBanner from "@/components/CtaBanner";
@@ -23,6 +24,9 @@ export default function Home() {
         </Reveal>
         <Reveal>
           <ServicesSection />
+        </Reveal>
+        <Reveal>
+          <ProductsSection />
         </Reveal>
         <Reveal>
           <ConversionEcosystem>
