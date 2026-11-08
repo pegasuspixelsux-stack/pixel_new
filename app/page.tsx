@@ -5,7 +5,6 @@ import ServicesSection from "@/components/ServicesSection";
 import ProductsSection from "@/components/ProductsSection";
 import HowWeWork from "@/components/HowWeWork";
 import HomeFaq from "@/components/HomeFaq";
-import CtaBanner from "@/components/CtaBanner";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
@@ -32,16 +31,6 @@ export default function Home() {
         </Reveal>
         <Reveal>
           <HomeFaq />
-        </Reveal>
-        <Reveal>
-          <CtaBanner
-            tone="hero"
-            heading="¿Listo para modernizar la infraestructura de tu negocio?"
-            body="Hablemos de tu proyecto hoy mismo. Analizamos tus necesidades y te mostramos cómo nuestras plataformas y automatizaciones pueden optimizar tu operación."
-            primaryLabel="Agendar Consulta Inicial"
-            secondaryLabel="Contactar por WhatsApp"
-            note=""
-          />
         </Reveal>
         <Reveal>
           <Contact />
