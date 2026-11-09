@@ -21,7 +21,8 @@ export const metadata: Metadata = {
 };
 
 const content: ProductLandingContent = {
-  stackedHero: true,
+  // Same layout as the Dealio page: two-column hero and pillar cards with the text left and the mockup right.
+  desktopCards: true,
   workflowFirst: true,
   eyebrow: "⚡ La plataforma de pedidos y catálogo para carnicerías, panaderías, pastas, verdulerías y distribuidores",
   brand: "Merkado B2B",

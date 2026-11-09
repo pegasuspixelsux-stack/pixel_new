@@ -40,6 +40,8 @@ export interface ProductLandingContent {
   stackedHero?: boolean;
   /** Render the "Cómo funciona" section right below the hero instead of after the features. */
   workflowFirst?: boolean;
+  /** Pillar cards in the dark warm palette (rust-brown, white text, lemon icons) instead of white cards with black text. */
+  warmPillars?: boolean;
   /** Optional two-column objection-handling section, rendered right after the workflow section. */
   /** Optional benefits grid, rendered just before the value matrix. */
   benefits?: { eyebrow: string; title: string; subtitle: string; items: { icon: LucideIcon; title: string; text: string }[] };
@@ -61,6 +63,7 @@ export default function ProductLanding({ content }: { content: ProductLandingCon
   const navy = content.navySteps === true;
   const sh = content.stackedHero === true;
   const workflowFirst = content.workflowFirst === true;
+  const warm = content.warmPillars === true;
   const objection = content.objection && (
     <Reveal>
       <section className={section}>
@@ -188,12 +191,12 @@ export default function ProductLanding({ content }: { content: ProductLandingCon
               <p className={`${sh ? "max-w-2xl" : "max-w-xl"} text-base leading-relaxed text-fg/70 md:text-lg`}>
                 {content.subheadline}
               </p>
-              <div className={`flex flex-col gap-4 pt-2 sm:flex-row ${sh ? "sm:justify-center" : ""}`}>
-                <a href="#contacto" className={`${ctaButton} justify-center`}>
+              <div className={`flex flex-col gap-4 pt-2 sm:flex-row ${sh ? "w-full sm:justify-center" : ""}`}>
+                <a href="#contacto" className={`${ctaButton} justify-center ${sh ? "sm:flex-1" : ""}`}>
                   Solicitar Demo
                   <ArrowRight size={16} aria-hidden />
                 </a>
-                <a href="#como-funciona" className={`${secondaryButton} justify-center`}>
+                <a href="#como-funciona" className={`${secondaryButton} justify-center ${sh ? "sm:flex-1" : ""}`}>
                   Ver Cómo Funciona
                 </a>
               </div>
@@ -217,7 +220,7 @@ export default function ProductLanding({ content }: { content: ProductLandingCon
                 {content.stats.map(({ value, text }) => (
                   <div key={value} className="flex flex-col gap-2">
                     <dt className="font-inter-display text-5xl font-medium tracking-[-0.03em] text-accent md:text-6xl">{value}</dt>
-                    <dd className="mx-auto max-w-xs text-sm leading-relaxed text-fg/70 md:text-base">{text}</dd>
+                    <dd className={`max-w-xs text-sm leading-relaxed text-fg/70 md:text-base ${sh ? "mx-auto" : ""}`}>{text}</dd>
                   </div>
                 ))}
               </dl>
@@ -242,7 +245,7 @@ export default function ProductLanding({ content }: { content: ProductLandingCon
                   <LitCard
                     as="li"
                     key={title}
-                    className={`relative isolate flex min-h-[24rem] flex-col overflow-hidden rounded-2xl bg-white text-black ${
+                    className={`relative isolate flex min-h-[24rem] flex-col overflow-hidden rounded-2xl ${warm ? "bg-[#311202] text-white" : "bg-white text-black"} ${
                       d ? (stacked ? "justify-end" : "justify-center") : stacked ? "justify-end lg:justify-end" : "justify-end lg:justify-center"
                     } ${glass} ${cardHover}`}
                   >
@@ -257,15 +260,15 @@ export default function ProductLanding({ content }: { content: ProductLandingCon
                       {image ? (
                         <Image src={image} alt={placeholder} fill sizes="(min-width: 1024px) 17vw, (min-width: 768px) 33vw, calc(100vw - 3rem)" className={`object-contain ${d ? "object-center" : "object-top lg:object-center"} ${imageClassName ?? ""}`} />
                       ) : (
-                        <ImagePlaceholder label={placeholder} flush className="absolute inset-0 !border-0 text-black" />
+                        <ImagePlaceholder label={placeholder} flush labelClassName={warm ? "text-white/60" : undefined} className={`absolute inset-0 !border-0 ${warm ? "" : "text-black"}`} />
                       )}
                     </div>
-                    <div aria-hidden className={`absolute inset-x-0 bottom-0 -z-10 h-3/5 bg-gradient-to-t from-white via-white/90 to-transparent ${d ? "hidden" : "lg:hidden"}`} />
+                    <div aria-hidden className={`absolute inset-x-0 bottom-0 -z-10 h-3/5 bg-gradient-to-t ${warm ? "from-[#311202] via-[#311202]/90" : "from-white via-white/90"} to-transparent ${d ? "hidden" : "lg:hidden"}`} />
                     <div className={`relative flex flex-col gap-3 ${d ? "p-4 lg:p-6" : "p-5 lg:p-6"} ${stacked ? "" : d ? "w-1/2" : "lg:w-1/2"}`}>
-                      <Icon size={22} aria-hidden className="text-black/70" />
+                      <Icon size={22} aria-hidden className={warm ? "text-accent" : "text-black/70"} />
                       <div className="flex flex-col gap-2">
                         <h3 className={`font-serif leading-snug ${d ? "text-xl lg:text-2xl" : "text-2xl"}`}>{title}</h3>
-                        <p className={`leading-relaxed text-black/70 ${d ? "text-sm lg:text-base" : ""}`}>{text}</p>
+                        <p className={`leading-relaxed ${warm ? "text-white/70" : "text-black/70"} ${d ? "text-sm lg:text-base" : ""}`}>{text}</p>
                       </div>
                     </div>
                   </LitCard>
