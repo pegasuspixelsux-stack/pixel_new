@@ -18,7 +18,7 @@ interface CtaBannerProps {
   /** Label for the WhatsApp button. */
   secondaryLabel?: string;
   /** "black" keeps the original black banner; "theme" uses the page's palette; "reverse" swaps the page text and background colors; "navy" is dark blue with white text (--cta-bg and --cta-fg, set by the page theme). */
-  tone?: "black" | "theme" | "reverse" | "navy" | "hero";
+  tone?: "black" | "theme" | "reverse" | "navy" | "hero" | "warm";
 }
 
 // Single centered column: copy on top, actions and micro-copy below.
@@ -34,7 +34,7 @@ export default function CtaBanner({
   const themed = tone !== "black";
   // "reverse" works on any page: the panel takes the page text color and the text takes the page background.
   const vars =
-    tone === "reverse" ? "[--cta-bg:var(--fg)] [--cta-fg:var(--canvas)]" : tone === "navy" ? "[--cta-bg:#0a2a5e] [--cta-fg:#ffffff]" : tone === "hero" ? "[--cta-bg:#050f26] [--cta-fg:#ffffff]" : "";
+    tone === "reverse" ? "[--cta-bg:var(--fg)] [--cta-fg:var(--canvas)]" : tone === "navy" ? "[--cta-bg:#0a2a5e] [--cta-fg:#ffffff]" : tone === "hero" ? "[--cta-bg:#050f26] [--cta-fg:#ffffff]" : tone === "warm" ? "[--cta-bg:#311202] [--cta-fg:#fefde6]" : "";
   return (
     <section className="border-t border-fg/10 py-16 md:py-24 lg:py-32">
       {/* Same container as the other home sections, so the banner lines up with them */}
@@ -55,7 +55,7 @@ export default function CtaBanner({
             <div className="flex w-full flex-col justify-center gap-4 sm:w-auto sm:flex-row">
               <a
                 href={primaryHref}
-                className={`rounded-full px-8 py-3.5 text-center text-sm font-medium transition-[background-color,transform,box-shadow] duration-300 ease-out active:scale-[0.97] ${themed ? "bg-[var(--cta-fg)] text-[var(--cta-bg)] hover:opacity-90 hover:shadow-[0_0_32px_var(--accent-glow)]" : "bg-white text-black hover:bg-white/90 hover:shadow-[0_0_32px_rgba(255,255,255,0.22)]"}`}
+                className={`rounded-full px-8 py-3.5 text-center text-sm font-medium transition-[background-color,transform,box-shadow] duration-300 ease-out active:scale-[0.97] ${tone === "warm" ? "bg-[#f6e609] text-[#222001] hover:bg-[#f8eb3a] hover:shadow-[0_0_32px_rgba(246,230,9,0.35)]" : themed ? "bg-[var(--cta-fg)] text-[var(--cta-bg)] hover:opacity-90 hover:shadow-[0_0_32px_var(--accent-glow)]" : "bg-white text-black hover:bg-white/90 hover:shadow-[0_0_32px_rgba(255,255,255,0.22)]"}`}
               >
                 {primaryLabel}
               </a>

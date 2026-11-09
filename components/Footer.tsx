@@ -33,9 +33,9 @@ const legal = [
 const columnHeading = "mb-4 text-xs font-medium tracking-wider text-fg uppercase";
 const columnLink = "text-sm text-fg/60 transition-colors duration-200 hover:text-fg";
 
-export default function Footer({ transparent = false }: { transparent?: boolean }) {
+export default function Footer() {
   return (
-    <footer className={`${transparent ? "" : "hero-dark-alt"} relative z-10 w-full pb-[max(3rem,env(safe-area-inset-bottom))]`}>
+    <footer className="relative z-10 w-full pb-[max(3rem,env(safe-area-inset-bottom))]">
       <div className="mx-auto flex w-full max-w-[1440px] flex-col px-6 pt-12 pb-8 lg:px-16">
         {/* Navigation columns */}
         <div className="grid grid-cols-2 gap-10 border-b border-fg/10 py-12 md:grid-cols-4">

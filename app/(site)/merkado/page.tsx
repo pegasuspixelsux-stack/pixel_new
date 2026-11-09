@@ -21,7 +21,6 @@ export const metadata: Metadata = {
 };
 
 const content: ProductLandingContent = {
-  themeClass: "theme-merkado",
   eyebrow: "⚡ La plataforma de pedidos y catálogo para carnicerías, panaderías, pastas, verdulerías y distribuidores",
   brand: "Merkado",
   headline: "Tu catálogo digital y pedidos por WhatsApp en un solo lugar.",

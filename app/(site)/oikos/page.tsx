@@ -21,7 +21,6 @@ export const metadata: Metadata = {
 };
 
 const content: ProductLandingContent = {
-  themeClass: "theme-oikos",
   eyebrow: "⚡ La plataforma comercial para inmobiliarias y desarrollos",
   brand: "Oikos",
   headline: "Convierte las visitas de tu web en consultas calificadas — 24/7.",

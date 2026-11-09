@@ -11,8 +11,7 @@ import Reveal from "@/components/Reveal";
 
 export default function Home() {
   return (
-    // body_gradient: full-page navy background with the corner glows; every section below is transparent.
-    <div className="body_gradient flex flex-1 flex-col">
+    <>
       {/* Thin accent bar that fills as the page scrolls (CSS scroll-driven, see globals.css) */}
       <div aria-hidden className="scroll-progress" />
       <Navbar overHero />
@@ -38,8 +37,8 @@ export default function Home() {
         </Reveal>
       </main>
       <Reveal>
-        <Footer transparent />
+        <Footer />
       </Reveal>
-    </div>
+    </>
   );
 }

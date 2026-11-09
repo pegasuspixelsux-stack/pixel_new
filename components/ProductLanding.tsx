@@ -148,8 +148,8 @@ export default function ProductLanding({ content }: { content: ProductLandingCon
               </div>
               <ol className="grid grid-cols-1 gap-6 md:grid-cols-3 lg:gap-8">
                 {steps.map((step, i) => (
-                  <LitCard as="li" key={step.title} className={`flex flex-col gap-4 rounded-2xl p-6 lg:p-8 ${navy ? "border border-white/15 bg-[#0a2a5e] text-white" : glass} ${cardHover}`}>
-                    <span className={`font-inter-display text-5xl leading-none font-medium tracking-[-0.03em] ${navy ? "text-[#7cc4ff]" : "text-accent"}`}>
+                  <LitCard as="li" key={step.title} className={`flex flex-col gap-4 rounded-2xl p-6 lg:p-8 ${navy ? "border border-white/15 bg-[#311202] text-white" : glass} ${cardHover}`}>
+                    <span className={`font-inter-display text-5xl leading-none font-medium tracking-[-0.03em] ${navy ? "text-[#f6e609]" : "text-accent"}`}>
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     {step.role && (
@@ -353,7 +353,7 @@ export default function ProductLanding({ content }: { content: ProductLandingCon
 
         {/* CTA final */}
         <Reveal>
-          <CtaBanner heading={content.cta.heading} body={content.cta.body} primaryHref="#contacto" primaryLabel={content.cta.label} note={content.cta.note} tone={content.themeClass ? "theme" : navy ? "navy" : "reverse"} />
+          <CtaBanner heading={content.cta.heading} body={content.cta.body} primaryHref="#contacto" primaryLabel={content.cta.label} note={content.cta.note} tone="warm" />
         </Reveal>
 
         {/* Same contact section as the home page (id="contacto"), so the CTA buttons and the header button scroll to it. */}

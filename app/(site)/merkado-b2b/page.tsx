@@ -21,7 +21,6 @@ export const metadata: Metadata = {
 };
 
 const content: ProductLandingContent = {
-  themeClass: "theme-merkado",
   stackedHero: true,
   workflowFirst: true,
   eyebrow: "⚡ La plataforma de pedidos y catálogo para carnicerías, panaderías, pastas, verdulerías y distribuidores",
