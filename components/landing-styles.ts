@@ -1,6 +1,6 @@
 // Class strings shared by the service/project landing pages (ProjectLanding, ProjectDetail), so they stay in sync.
 
-export const glass = "border border-fg/15 bg-fg/[0.05] backdrop-blur-md";
+export const glass = "border border-fg/15 bg-fg/[0.05] md:backdrop-blur-md";
 export const eyebrow = "text-xs font-medium tracking-[0.18em] text-accent uppercase";
 export const h2 = "font-inter-display text-3xl leading-tight font-medium tracking-[-0.03em] md:text-5xl";
 // Same hover as the home page boxes: accent border, glow and a small lift (also on touch, via LitCard).

@@ -8,7 +8,7 @@ const mobileLines = ["El motor~", "tecnológico que~", "tu empresa~", "necesita.
 
 function Lines({ items }: { items: string[] }) {
   return items.map((line) => (
-    <span key={line} className="mb-[0.04em] block text-fg last:mb-0 even:text-[#FFFF00]">
+    <span key={line} className="mb-[0.04em] block text-fg last:mb-0 even:text-accent">
       {line.split("|").map((part) => (
         <span key={part}>
           {part.replace("~", "")}
@@ -25,7 +25,7 @@ export default function Hero() {
     <section className="relative isolate -mt-14 flex md:-mt-20 min-h-[85svh] w-full lg:min-h-svh items-center overflow-x-clip pt-32 pb-10 lg:pt-40 lg:pb-14">
       <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-4 lg:gap-5 px-6 lg:px-16">
         <div className="hero-exit text-left">
-          <p className="hero-rise mb-4 text-sm font-medium tracking-[0.2em] text-[#FFFF00] uppercase">Pegasus Pixels</p>
+          <p className="hero-rise mb-4 text-sm font-medium tracking-[0.2em] text-accent uppercase">Pegasus Pixels</p>
           {/* The headline is the LCP element, so it carries no entrance animation and paints with the first frame. The rest enters in sequence (CSS only, see .hero-rise): eyebrow, text, buttons, then the mockups from the center out. */}
           <h1 className="font-inter-display text-[12.31vw] font-medium leading-[0.98] tracking-[-0.03em] md:leading-[1.12] md:text-[min(6.62vw,6.48rem)]">
             <span className="md:hidden">
@@ -49,7 +49,7 @@ export default function Hero() {
         <div style={{ "--rise-delay": "0.3s" } as React.CSSProperties} className="hero-rise order-last flex items-center justify-start gap-3 sm:gap-4">
           <a
             href="#contacto"
-            className="inline-flex items-center justify-center rounded-full bg-[#FFFF00] px-5 py-3 text-sm font-semibold text-black transition-[background-color,box-shadow,transform] duration-300 ease-out hover:bg-[#FFFF00]/90 hover:shadow-[0_0_40px_rgba(255,255,0,0.45)] active:scale-[0.97] sm:px-8 sm:py-4"
+            className="inline-flex items-center justify-center rounded-full bg-accent px-5 py-3 text-sm font-semibold text-bright-lemon-950 transition-[background-color,box-shadow,transform] duration-300 ease-out hover:bg-accent/90 hover:shadow-[0_0_40px_var(--accent-glow)] active:scale-[0.97] sm:px-8 sm:py-4"
           >
             Agendar Diagnóstico
           </a>

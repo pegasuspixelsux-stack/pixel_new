@@ -58,7 +58,7 @@ export default function ServicesSection() {
         <HorizontalPin as="ol" breakpoint="md" gridClassName="md:grid-cols-2">
           {services.map((service, i) => (
             <LitCard as="li" key={service.title} className={`flex w-[75vw] shrink-0 snap-start flex-col gap-5 rounded-2xl p-6 md:w-auto lg:p-8 ${glass} ${cardHover}`}>
-              <span className="font-inter-display text-5xl leading-none font-medium tracking-[-0.03em] text-[#FFFF00]">{String(i + 1).padStart(2, "0")}</span>
+              <span className="font-inter-display text-5xl leading-none font-medium tracking-[-0.03em] text-accent">{String(i + 1).padStart(2, "0")}</span>
               <div className="flex flex-col gap-2">
                 <h3 className="font-serif text-2xl leading-snug lg:text-3xl">{service.title}</h3>
                 <p className="leading-relaxed text-fg/70">{service.text}</p>
@@ -66,7 +66,7 @@ export default function ServicesSection() {
               <ul className="flex flex-col gap-3 border-t border-fg/10 pt-5">
                 {service.items.map((item) => (
                   <li key={item.label} className="flex items-start gap-3 text-fg/80">
-                    <Check size={18} aria-hidden className="mt-1 shrink-0 text-[#FFFF00]" />
+                    <Check size={18} aria-hidden className="mt-1 shrink-0 text-accent" />
                     <span className="leading-relaxed">
                       <strong className="font-medium text-fg">{item.label}:</strong> {item.text}
                     </span>

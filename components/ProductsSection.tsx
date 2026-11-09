@@ -34,7 +34,7 @@ export default function ProductsSection() {
     <section id="productos" className="relative scroll-mt-24 py-12 md:py-14 lg:py-16">
       <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-10 px-6 lg:gap-14 lg:px-16">
         <div className="flex max-w-3xl flex-col gap-4">
-          <span className="block text-xs font-medium tracking-widest text-[#FFFF00] uppercase">Productos y soluciones propietarias</span>
+          <span className="block text-xs font-medium tracking-widest text-accent uppercase">Productos y soluciones propietarias</span>
           <h2 className="font-inter-display text-[2.1375rem] font-medium leading-[1] tracking-[-0.03em] lg:text-[2.85rem]">Soluciones verticales y plataformas propietarias.</h2>
           <p className="max-w-2xl text-base leading-relaxed text-fg/70 md:text-lg">
             Infraestructura digital diseñada para resolver desafíos operativos específicos. Desplegamos sistemas listos para operar, optimizados para la gestión eficiente y el contacto directo con el cliente.
@@ -50,12 +50,12 @@ export default function ProductsSection() {
               </div>
               <div className="flex flex-1 flex-col gap-5 p-6 lg:p-8">
                 <div className="flex flex-col gap-2">
-                  <h3 className="font-inter-display text-4xl leading-none font-medium tracking-[-0.03em] text-[#FFFF00]">{p.name}</h3>
+                  <h3 className="font-inter-display text-4xl leading-none font-medium tracking-[-0.03em] text-accent">{p.name}</h3>
                   <p className="font-serif text-xl leading-snug">{p.subtitle}</p>
                 </div>
                 <p className="leading-relaxed text-fg/70">{p.text}</p>
                 {p.href && (
-                  <Link href={p.href} className="mt-auto inline-flex items-center gap-1.5 pt-2 text-sm font-medium text-[#FFFF00] transition-[gap] duration-200 hover:gap-2.5">
+                  <Link href={p.href} className="mt-auto inline-flex items-center gap-1.5 pt-2 text-sm font-medium text-accent transition-[gap] duration-200 hover:gap-2.5">
                     Ver más
                     <ArrowRight size={16} aria-hidden />
                   </Link>

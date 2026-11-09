@@ -4,7 +4,7 @@ export default function CaptureSection() {
     <section id="captacion" className="relative scroll-mt-24 py-12 md:py-14 lg:py-16">
       <div className="mx-auto grid w-full max-w-[1440px] grid-cols-1 gap-8 px-6 lg:grid-cols-12 lg:gap-16 lg:px-16">
         <div className="flex flex-col gap-6 lg:col-span-6">
-          <span className="block text-xs font-medium tracking-widest text-[#FFFF00] uppercase">Optimización comercial digital</span>
+          <span className="block text-xs font-medium tracking-widest text-accent uppercase">Optimización comercial digital</span>
           <h2 className="font-inter-display text-4xl font-medium leading-[1.05] tracking-[-0.03em] lg:text-5xl">
             La infraestructura que conecta a tu comprador con tu equipo al instante.
           </h2>

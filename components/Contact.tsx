@@ -99,13 +99,13 @@ export default function Contact() {
         <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-12 lg:gap-16">
           <m.div
             variants={stagger}
-            initial="hidden"
+            initial="show"
             whileInView="show"
             viewport={viewport}
             className="flex flex-col gap-10 lg:col-span-5"
           >
             <m.div variants={rise}>
-              <span className="mb-3 block text-xs font-medium tracking-widest text-[#FFFF00] uppercase">
+              <span className="mb-3 block text-xs font-medium tracking-widest text-accent uppercase">
                 Contacto
               </span>
               <h2 className="mb-4 font-serif text-3xl leading-tight tracking-[-0.01em] lg:text-4xl">
@@ -153,7 +153,7 @@ export default function Contact() {
 
           <m.div
             variants={rise}
-            initial="hidden"
+            initial="show"
             whileInView="show"
             viewport={viewport}
             className="lg:col-span-7"
@@ -230,7 +230,7 @@ export default function Contact() {
                     <button
                       type="submit"
                       disabled={sending}
-                      className="w-full rounded-full bg-[#FFFF00] py-3.5 text-sm font-semibold text-black transition-[background-color,transform,box-shadow] duration-200 ease-out hover:bg-[#FFFF00]/90 hover:shadow-[0_0_32px_rgba(255,255,0,0.35)] active:scale-[0.98] disabled:opacity-60 sm:flex-1"
+                      className="w-full rounded-full bg-accent py-3.5 text-sm font-semibold text-bright-lemon-950 transition-[background-color,transform,box-shadow] duration-200 ease-out hover:bg-accent/90 hover:shadow-[0_0_32px_var(--accent-glow)] active:scale-[0.98] disabled:opacity-60 sm:flex-1"
                     >
                       {sending ? "Enviando…" : "Enviar Consulta"}
                     </button>

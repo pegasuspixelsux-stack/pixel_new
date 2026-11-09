@@ -72,6 +72,65 @@
 @custom-variant lit (&:is(:hover, [data-lit="true"]));
 @custom-variant group-lit (:is(.group:hover, .group[data-lit="true"]) &);
 
+/* Brand palette (Tailwind classes like bg-saffron-500, text-rust-brown-300). */
+@theme {
+  --color-bright-lemon-50: #fefde6;
+  --color-bright-lemon-100: #fdface;
+  --color-bright-lemon-200: #fbf59d;
+  --color-bright-lemon-300: #faf06b;
+  --color-bright-lemon-400: #f8eb3a;
+  --color-bright-lemon-500: #f6e609;
+  --color-bright-lemon-600: #c5b807;
+  --color-bright-lemon-700: #948a05;
+  --color-bright-lemon-800: #625c04;
+  --color-bright-lemon-900: #312e02;
+  --color-bright-lemon-950: #222001;
+  --color-saffron-50: #fef8e7;
+  --color-saffron-100: #fdf2ce;
+  --color-saffron-200: #fae59e;
+  --color-saffron-300: #f8d86d;
+  --color-saffron-400: #f6cb3c;
+  --color-saffron-500: #f4bd0b;
+  --color-saffron-600: #c39809;
+  --color-saffron-700: #927207;
+  --color-saffron-800: #614c05;
+  --color-saffron-900: #312602;
+  --color-saffron-950: #221b02;
+  --color-ochre-50: #fef3e7;
+  --color-ochre-100: #fde8ce;
+  --color-ochre-200: #fad19e;
+  --color-ochre-300: #f8b96d;
+  --color-ochre-400: #f6a23c;
+  --color-ochre-500: #f48b0b;
+  --color-ochre-600: #c36f09;
+  --color-ochre-700: #925307;
+  --color-ochre-800: #613805;
+  --color-ochre-900: #311c02;
+  --color-ochre-950: #221302;
+  --color-rust-brown-50: #feeee6;
+  --color-rust-brown-100: #fddece;
+  --color-rust-brown-200: #fbbc9d;
+  --color-rust-brown-300: #fa9b6b;
+  --color-rust-brown-400: #f8793a;
+  --color-rust-brown-500: #f65809;
+  --color-rust-brown-600: #c54607;
+  --color-rust-brown-700: #943505;
+  --color-rust-brown-800: #622304;
+  --color-rust-brown-900: #311202;
+  --color-rust-brown-950: #220c01;
+  --color-dark-garnet-50: #ffe5e5;
+  --color-dark-garnet-100: #ffcccc;
+  --color-dark-garnet-200: #ff9999;
+  --color-dark-garnet-300: #ff6666;
+  --color-dark-garnet-400: #ff3333;
+  --color-dark-garnet-500: #ff0000;
+  --color-dark-garnet-600: #cc0000;
+  --color-dark-garnet-700: #990000;
+  --color-dark-garnet-800: #660000;
+  --color-dark-garnet-900: #330000;
+  --color-dark-garnet-950: #240000;
+}
+
 @theme inline {
   --color-canvas: var(--canvas);
   --color-surface: var(--surface);
@@ -257,31 +316,31 @@ html {
 }
 
 
-/* Dark navy color tokens. Everything inside re-declares them, so every text-fg / bg-canvas / text-accent turns
-   light-on-dark by itself. .hero-dark-alt is a solid navy panel (the footer on the other pages). */
+/* Dark warm color tokens (rust-brown base, bright-lemon accent). Everything inside re-declares them, so every
+   text-fg / bg-canvas / text-accent turns light-on-dark by itself. .hero-dark-alt is a solid panel (the footer on the other pages). */
 .body_gradient,
 .hero-dark-alt {
-  --canvas: #050f26;
-  --surface: #0b1c40;
-  --section: #0b1c40;
-  --fg: #f8fafc;
-  --accent: #60a5fa;
-  --accent-glow: rgba(96, 165, 250, 0.35);
+  --canvas: #220c01;
+  --surface: #311202;
+  --section: #311202;
+  --fg: #fefde6;
+  --accent: #f6e609;
+  --accent-glow: rgba(246, 230, 9, 0.35);
   color-scheme: dark;
   color: var(--fg);
 }
 
 .hero-dark-alt {
-  background: #050f26;
+  background: #220c01;
 }
 
-/* Full-page background for the home page: deep navy with a blue glow in the top-left corner and a yellow one in
-   the bottom-right. The glows sit in a fixed layer behind the content, so they stay in the corners of the screen
-   while the (transparent) sections scroll over them. */
+/* Full-page background for the home page: dark rust-brown with a rust-orange glow in the top-left corner and a
+   saffron one in the bottom-right. The glows sit in a fixed layer behind the content, so they stay in the corners
+   of the screen while the (transparent) sections scroll over them. */
 .body_gradient {
   position: relative;
   isolation: isolate;
-  background: #050f26;
+  background: #220c01;
 }
 .body_gradient::before {
   content: "";
@@ -289,9 +348,10 @@ html {
   inset: 0;
   z-index: -1;
   pointer-events: none;
+  transform: translateZ(0);
   background:
-    radial-gradient(ellipse 85% 110% at 100% 100%, rgba(255, 255, 0, 0.65) 0%, rgba(255, 255, 0, 0.25) 40%, transparent 75%),
-    radial-gradient(ellipse 95% 120% at 0% 0%, rgba(37, 99, 235, 0.85) 0%, rgba(37, 99, 235, 0.3) 40%, transparent 75%);
+    radial-gradient(ellipse 85% 110% at 100% 100%, rgba(244, 189, 11, 0.6) 0%, rgba(244, 189, 11, 0.22) 40%, transparent 75%),
+    radial-gradient(ellipse 95% 120% at 0% 0%, rgba(246, 88, 9, 0.75) 0%, rgba(246, 88, 9, 0.26) 40%, transparent 75%);
 }
 
 /* The sticky navbar sits over the dark hero, so while the page is near the top it takes the dark tokens and

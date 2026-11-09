@@ -24,7 +24,7 @@ export default function HomeFaq() {
     <section id="faq" className="relative scroll-mt-24 py-12 md:py-14 lg:py-16">
       <div className="mx-auto grid w-full max-w-[1440px] items-start gap-10 px-6 lg:grid-cols-[1fr_2fr] lg:gap-16 lg:px-16">
         <div className="flex flex-col gap-4">
-          <span className="block text-xs font-medium tracking-widest text-[#FFFF00] uppercase">Preguntas frecuentes</span>
+          <span className="block text-xs font-medium tracking-widest text-accent uppercase">Preguntas frecuentes</span>
           <h2 className="font-inter-display text-4xl font-medium leading-tight tracking-[-0.03em] lg:text-5xl">Preguntas frecuentes.</h2>
           <p className="text-base leading-relaxed text-fg/70 md:text-lg">Respuestas claras sobre nuestra metodología, modelo de trabajo e infraestructura.</p>
         </div>
@@ -33,7 +33,7 @@ export default function HomeFaq() {
             <details key={q} className="group py-5 lg:py-6">
               <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-lg leading-snug font-medium lg:text-xl [&::-webkit-details-marker]:hidden">
                 {q}
-                <Plus size={22} aria-hidden className="shrink-0 text-[#FFFF00] transition-transform group-open:rotate-45" />
+                <Plus size={22} aria-hidden className="shrink-0 text-accent transition-transform group-open:rotate-45" />
               </summary>
               <p className="mt-4 max-w-3xl leading-relaxed text-fg/70 md:text-lg">{a}</p>
             </details>

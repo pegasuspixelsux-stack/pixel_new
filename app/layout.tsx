@@ -63,7 +63,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       suppressHydrationWarning
       className={`${geistSans.variable} ${instrumentSerif.variable} ${inter.variable} h-full antialiased`}
     >
-      <body className="min-h-screen flex flex-col overflow-x-hidden bg-canvas text-fg font-sans">
+      <body className="min-h-screen flex flex-col overflow-x-clip bg-canvas text-fg font-sans">
         <MotionProvider>{children}</MotionProvider>
       </body>
     </html>
