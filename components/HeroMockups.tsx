@@ -14,7 +14,7 @@ const mockups = [
 
 export default function HeroMockups() {
   return (
-    <ul aria-label="Proyectos" className="hidden items-center justify-center md:mx-0 md:-my-5 md:flex md:w-full md:overflow-visible">
+    <ul aria-label="Proyectos" className="hidden items-center justify-center md:mx-0 md:-my-5 md:flex md:w-full md:overflow-visible lg:col-start-2 lg:row-span-5 lg:row-start-1 lg:self-center">
       {mockups.map(({ src, cls, delay }, i) => (
         <li key={src} style={{ "--rise-delay": delay } as React.CSSProperties} className={`hero-rise relative aspect-[402/874] shrink-0 overflow-hidden ${cls}`}>
           <Image
