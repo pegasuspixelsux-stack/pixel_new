@@ -334,6 +334,13 @@ html {
   background: #220c01;
 }
 
+/* The home page paints html and body the same dark base as the gradient, so the overscroll area on phones and the
+   strip behind the navbar never show white. */
+html:has(.body_gradient),
+body:has(.body_gradient) {
+  background: #220c01;
+}
+
 /* Full-page background for the home page: dark rust-brown with a rust-orange glow in the top-left corner and a
    saffron one in the bottom-right. The glows sit in a fixed layer behind the content, so they stay in the corners
    of the screen while the (transparent) sections scroll over them. */
