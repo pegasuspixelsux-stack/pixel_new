@@ -257,9 +257,9 @@ html {
 }
 
 
-/* Home hero: always deep navy with a blue glow in the top-left corner and a yellow one in the bottom-right, whatever the page theme. It re-declares the
-   color tokens, so every text-fg / bg-canvas / text-accent inside it turns light-on-dark by itself. */
-.hero-dark,
+/* Dark navy color tokens. Everything inside re-declares them, so every text-fg / bg-canvas / text-accent turns
+   light-on-dark by itself. .hero-dark-alt is a solid navy panel (the footer on the other pages). */
+.body_gradient,
 .hero-dark-alt {
   --canvas: #050f26;
   --surface: #0b1c40;
@@ -268,16 +268,30 @@ html {
   --accent: #60a5fa;
   --accent-glow: rgba(96, 165, 250, 0.35);
   color-scheme: dark;
-  background:
-    radial-gradient(ellipse 85% 110% at 100% 100%, rgba(255, 255, 0, 0.65) 0%, rgba(255, 255, 0, 0.25) 40%, transparent 75%),
-    radial-gradient(ellipse 95% 120% at 0% 0%, rgba(37, 99, 235, 0.85) 0%, rgba(37, 99, 235, 0.3) 40%, transparent 75%),
-    #050f26;
   color: var(--fg);
 }
 
-/* Same navy panel as the hero, solid (no corner glows). The color tokens come from the shared rule above. */
 .hero-dark-alt {
   background: #050f26;
+}
+
+/* Full-page background for the home page: deep navy with a blue glow in the top-left corner and a yellow one in
+   the bottom-right. The glows sit in a fixed layer behind the content, so they stay in the corners of the screen
+   while the (transparent) sections scroll over them. */
+.body_gradient {
+  position: relative;
+  isolation: isolate;
+  background: #050f26;
+}
+.body_gradient::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 85% 110% at 100% 100%, rgba(255, 255, 0, 0.65) 0%, rgba(255, 255, 0, 0.25) 40%, transparent 75%),
+    radial-gradient(ellipse 95% 120% at 0% 0%, rgba(37, 99, 235, 0.85) 0%, rgba(37, 99, 235, 0.3) 40%, transparent 75%);
 }
 
 /* The sticky navbar sits over the dark hero, so while the page is near the top it takes the dark tokens and

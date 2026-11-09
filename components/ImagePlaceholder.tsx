@@ -8,12 +8,14 @@ interface ImagePlaceholderProps {
   className?: string;
   /** Edge-to-edge inside a card: no rounding or border, fills the height it is given. */
   flush?: boolean;
+  /** Override the caption color (default: dark text for flush on white cards, page text color otherwise). */
+  labelClassName?: string;
   children?: ReactNode;
 }
 
 // Stand-in for a real screenshot. To swap it in, replace this component with a next/image (fill, object-cover)
 // inside the same wrapper, keeping the aspect class so the layout does not shift.
-export default function ImagePlaceholder({ label, aspect = "aspect-[4/3]", className = "", flush = false, children }: ImagePlaceholderProps) {
+export default function ImagePlaceholder({ label, aspect = "aspect-[4/3]", className = "", flush = false, labelClassName, children }: ImagePlaceholderProps) {
   return (
     <div
       role="img"
@@ -24,7 +26,7 @@ export default function ImagePlaceholder({ label, aspect = "aspect-[4/3]", class
         aria-hidden
         className="absolute inset-0 bg-[repeating-linear-gradient(135deg,transparent_0_14px,color-mix(in_oklab,var(--fg)_5%,transparent)_14px_15px)]"
       />
-      <span className={`relative font-mono text-[11px] leading-relaxed tracking-wider uppercase sm:text-xs ${flush ? "text-black/50" : "text-fg/60"}`}>
+      <span className={`relative font-mono text-[11px] leading-relaxed tracking-wider uppercase sm:text-xs ${labelClassName ?? (flush ? "text-black/50" : "text-fg/60")}`}>
         [ {label} ]
       </span>
       {children}

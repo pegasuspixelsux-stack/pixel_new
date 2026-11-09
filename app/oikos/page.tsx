@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Bot, Building2, LayoutDashboard } from "lucide-react";
+import { Bot, Building2, LayoutDashboard, MessagesSquare, Zap } from "lucide-react";
 import ProductLanding, { type ProductLandingContent } from "@/components/ProductLanding";
 
 export const metadata: Metadata = {
@@ -75,6 +75,16 @@ const content: ProductLandingContent = {
       reverse: true,
     },
   ],
+  benefits: {
+    eyebrow: "Funcionalidades clave",
+    title: "Lo que Oikos hace por tu inmobiliaria.",
+    subtitle: "Presentación y captación de propiedades para desarrollos inmobiliarios y agencias de bienes raíces.",
+    items: [
+      { icon: Building2, title: "Catálogo de propiedades", text: "Visualización de alta definición para fichas de inmuebles, ubicaciones y características destacadas." },
+      { icon: MessagesSquare, title: "Generación de consultas", text: "Captación estructurada de compradores e inversores directamente conectados con el equipo de ventas." },
+      { icon: Zap, title: "Arquitectura de carga ultrarrápida", text: "Experiencia fluida para el usuario final tanto en dispositivos móviles como de escritorio." },
+    ],
+  },
   workflowTitle: "De tu cartera a la operación, en tres pasos.",
   steps: [
     { title: "Carga tu cartera", text: "Sube tus propiedades y desarrollos con fotos, datos y ubicación. Tu catálogo queda publicado al instante." },

@@ -22,12 +22,12 @@ function Lines({ items }: { items: string[] }) {
 export default function Hero() {
   return (
     // Starts at the top of the viewport, underneath the 80px sticky navbar.
-    <section className="hero-dark relative isolate -mt-14 flex md:-mt-20 min-h-[80svh] w-full lg:min-h-svh items-center overflow-x-clip pt-32 pb-10 lg:pt-40 lg:pb-14">
+    <section className="relative isolate -mt-14 flex md:-mt-20 min-h-[85svh] w-full lg:min-h-svh items-center overflow-x-clip pt-32 pb-10 lg:pt-40 lg:pb-14">
       <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-4 lg:gap-5 px-6 lg:px-16">
         <div className="hero-exit text-left">
           <p className="hero-rise mb-4 text-sm font-medium tracking-[0.2em] text-[#FFFF00] uppercase">Pegasus Pixels</p>
           {/* The headline is the LCP element, so it carries no entrance animation and paints with the first frame. The rest enters in sequence (CSS only, see .hero-rise): eyebrow, text, buttons, then the mockups from the center out. */}
-          <h1 className="font-inter-display text-[12.31vw] font-medium leading-[1.12] tracking-[-0.03em] md:text-[min(6.62vw,6.48rem)]">
+          <h1 className="font-inter-display text-[12.31vw] font-medium leading-[0.98] tracking-[-0.03em] md:leading-[1.12] md:text-[min(6.62vw,6.48rem)]">
             <span className="md:hidden">
               <Lines items={mobileLines} />
             </span>

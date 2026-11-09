@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Bot, LayoutDashboard, Smartphone } from "lucide-react";
+import { Bot, CalendarCheck, FileText, LayoutDashboard, SlidersHorizontal, Smartphone } from "lucide-react";
 import { siteUrl } from "@/config/site-url";
 import ProductLanding, { type ProductLandingContent } from "@/components/ProductLanding";
 
@@ -84,6 +84,16 @@ const content: ProductLandingContent = {
       reverse: true,
     },
   ],
+  benefits: {
+    eyebrow: "Funcionalidades clave",
+    title: "Lo que Dealio hace por tu concesionaria.",
+    subtitle: "Gestión de inventario y agendamiento de visitas diseñados para concesionarios y automotoras.",
+    items: [
+      { icon: CalendarCheck, title: "Agendamiento directo", text: "Convierte el interés en visitas presenciales al concesionario integrando canales de comunicación inmediata." },
+      { icon: FileText, title: "Catálogo y fichas técnicas", text: "Presentación clara de vehículos con imágenes de alta velocidad y especificaciones técnicas detalladas." },
+      { icon: SlidersHorizontal, title: "Filtros de búsqueda ágiles", text: "Navegación optimizada por marca, modelo, precio y año para acelerar la decisión del comprador." },
+    ],
+  },
   workflowTitle: "De tu stock a la venta, en tres pasos.",
   steps: [
     { title: "Carga tu stock", text: "Sube tus vehículos con fotos y datos. Tu catálogo queda publicado al instante." },

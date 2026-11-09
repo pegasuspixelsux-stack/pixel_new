@@ -16,7 +16,7 @@ const stagger = {
 
 export default function ValueProposition() {
   return (
-    <section id="propuesta" className="hero-dark-alt relative scroll-mt-24 py-12 md:py-14 lg:py-16">
+    <section id="propuesta" className="relative scroll-mt-24 py-12 md:py-14 lg:py-16">
       <m.div
         initial="hidden"
         whileInView="show"
@@ -28,7 +28,7 @@ export default function ValueProposition() {
           <span className="block text-xs font-medium tracking-widest text-[#FFFF00] uppercase">
             Optimización comercial digital
           </span>
-          <h2 className="font-inter-display text-4xl font-medium leading-tight tracking-[-0.03em] lg:text-5xl">
+          <h2 className="font-inter-display text-4xl font-medium leading-[1.05] tracking-[-0.03em] lg:text-5xl">
             El estándar digital que<br className="hidden md:block" /> tu equipo necesita.
           </h2>
         </m.div>

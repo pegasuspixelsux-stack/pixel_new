@@ -32,7 +32,7 @@ export default function Navbar({ overHero = false }: { overHero?: boolean }) {
       transition={{ type: "spring", stiffness: 260, damping: 30 }}
       className={
         overHero
-          ? "nav-over-hero sticky top-0 z-50 h-14 w-full border-b md:h-20 border-fg/10 bg-canvas/80 text-fg [-webkit-backdrop-filter:blur(12px)] backdrop-blur-md"
+          ? "sticky top-0 z-50 h-14 w-full border-b md:h-20 border-fg/10 bg-canvas/80 text-fg [-webkit-backdrop-filter:blur(12px)] backdrop-blur-md"
           : "sticky top-0 z-50 h-14 w-full bg-canvas/70 md:h-20 backdrop-blur-md"
       }
     >
