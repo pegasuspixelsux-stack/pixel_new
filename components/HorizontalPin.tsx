@@ -9,13 +9,13 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 const bp = {
   md: {
     query: "(max-width: 767px)",
-    viewport: "-mx-6 md:mx-0 md:overflow-visible",
+    viewport: "-mx-6 md:mx-0 md:my-0 md:overflow-visible md:py-0",
     sticky: "md:static",
     track: "md:mx-0 md:grid md:w-auto md:gap-6 md:px-0 md:pb-0",
   },
   lg: {
     query: "(max-width: 1023px)",
-    viewport: "-mx-6 lg:mx-0 lg:overflow-visible",
+    viewport: "-mx-6 lg:mx-0 lg:my-0 lg:overflow-visible lg:py-0",
     sticky: "lg:static",
     track: "lg:mx-0 lg:grid lg:w-auto lg:gap-8 lg:px-0 lg:pb-0",
   },
@@ -98,7 +98,7 @@ export default function HorizontalPin({ as: Tag = "ul", breakpoint, gridClassNam
       <div ref={sticky} className={`sticky top-[4.5rem] ${cfg.sticky}`}>
         <div
           ref={viewport}
-          className={`${cfg.viewport} ${pinned ? "overflow-hidden" : "snap-x snap-mandatory overflow-x-auto scroll-px-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"}`}
+          className={`${cfg.viewport} -my-4 py-4 ${pinned ? "overflow-hidden" : "snap-x snap-mandatory overflow-x-auto scroll-px-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"}`}
         >
           <Tag ref={track} className={`flex w-max gap-4 px-6 pb-2 will-change-transform ${cfg.track} ${gridClassName}`}>
             {children}
