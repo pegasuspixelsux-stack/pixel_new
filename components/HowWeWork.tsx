@@ -48,7 +48,7 @@ export default function HowWeWork() {
 
   return (
     <section id="como-trabajamos" className="relative scroll-mt-24 py-12 md:py-14 lg:py-16">
-      <div className="mx-auto grid w-full max-w-[1440px] gap-10 px-6 lg:grid-cols-[1fr_1.4fr] lg:gap-16 lg:px-16">
+      <div className="mx-auto grid w-full max-w-[1440px] gap-10 px-6 md:px-28 lg:grid-cols-[1fr_1.4fr] lg:gap-16 lg:px-16">
         <div className="flex flex-col gap-4 lg:sticky lg:top-28 lg:self-start">
           <span className="block text-xs font-medium tracking-widest text-accent uppercase">Pasos para contratarnos</span>
           <h2 className="font-inter-display text-4xl font-medium leading-tight tracking-[-0.03em] lg:text-5xl">Cómo trabajamos.</h2>
@@ -78,7 +78,7 @@ export default function HowWeWork() {
                 {!last && <span aria-hidden className={`absolute bottom-0 left-6 h-1/2 w-px -translate-x-1/2 transition-colors duration-500 ${i < active ? "bg-accent" : "bg-fg/25"}`} />}
                 <span
                   className={`absolute top-1/2 left-0 flex size-12 -translate-y-1/2 items-center justify-center rounded-full border font-inter-display text-lg font-medium transition-[background-color,color,border-color,box-shadow] duration-500 ${
-                    on ? "border-accent bg-accent text-bright-lemon-950 shadow-[0_0_24px_var(--accent-glow)]" : i < active ? "border-accent bg-canvas text-accent" : "border-fg/30 bg-canvas text-fg/60"
+                    on ? "border-accent bg-accent text-space-indigo-950 shadow-[0_0_24px_var(--accent-glow)]" : i < active ? "border-accent bg-canvas text-accent" : "border-fg/30 bg-canvas text-fg/60"
                   }`}
                 >
                   {String(i + 1).padStart(2, "0")}

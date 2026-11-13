@@ -33,7 +33,7 @@ export default function MethodFlow() {
   }, []);
 
   return (
-    <section id="metodologia" className="relative scroll-mt-24 border-t border-fg/10 py-16 md:py-24 lg:py-32">
+    <section id="metodologia" className="relative scroll-mt-24 py-12 md:py-14 lg:py-16">
       <div className="mx-auto grid w-full max-w-[1440px] grid-cols-1 items-center gap-16 px-6 lg:grid-cols-2 lg:px-16">
         <m.div
           initial="hidden"
@@ -42,13 +42,13 @@ export default function MethodFlow() {
           variants={{ hidden: {}, show: { transition: { staggerChildren: 0.08 } } }}
           className="flex flex-col gap-6"
         >
-          <m.span variants={rise} className="block text-xs font-medium tracking-widest text-yellow-500 uppercase">
+          <m.span variants={rise} className="block text-xs font-medium tracking-widest text-accent uppercase">
             Proceso y metodología
           </m.span>
-          <m.h2 variants={rise} className="font-serif text-4xl leading-tight tracking-[-0.01em] md:text-5xl">
+          <m.h2 variants={rise} className="font-inter-display text-4xl font-medium leading-tight tracking-[-0.03em] lg:text-5xl">
             Un flujo estandarizado para transformar tu operación digital.
           </m.h2>
-          <m.p variants={rise} className="max-w-md leading-relaxed text-fg/70">
+          <m.p variants={rise} className="max-w-xl text-base leading-relaxed text-fg/70 md:text-lg">
             Desplegamos un método paso a paso que minimiza la fricción, asegura la adopción de tu equipo y deja tu
             infraestructura funcionando bajo un mismo estándar desde el primer día.
           </m.p>
@@ -61,15 +61,15 @@ export default function MethodFlow() {
               <li
                 key={step.number}
                 aria-current={isActive ? "step" : undefined}
-                className={`flex items-center gap-6 rounded-2xl border bg-surface/70 p-6 backdrop-blur-md transition-[opacity,border-color,box-shadow] duration-500 ease-out ${
+                className={`flex items-center gap-6 rounded-2xl border bg-fg/[0.05] p-6 backdrop-blur-md transition-[opacity,border-color,box-shadow] duration-500 ease-out ${
                   isActive
-                    ? "border-yellow-400/60 opacity-100 shadow-[0_0_28px_rgba(250,204,21,0.25)]"
-                    : "border-fg/10 opacity-40"
+                    ? "border-accent/60 opacity-100 shadow-[0_0_28px_var(--accent-glow)]"
+                    : "border-fg/15 opacity-40"
                 }`}
               >
                 <span
                   className={`font-mono text-4xl transition-colors duration-500 ${
-                    isActive ? "text-yellow-300" : "text-fg/60"
+                    isActive ? "text-accent" : "text-fg/60"
                   }`}
                 >
                   {step.number}

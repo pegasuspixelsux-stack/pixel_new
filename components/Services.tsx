@@ -74,22 +74,22 @@ export default function Services() {
   const activeIndex = hovered ?? cycle;
 
   return (
-    <section id="servicios" className="relative scroll-mt-24 border-t border-fg/10 py-16 md:py-24 lg:py-32">
+    <section id="servicios" className="relative scroll-mt-24 py-12 md:py-14 lg:py-16">
       <div className="mx-auto w-full max-w-[1440px] px-6 lg:px-16">
         <m.div
           initial="hidden"
           whileInView="show"
           viewport={viewport}
           variants={stagger}
-          className="mb-14 max-w-2xl"
+          className="mb-10 max-w-3xl lg:mb-14"
         >
-          <m.span variants={rise} className="mb-3 block text-xs font-medium tracking-widest text-yellow-500 uppercase">
+          <m.span variants={rise} className="mb-3 block text-xs font-medium tracking-widest text-accent uppercase">
             Ecosistema Integral
           </m.span>
-          <m.h2 variants={rise} className="mb-4 font-serif text-4xl leading-tight tracking-[-0.01em] md:text-5xl">
+          <m.h2 variants={rise} className="mb-4 font-inter-display text-4xl font-medium leading-tight tracking-[-0.03em] lg:text-5xl">
             Tres módulos centrales para digitalizar tu negocio.
           </m.h2>
-          <m.p variants={rise} className="text-sm leading-relaxed text-fg/60">
+          <m.p variants={rise} className="max-w-2xl text-base leading-relaxed text-fg/70 md:text-lg">
             Desplegamos el motor completo de captación y venta, respaldado por servicios de infraestructura técnica según las necesidades de tu empresa.
           </m.p>
         </m.div>
@@ -113,14 +113,14 @@ export default function Services() {
                 aria-current={isActive ? "true" : undefined}
                 className={`flex flex-col gap-5 rounded-2xl border p-8 backdrop-blur-md transition-[border-color,background-color,box-shadow,transform] duration-300 ease-out ${
                   isActive
-                    ? "scale-[1.02] border-yellow-400/60 bg-slate-900/90 shadow-[0_0_30px_-5px_rgba(250,204,21,0.25)]"
-                    : "border-fg/10 bg-surface/70"
+                    ? "scale-[1.02] border-accent/60 bg-fg/[0.08] shadow-[0_0_30px_var(--accent-glow)]"
+                    : "border-fg/10 bg-fg/[0.05]"
                 }`}
               >
                 <span
                   className={`w-fit rounded-md border px-2.5 py-1 font-mono text-xs transition-colors duration-300 ${
                     isActive
-                      ? "border-yellow-400/60 bg-yellow-400/10 text-yellow-300 shadow-[0_0_12px_rgba(250,204,21,0.35)]"
+                      ? "border-accent/60 bg-accent/10 text-accent shadow-[0_0_12px_var(--accent-glow)]"
                       : "border-fg/15 text-fg/60"
                   }`}
                 >

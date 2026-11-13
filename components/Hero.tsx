@@ -1,6 +1,9 @@
 import { Star } from "lucide-react";
 import HeroMockups from "@/components/HeroMockups";
 
+// Google rating shown under the buttons. Update when it changes.
+const googleRating = 4.7;
+
 // The headline is stacked on three lines. A trailing "~" on a line suppresses its star (used here because the headline is a sentence). Rows alternate full and a lighter (60%) text color; the stars stay solid.
 const lines = ["Infraestructura~", "Digital para~", "tu Negocio.~"];
 // Phones show a different headline (hidden from md up, where `lines` shows instead).
@@ -10,11 +13,11 @@ const mobileLines = ["El motor~", "tecnológico que~", "tu empresa~", "necesita.
 
 function Lines({ items }: { items: string[] }) {
   return items.map((line) => (
-    <span key={line} className="mb-[0.04em] block text-fg last:mb-0 even:text-accent">
+    <span key={line} className={`mb-[0.04em] block last:mb-0 ${line.startsWith("tu empresa") ? "text-white" : "text-[#dde4ee]"}`}>
       {line.split("|").map((part) => (
         <span key={part}>
           {part.replace("~", "")}
-          {!part.endsWith("~") && <Star aria-hidden className="mx-[0.2em] inline-block size-[0.55em] fill-current text-fg align-[0.08em]" strokeWidth={0} />}
+          {!part.endsWith("~") && <Star aria-hidden className="mx-[0.2em] inline-block size-[0.55em] fill-current text-[#dde4ee] align-[0.08em]" strokeWidth={0} />}
         </span>
       ))}
     </span>
@@ -25,7 +28,7 @@ export default function Hero() {
   return (
     // Starts at the top of the viewport, underneath the 80px sticky navbar.
     <section className="relative isolate -mt-14 flex md:-mt-20 min-h-[85svh] w-full lg:min-h-svh items-center overflow-x-clip pt-32 pb-10 lg:pt-40 lg:pb-14">
-      <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-4 px-6 md:items-center lg:grid lg:grid-cols-[1fr_1fr] lg:grid-rows-[1fr_auto_auto_auto_1fr] lg:items-start lg:gap-x-8 lg:gap-y-5 lg:px-16">
+      <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-4 px-6 md:items-center lg:grid lg:grid-cols-[1fr_1fr] lg:grid-rows-[1fr_auto_auto_auto_auto_1fr] lg:items-start lg:gap-x-8 lg:gap-y-5 lg:px-16">
         <div className="hero-exit text-left md:pb-6 md:text-center lg:pb-0 lg:text-left lg:col-start-1 lg:row-start-2">
           <p className="hero-rise mb-4 text-sm font-medium tracking-[0.2em] text-accent uppercase">Pegasus Pixels</p>
           {/* The headline is the LCP element, so it carries no entrance animation and paints with the first frame. The rest enters in sequence (CSS only, see .hero-rise): eyebrow, text, buttons, then the mockups from the center out. */}
@@ -54,7 +57,7 @@ export default function Hero() {
         <div style={{ "--rise-delay": "0.3s" } as React.CSSProperties} className="hero-rise order-last flex items-center lg:col-start-1 lg:row-start-4 justify-start md:justify-center lg:justify-start gap-3 sm:gap-4">
           <a
             href="#contacto"
-            className="inline-flex items-center justify-center rounded-full bg-accent px-5 py-3 text-sm font-semibold text-bright-lemon-950 transition-[background-color,box-shadow,transform] duration-300 ease-out hover:bg-accent/90 hover:shadow-[0_0_40px_var(--accent-glow)] active:scale-[0.97] sm:px-8 sm:py-4"
+            className="inline-flex items-center justify-center rounded-full bg-accent px-5 py-3 text-sm font-semibold text-space-indigo-950 transition-[background-color,box-shadow,transform] duration-300 ease-out hover:bg-accent/90 hover:shadow-[0_0_40px_var(--accent-glow)] active:scale-[0.97] sm:px-8 sm:py-4"
           >
             Agendar Diagnóstico
           </a>
@@ -64,6 +67,26 @@ export default function Hero() {
           >
             Ver Servicios
           </a>
+        </div>
+
+        {/* Social proof: Google rating, under the buttons. Each star is filled in proportion to the rating. */}
+        <div style={{ "--rise-delay": "0.4s" } as React.CSSProperties} className="hero-rise order-last flex items-center justify-start gap-2.5 md:justify-center lg:col-start-1 lg:row-start-5 lg:justify-start">
+          <span role="img" aria-label={`${googleRating} de 5 estrellas en Google`} className="flex gap-0.5">
+            {[0, 1, 2, 3, 4].map((i) => {
+              const fill = Math.max(0, Math.min(1, googleRating - i));
+              return (
+                <span key={i} className="relative size-5">
+                  <Star aria-hidden className="absolute inset-0 size-5 text-fg/25" fill="currentColor" strokeWidth={0} />
+                  <span className="absolute inset-0 overflow-hidden" style={{ width: `${fill * 100}%` }}>
+                    <Star aria-hidden className="size-5 text-[#FBBC04]" fill="currentColor" strokeWidth={0} />
+                  </span>
+                </span>
+              );
+            })}
+          </span>
+          <p className="text-sm text-fg/70">
+            <span className="font-semibold text-fg">{googleRating.toFixed(1)}</span> en Google
+          </p>
         </div>
 
         <HeroMockups />

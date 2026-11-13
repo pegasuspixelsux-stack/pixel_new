@@ -22,7 +22,7 @@ const items = [
 export default function HomeFaq() {
   return (
     <section id="faq" className="relative scroll-mt-24 py-12 md:py-14 lg:py-16">
-      <div className="mx-auto grid w-full max-w-[1440px] items-start gap-10 px-6 lg:grid-cols-[1fr_2fr] lg:gap-16 lg:px-16">
+      <div className="mx-auto grid w-full max-w-[1440px] items-start gap-10 px-6 md:px-28 lg:grid-cols-[1fr_2fr] lg:gap-16 lg:px-16">
         <div className="flex flex-col gap-4">
           <span className="block text-xs font-medium tracking-widest text-accent uppercase">Preguntas frecuentes</span>
           <h2 className="font-inter-display text-4xl font-medium leading-tight tracking-[-0.03em] lg:text-5xl">Preguntas frecuentes.</h2>

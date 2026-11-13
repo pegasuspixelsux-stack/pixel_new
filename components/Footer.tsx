@@ -80,11 +80,11 @@ export default function Footer() {
             <p className={columnHeading}>Contacto Directo</p>
             <ul className="flex flex-col gap-2.5 text-sm text-fg/60">
               <li>
-                <span className="text-fg">Ubicación:</span> Punta del Este / Maldonado, Uruguay
+                <span className="text-fg">Ubicación:</span> Punta del Este, Uruguay
               </li>
               <li>
                 <span className="text-fg">Email:</span>{" "}
-                <a href={`mailto:${siteConfig.contact.email}`} className="transition-colors duration-200 hover:text-fg">
+                <a href={`mailto:${siteConfig.contact.email}`} className="break-all transition-colors duration-200 hover:text-fg">
                   {siteConfig.contact.email}
                 </a>
               </li>

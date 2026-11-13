@@ -43,7 +43,7 @@ export const siteConfig: SiteConfig = {
     zip: "20000",
   },
   contact: {
-    email: "alejandro@pegasuspixels.com",
+    email: "pegasus.pixels.ux@gmail.com",
     phone: "+598 91 028 324",
     usPhone: "+1 202 422 4760",
     whatsapp: "+12024224760",

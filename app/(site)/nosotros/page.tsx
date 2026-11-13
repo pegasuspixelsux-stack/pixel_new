@@ -20,15 +20,15 @@ export default function NosotrosPage() {
       <main className="relative flex w-full flex-1 flex-col">
         {/* 1. Hero: Quiénes Somos & Filosofía */}
         <section>
-          <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-6 px-6 pt-24 pb-16 lg:px-16 lg:pt-32">
+          <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-6 px-6 pt-24 pb-12 lg:px-16 lg:pt-32 lg:pb-16">
             <Reveal>
-              <span className="block font-mono text-xs tracking-widest text-yellow-500 uppercase">
+              <span className="block text-xs font-medium tracking-[0.18em] text-accent uppercase">
                 Quiénes Somos &amp; Filosofía
               </span>
-              <h1 className="mt-6 max-w-4xl font-serif text-5xl leading-[1.05] tracking-[-0.02em] md:text-6xl">
+              <h1 className="mt-6 max-w-4xl font-inter-display text-4xl leading-[1.05] font-medium tracking-[-0.03em] md:text-6xl">
                 Quiénes Somos &amp; Filosofía
               </h1>
-              <p className="mt-6 max-w-2xl text-lg leading-relaxed text-fg/70">
+              <p className="mt-6 max-w-2xl text-base leading-relaxed text-fg/70 md:text-lg">
                 Pegasus Pixels es un socio tecnológico de largo plazo.
                 Eliminamos la complejidad técnica de tu operación y construimos
                 sistemas robustos, diseñados para acelerar las ventas y ordenar
@@ -55,7 +55,7 @@ export default function NosotrosPage() {
 
         {/* 5. Cierre: diagnóstico o WhatsApp */}
         <Reveal>
-          <CtaBanner />
+          <CtaBanner tone="warm" />
         </Reveal>
       </main>
       <Reveal>
