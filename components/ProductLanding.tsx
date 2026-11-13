@@ -151,8 +151,8 @@ export default function ProductLanding({ content }: { content: ProductLandingCon
               </div>
               <ol className="grid grid-cols-1 gap-6 md:grid-cols-3 lg:gap-8">
                 {steps.map((step, i) => (
-                  <LitCard as="li" key={step.title} className={`flex flex-col gap-4 rounded-2xl p-6 lg:p-8 ${navy ? "border border-white/15 bg-[#311202] text-white" : glass} ${cardHover}`}>
-                    <span className={`font-inter-display text-5xl leading-none font-medium tracking-[-0.03em] ${navy ? "text-[#f6e609]" : "text-accent"}`}>
+                  <LitCard as="li" key={step.title} className={`flex flex-col gap-4 rounded-2xl p-6 lg:p-8 ${navy ? "border border-white/15 bg-surface text-white" : glass} ${cardHover}`}>
+                    <span className={`font-inter-display text-5xl leading-none font-medium tracking-[-0.03em] ${navy ? "text-accent" : "text-accent"}`}>
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     {step.role && (
@@ -245,7 +245,7 @@ export default function ProductLanding({ content }: { content: ProductLandingCon
                   <LitCard
                     as="li"
                     key={title}
-                    className={`relative isolate flex min-h-[24rem] flex-col overflow-hidden rounded-2xl ${warm ? "bg-[#311202] text-white" : "bg-white text-black"} ${
+                    className={`relative isolate flex min-h-[24rem] flex-col overflow-hidden rounded-2xl ${warm ? "bg-surface text-white" : "bg-white text-black"} ${
                       d ? (stacked ? "justify-end" : "justify-center") : stacked ? "justify-end lg:justify-end" : "justify-end lg:justify-center"
                     } ${glass} ${cardHover}`}
                   >
@@ -263,7 +263,7 @@ export default function ProductLanding({ content }: { content: ProductLandingCon
                         <ImagePlaceholder label={placeholder} flush labelClassName={warm ? "text-white/60" : undefined} className={`absolute inset-0 !border-0 ${warm ? "" : "text-black"}`} />
                       )}
                     </div>
-                    <div aria-hidden className={`absolute inset-x-0 bottom-0 -z-10 h-3/5 bg-gradient-to-t ${warm ? "from-[#311202] via-[#311202]/90" : "from-white via-white/90"} to-transparent ${d ? "hidden" : "lg:hidden"}`} />
+                    <div aria-hidden className={`absolute inset-x-0 bottom-0 -z-10 h-3/5 bg-gradient-to-t ${warm ? "from-surface via-surface/90" : "from-white via-white/90"} to-transparent ${d ? "hidden" : "lg:hidden"}`} />
                     <div className={`relative flex flex-col gap-3 ${d ? "p-4 lg:p-6" : "p-5 lg:p-6"} ${stacked ? "" : d ? "w-1/2" : "lg:w-1/2"}`}>
                       <Icon size={22} aria-hidden className={warm ? "text-accent" : "text-black/70"} />
                       <div className="flex flex-col gap-2">
