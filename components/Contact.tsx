@@ -230,7 +230,7 @@ export default function Contact() {
                     <button
                       type="submit"
                       disabled={sending}
-                      className="w-full rounded-full bg-accent py-3.5 text-sm font-semibold text-space-indigo-950 transition-[background-color,transform,box-shadow] duration-200 ease-out hover:bg-accent/90 hover:shadow-[0_0_32px_var(--accent-glow)] active:scale-[0.98] disabled:opacity-60 sm:flex-1"
+                      className="w-full rounded-full bg-accent py-3.5 text-sm font-semibold text-bright-lemon-950 transition-[background-color,transform,box-shadow] duration-200 ease-out hover:bg-accent/90 hover:shadow-[0_0_32px_var(--accent-glow)] active:scale-[0.98] disabled:opacity-60 sm:flex-1"
                     >
                       {sending ? "Enviando…" : "Enviar Consulta"}
                     </button>

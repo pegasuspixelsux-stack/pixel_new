@@ -74,61 +74,6 @@
 
 /* Brand palette (Tailwind classes like bg-saffron-500, text-rust-brown-300). */
 @theme {
-  --color-neon-cyan-50: #e5ffff;
-  --color-neon-cyan-100: #ccffff;
-  --color-neon-cyan-200: #99ffff;
-  --color-neon-cyan-300: #66ffff;
-  --color-neon-cyan-400: #33ffff;
-  --color-neon-cyan-500: #00ffff;
-  --color-neon-cyan-600: #00cccc;
-  --color-neon-cyan-700: #009999;
-  --color-neon-cyan-800: #006666;
-  --color-neon-cyan-900: #003333;
-  --color-neon-cyan-950: #002424;
-  --color-space-indigo-50: #f1eff5;
-  --color-space-indigo-100: #e2dfec;
-  --color-space-indigo-200: #c5bfd9;
-  --color-space-indigo-300: #a89fc6;
-  --color-space-indigo-400: #8b80b3;
-  --color-space-indigo-500: #6f609f;
-  --color-space-indigo-600: #584d80;
-  --color-space-indigo-700: #423960;
-  --color-space-indigo-800: #2c2640;
-  --color-space-indigo-900: #161320;
-  --color-space-indigo-950: #0f0d16;
-  --color-dusty-grape-50: #f0f0f4;
-  --color-dusty-grape-100: #e1e1ea;
-  --color-dusty-grape-200: #c4c4d4;
-  --color-dusty-grape-300: #a6a6bf;
-  --color-dusty-grape-400: #8989a9;
-  --color-dusty-grape-500: #6b6b94;
-  --color-dusty-grape-600: #565676;
-  --color-dusty-grape-700: #404059;
-  --color-dusty-grape-800: #2b2b3b;
-  --color-dusty-grape-900: #15151e;
-  --color-dusty-grape-950: #0f0f15;
-  --color-pale-sky-50: #eef2f7;
-  --color-pale-sky-100: #dde4ee;
-  --color-pale-sky-200: #dde4ee;
-  --color-pale-sky-300: #98aecd;
-  --color-pale-sky-400: #7593bd;
-  --color-pale-sky-500: #5378ac;
-  --color-pale-sky-600: #42608a;
-  --color-pale-sky-700: #324867;
-  --color-pale-sky-800: #213045;
-  --color-pale-sky-900: #111822;
-  --color-pale-sky-950: #0c1118;
-  --color-orchid-pink-50: #f9ecf2;
-  --color-orchid-pink-100: #f2d9e6;
-  --color-orchid-pink-200: #e6b3cc;
-  --color-orchid-pink-300: #d98cb3;
-  --color-orchid-pink-400: #cc6699;
-  --color-orchid-pink-500: #bf4080;
-  --color-orchid-pink-600: #993366;
-  --color-orchid-pink-700: #73264d;
-  --color-orchid-pink-800: #4d1933;
-  --color-orchid-pink-900: #260d1a;
-  --color-orchid-pink-950: #1b0912;
   --color-bright-lemon-50: #fefde6;
   --color-bright-lemon-100: #fdface;
   --color-bright-lemon-200: #fbf59d;
@@ -371,44 +316,38 @@ html {
 }
 
 
-/* Dark color tokens (space-indigo base, neon-cyan accent). Everything inside re-declares them, so every
+/* Dark warm color tokens (rust-brown base, bright-lemon accent). Everything inside re-declares them, so every
    text-fg / bg-canvas / text-accent turns light-on-dark by itself. .hero-dark-alt is a solid panel (the footer on the other pages). */
 .body_gradient,
 .hero-dark-alt {
-  --canvas: #0f0d16;
-  --surface: #161320;
-  --section: #161320;
-  --fg: #ffffff;
-  --accent: #66ffff;
-  --accent-glow: rgba(102, 255, 255, 0.35);
-  --on-accent: #0f0d16;
+  --canvas: #220c01;
+  --surface: #311202;
+  --section: #311202;
+  --fg: #fefde6;
+  --accent: #f6e609;
+  --accent-glow: rgba(246, 230, 9, 0.35);
   color-scheme: dark;
   color: var(--fg);
 }
 
 .hero-dark-alt {
-  background: #0f0d16;
+  background: #220c01;
 }
 
-/* Titles are yellow, everything else stays white. Headings inside white / black-text cards keep their own color. */
-.body_gradient :is(h1, h2, h3, h4):not(:where(.bg-white, .text-black) *) {
-  color: #dde4ee;
-}
-
-/* The public pages paint html and body the same dark base as the gradient, so the overscroll area on phones and the
+/* The home page paints html and body the same dark base as the gradient, so the overscroll area on phones and the
    strip behind the navbar never show white. */
 html:has(.body_gradient),
 body:has(.body_gradient) {
-  background: #0f0d16;
+  background: #220c01;
 }
 
-/* Full-page background: space indigo with an indigo glow in the top-left corner, an orchid-pink one in the
-   bottom-right and a black field in the middle. The glows sit in a fixed layer behind the content, so they
-   stay in the corners of the screen while the (transparent) sections scroll over them. */
+/* Full-page background for the home page: dark rust-brown with a rust-orange glow in the top-left corner and a
+   saffron one in the bottom-right. The glows sit in a fixed layer behind the content, so they stay in the corners
+   of the screen while the (transparent) sections scroll over them. */
 .body_gradient {
   position: relative;
   isolation: isolate;
-  background: #0f0d16;
+  background: #220c01;
 }
 .body_gradient::before {
   content: "";
@@ -418,9 +357,8 @@ body:has(.body_gradient) {
   pointer-events: none;
   transform: translateZ(0);
   background:
-    radial-gradient(ellipse 85% 110% at 100% 100%, rgba(191, 64, 128, 0.5) 0%, rgba(115, 38, 77, 0.22) 40%, transparent 75%),
-    radial-gradient(ellipse 75% 85% at 50% 50%, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.65) 55%, transparent 100%),
-    radial-gradient(ellipse 95% 120% at 0% 0%, rgba(111, 96, 159, 0.65) 0%, rgba(66, 57, 96, 0.26) 40%, transparent 75%);
+    radial-gradient(ellipse 85% 110% at 100% 100%, rgba(244, 189, 11, 0.6) 0%, rgba(244, 189, 11, 0.22) 40%, transparent 75%),
+    radial-gradient(ellipse 95% 120% at 0% 0%, rgba(246, 88, 9, 0.75) 0%, rgba(246, 88, 9, 0.26) 40%, transparent 75%);
 }
 
 /* The sticky navbar sits over the dark hero, so while the page is near the top it takes the dark tokens and
